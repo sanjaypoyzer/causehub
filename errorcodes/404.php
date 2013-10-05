@@ -20,4 +20,24 @@ if($noslashcheck==''){
 	}
 }
 ?>
-404 error
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CauseHub.</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>	
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>CauseHub. | 404 Error</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+</head>
+<body class="index">
+<header>
+	<h1>CauseHub.</h1>
+<main>
+	<h1 class="animated bounceOutDown">404</h1>
+</form>
+</main>
+</body>
+</html>
