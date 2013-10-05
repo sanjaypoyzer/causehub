@@ -39,7 +39,7 @@ function login(){
              var array = response.split(':');
              if(array[0]=='1'){
              	document.getElementById('signinbtn').value = array[2];
-   		        window.location.href = '/home';
+   		        window.location.href = '/';
              } else if(array[0]=='2'){
                 document.getElementById('u').disabled = false;
                 document.getElementById('p').disabled = false;

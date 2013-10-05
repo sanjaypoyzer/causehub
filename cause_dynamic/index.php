@@ -37,7 +37,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub | <?php echo $causename; ?></title>
+  <title>CauseHub. | <?php echo $causename; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
@@ -47,7 +47,7 @@
 </head>
 <body>
 <header>
-	<h1>CauseHub</h1>
+	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</span>';

@@ -5,20 +5,31 @@
 
 	if(checkSession()){header('location:/');}
 ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="/scripts/login.js"></script>
 
-<script src="/plugins/alertify/alertify.js"></script>
-<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
-<link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
-
-<?php
-
-	echo getCurrentUserInfo('username');
-?>
-
-<form method='post' action='#' onsubmit="return false;">
-    <input type="text" id="u" name="username" placeholder="Username" />
-    <input type="password" id="p" name="password" placeholder="Password" />
-    <input type="submit" class='submit right' id='signinbtn' value='Login' onclick='login(); return false;'>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CauseHub. | Login</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/scripts/login.js"></script>
+  <script src="/plugins/alertify/alertify.js"></script>
+  <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
+  <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+</head>
+<body class="index">
+<header>
+	<h1>CauseHub.</h1>
+</header>
+<main>
+	<form method='post' class='login' action='#' onsubmit="return false;">
+  Username: <input type="text" id='u' name="username" size="15" /><br />
+  Password: <input type="password" id='p' name="passwort" size="15" /><br />
+  <div align="center">
+    <p><input type="submit" id='signinbtn' value="Login" onclick='login(); return false;'/></p>
+  </div>
 </form>
+</main>
+</body>
+</html>

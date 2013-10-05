@@ -6,8 +6,9 @@
 	font-style: normal;
 }
 
+
 $titleFont : 'LibreBaskerville', sans-serif;
-$headerFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$headerFont : 'Roboto Slab', serif;
 $bodyFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $buttonColor : #009fbb; 
 html, body{
@@ -28,6 +29,14 @@ ul li{
 	margin-left: 2em;
 }
 
+
+form {
+	font-size: 1.4em;
+	input[type=submit], button{
+	font-size: .8em;
+	}
+}
+
 input{
 	max-width: 100%;
 	height: auto
@@ -45,7 +54,7 @@ button, input[type=submit]{
 	}
 }
 
-header{
+body > header{
 	background: rgba(131, 131, 131, 0.7);
 	color: #fff;
 	text-align: center;
@@ -71,6 +80,9 @@ header{
 				border-bottom-left-radius: 0;
 			}
 		}
+	}
+	span.loggedin{
+		top: 12px;
 	}
 }
 
@@ -102,7 +114,7 @@ section.causeDescription{
 		font-size: 4em;
 		font-family: $headerFont;
 		font-weight: 100;
-		padding: 0 10px 10px 10px;
+		padding: 0 10px 10px 0;
 	}
 	img{
 		float: left;
@@ -123,6 +135,12 @@ section.knowledgeBaseSummary{
 	ul li > ul li{
 		font-size: 0.8em;
 	}
+	h2{
+		font-family: $headerFont;
+	}
+	form input{
+		float: right;
+	}
 }
 
 section.addAction{
@@ -137,6 +155,7 @@ section.addAction{
 	}
 }
 
+
 main.edit, .index main{
 	margin-top: 4em;
 }
@@ -148,7 +167,7 @@ main.edit, .index main{
 
 .index main{
 	width: 100%;
-	form.causeInit{
+	form.causeInit, form.login{
 		position:absolute;
 		left: 10%;
 		right: 10%;
@@ -165,6 +184,16 @@ main.edit, .index main{
 			margin: 1em auto;
 		}
 	}
+	form.login input{
+		font-size: 1em;
+		width: 20%;
+		margin-top: 1em;
+		text-align: left;
+	}
+	form.login input[type=submit]{
+		font-size: 1em;
+		text-align: center;
+	}
 }
 
 section.knowledgeBaseSummary > section{
@@ -175,3 +204,19 @@ section.knowledgeBaseSummary > section{
 	transition: 1s;	
 }
 
+span.knowledgeBaseHint{
+	display: block;
+	font-size:.7em;
+}
+
+span.hint{
+	display: block;
+	font-size: 1.4rem;
+	color: #5e5959;
+}
+
+textarea#editdescription{
+	width: 700px;
+	max-width: 80%;
+	height: 200px;
+}

@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub</title>
+  <title>CauseHub.</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/scripts/create.js"></script>
@@ -20,7 +20,7 @@
 </head>
 <body class="index">
 <header>
-	<h1>CauseHub</h1>
+	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</span>';
