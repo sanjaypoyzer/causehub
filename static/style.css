@@ -39,7 +39,7 @@ button, input[type=submit] {
   button:hover, input[type=submit]:hover {
     background: #007488; }
 
-header {
+body > header {
   background: rgba(131, 131, 131, 0.7);
   color: #fff;
   text-align: center;
@@ -47,19 +47,21 @@ header {
   position: fixed;
   width: 100%;
   padding: 5px; }
-  header h1 {
+  body > header h1 {
     font-family: "LibreBaskerville", sans-serif; }
-  header span.login, header span.loggedin {
+  body > header span.login, body > header span.loggedin {
     position: absolute;
     right: 20px;
     top: 5px; }
-    header span.login button:nth-of-type(1), header span.loggedin button:nth-of-type(1) {
+    body > header span.login button:nth-of-type(1), body > header span.loggedin button:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: 1px solid #bbbbbb; }
-    header span.login button:nth-of-type(2), header span.loggedin button:nth-of-type(2) {
+    body > header span.login button:nth-of-type(2), body > header span.loggedin button:nth-of-type(2) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
+  body > header span.loggedin {
+    top: 12px; }
 
 section {
   padding: 1em; }
@@ -86,7 +88,7 @@ section.causeDescription {
     font-size: 4em;
     font-family: "Roboto Slab", serif;
     font-weight: 100;
-    padding: 0 10px 10px 10px; }
+    padding: 0 10px 10px 0; }
   section.causeDescription img {
     float: left;
     margin: 1em 1em 1em 0; }
@@ -146,3 +148,17 @@ section.knowledgeBaseSummary > section {
   -o-transition: 1s;
   -ms-transition: 1s;
   transition: 1s; }
+
+span.knowledgeBaseHint {
+  display: block;
+  font-size: .7em; }
+
+span.hint {
+  display: block;
+  font-size: 1.4rem;
+  color: #5e5959; }
+
+textarea#editdescription {
+  width: 700px;
+  max-width: 80%;
+  height: 200px; }

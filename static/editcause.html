@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +7,13 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>CauseHub | Editing Something cool</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
   <script src="/scripts/editcause_updateformactions.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+  <link rel="stylesheet" href="jHtmlArea/style/jHtmlArea.css" />
 </head>
 <body>
 <header>
@@ -22,24 +21,29 @@
 	<span class="loggedin">Welcome back, Jamie Davies</span></header>
 <main class="edit">
 	<section class="causeDescription">
-		<h1>Something cool</h1>
+		<header>
+			<span class="hint titleHint">Your Cause Is:</span>
+			<h1>Something cool</h1>
+		</header>
 		<form method='post' action='#' onsubmit="return false;">
+		<input type='hidden' id='causeid' value='8'>
+			<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
+		<textarea id='editdescription'></textarea>
+		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
+		</form>
+		<br />
+		<form method='post' action='#' onsubmit="return false;">
+			<span class="hint slugHint">People Can Find It At:</span>
 		<label>http://causehub.co/cause/</label>
 		<input type='hidden' id='causeid' value='8'>
 		<input type='text' id='editslug' value='57590'>
 		<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
 		</form>
-		<br>
-		<form method='post' action='#' onsubmit="return false;">
-		<input type='hidden' id='causeid' value='8'>
-		<textarea id='editdescription'></textarea>
-		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
-		</form>
 	</section>
 	<section class="knowledgeBaseSummary">
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			 <input type='hidden' id='causeid' value='8'>
+			<span class="knowledgeBaseHint hint">This is where you can create calls to action for people to help achieve causes.</span> <input type='hidden' id='causeid' value='8'>
 			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
 			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
@@ -60,6 +64,13 @@
 		</form>
 	</section>
 </main>
+  <script type="text/javascript" src="jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
+  <script type="text/javascript" src="jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
 
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	  	$('textarea').htmlarea();
+  });
+  </script>
 </body>
 </html>
