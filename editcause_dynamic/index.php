@@ -73,10 +73,11 @@
 		</form>
 	</section>
 	<section class="knowledgeBaseSummary">
-		<form action="" autocomplete="on">
+		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			Fact: <input type="text" name="knowledgePoint" autocomplete="off"><br>
-			Source (URL): <input type="text" name="knowledgeSource" autocomplete="off"><br>
+			 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
+			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
 			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
 				<option value="lobbyLord">Lobby A Lord</option>
 				<option value="lobbyMP">Lobby An MP</option>
@@ -85,12 +86,12 @@
 				<option value="hostEvent">Host An Event</option>
 			</select><br>
 				<section id='lobbyLord' class="lobbyLord">
-					Lord: <input type="text" name="lordName" autocomplete="off"><br>
-					Email Address: <input type="text" name="lordEmail" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lordEmailDefaultMsg" autocomplete="off"><br>
+					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
+					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
+					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
 				</section>
 
-			<input type="submit">
+			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 			<button>Add Another</button>
 		</form>
 	</section>
