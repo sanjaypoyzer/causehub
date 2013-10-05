@@ -5,4 +5,4 @@
 
 	if(checkSession()){echo 'Logged in';}
 ?>
-index
+index test
