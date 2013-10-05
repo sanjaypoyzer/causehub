@@ -18,21 +18,19 @@ function checkSession() {
     }
 }
 
-function getCurrentUserInfo($type){
-        if($type=='id'){
-            /*$sid = $_SESSION['id'];
-            $result = mysql_query("SELECT uid FROM sessions WHERE sessionid='$sid'");
+function getCurrentUserInfo($type) {
+    if ($type == 'id') {
+        $sid = $_SESSION['id'];
+        $result = mysql_query("SELECT uid FROM sessions WHERE sid='$sid' AND killed='0'");
+        $row = mysql_fetch_row($result);
+        return $row[0];
+    } else {
+        $userid = getCurrentUserInfo('id');
+        if ($userid != '') {
+            $result = mysql_query("SELECT " . $type . " FROM users WHERE id='$userid'");
             $row = mysql_fetch_row($result);
             return $row[0];
-             */
-             return '1';
-        } else {
-            $userid = getCurrentUserInfo('id');
-            if($userid!=''){
-            $result = mysql_query("SELECT ".$type." FROM users WHERE id='$userid'");
-            $row = mysql_fetch_row($result);
-            return $row[0];
-            }
         }
     }
+}
 ?>
