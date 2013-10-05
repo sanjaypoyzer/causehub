@@ -88,7 +88,7 @@
 				<section id='lobbyLord' class="lobbyLord">
 					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
 					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
+					Message: <input size="100" type="text" id="lobbylord_message" autocomplete="off"><br>
 				</section>
 
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
