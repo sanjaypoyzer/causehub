@@ -37,7 +37,6 @@
 <head>
   <meta charset="UTF-8">
   <title>CauseHub.</title>
-  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>	
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>CauseHub | Editing Something cool</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
