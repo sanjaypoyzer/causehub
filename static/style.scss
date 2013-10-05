@@ -28,6 +28,11 @@ ul li{
 	margin-left: 2em;
 }
 
+input{
+	max-width: 100%;
+	height: auto
+}
+
 button{
 	font-size: 1em;
 	color: #fff;
@@ -51,7 +56,7 @@ header{
 	h1{
 		font-family: $titleFont;
 	}
-	span.login{
+	span.login, span.loggedin{
 		position: absolute;
 		right: 20px;
 		top: 5px;
@@ -89,10 +94,10 @@ main{
 	margin: 5px auto;
 }
 section.causeDescription{
-	width: auto;
+	width: 63%;
 	float: left;
 	margin-bottom: 7em;
-	padding-left: 10%;
+	padding-left: 5%;
 	h1{
 		font-size: 4em;
 		font-family: $headerFont;
@@ -106,9 +111,12 @@ section.causeDescription{
 }
 
 section.knowledgeBaseSummary{
-	width: 30%;
+	width: 25%;
 	float: right;
 	border-left: 1px solid #bbbbbb;
+	h1{
+		border-bottom: 1px solid #bbbbbb;
+	}
 	ul li{
 		font-size: 1.1em;
 	}
@@ -127,4 +135,8 @@ section.addAction{
 	h1{
 		display: inline-block;
 	}
+}
+
+main.edit{
+	margin-top: 4em;
 }
