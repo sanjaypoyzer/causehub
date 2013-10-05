@@ -167,3 +167,11 @@ main.edit, .index main{
 	}
 }
 
+section.knowledgeBaseSummary > section{
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	-o-transition: 1s;
+	-ms-transition: 1s;
+	transition: 1s;	
+}
+
