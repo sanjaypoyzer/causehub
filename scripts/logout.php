@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include('connect.php');
-	include('functions.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 	
 	$sid = $_SESSION['id'];
 	unset($_SESSION);

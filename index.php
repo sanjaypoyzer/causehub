@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include ('scripts/connect.php');
-	include ('scripts/functions.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 
 	if(checkSession()){echo 'Logged in';}
 ?>
