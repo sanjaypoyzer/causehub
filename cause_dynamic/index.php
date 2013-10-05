@@ -38,6 +38,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CauseHub. | <?php echo $causename; ?></title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>	
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>

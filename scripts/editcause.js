@@ -49,14 +49,14 @@ function editCauseSlug(){
 function editCauseDescription(){
         var error = false;
         document.getElementById('editdescription').style.borderColor = '#999';
-        if(document.getElementById('editdescription').value==''){
+        if($('textarea').htmlarea('html')==''){
             alertify.log('No description entered', 'error');
             document.getElementById('editdescription').style.borderColor = 'red';
             error = true;
             return false;
         }
     
-    var data = 'causeid=' + document.getElementById('causeid').value + '&action=editdescription&newdescription=' + document.getElementById('editdescription').value;
+    var data = 'causeid=' + document.getElementById('causeid').value + '&action=editdescription&newdescription=' + $('textarea').htmlarea('html');
         $.ajax({
         type  : 'POST',
          url  : '/scripts/editcause.php',

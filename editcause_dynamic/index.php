@@ -36,14 +36,18 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub. | Editing <?php echo $causename; ?></title>
+  <title>CauseHub.</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>	
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>CauseHub | Editing Something cool</title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
   <script src="/scripts/editcause_updateformactions.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+  <link rel="stylesheet" href="/plugins/jHtmlArea/style/jHtmlArea.css" />
 </head>
 <body>
 <header>
@@ -58,26 +62,32 @@
 </header>
 <main class="edit">
 	<section class="causeDescription">
-		<h1><?php echo $causename; ?></h1>
+		<header>
+			<span class="hint titleHint">Your Cause Is:</span>
+			<h1><?php echo $causename; ?></h1>
+		</header>
 		<form method='post' action='#' onsubmit="return false;">
+		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
+		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
+		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
+		</form>
+		<br />
+		<form method='post' action='#' onsubmit="return false;">
+			<span class="hint slugHint">People Can Find It At:</span>
 		<label>http://causehub.co/cause/</label>
 		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 		<input type='text' id='editslug' value='<?php echo $slug; ?>'>
 		<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
 		</form>
-		<br>
-		<form method='post' action='#' onsubmit="return false;">
-		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
-		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
-		</form>
 	</section>
 	<section class="knowledgeBaseSummary">
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
 			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
+			<span class="actionHint hint">What people can do about this is:</span>
 			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
 				<option value="lobbyLord">Lobby A Lord</option>
 				<option value="lobbyMP">Lobby An MP</option>
@@ -85,20 +95,10 @@
 				<option value="createPetition">Create A Petition</option>
 				<option value="hostEvent">Host An Event</option>
 			</select><br>
-				<section id='lobbyLord' class="lobby">
+				<section id='lobbyLord' class="lobbyLord">
 					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
 					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" id="lobbylord_message" autocomplete="off"><br>
-				</section>
-				<section id='lobbyMP' class="lobby" style='display: none;'>
-					Mp: <input type="text" id="lobbymp_name" autocomplete="off"><br>
-					Email Address: <input type="text" id="lobbymp_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" id="lobbymp_message" autocomplete="off"><br>
-				</section>
-				<section id='lobbyMedia' class="lobby" style='display: none;'>
-					Media: <input type="text" id="lobbymedia_name" autocomplete="off"><br>
-					Email Address: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" id="lobbymedia_message" autocomplete="off"><br>
+					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
 				</section>
 
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
@@ -106,6 +106,13 @@
 		</form>
 	</section>
 </main>
+  <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
+  <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
 
+  <script type="text/javascript">
+  $(document).ready(function(){
+  	  	$('textarea').htmlarea();
+  });
+  </script>
 </body>
 </html>
