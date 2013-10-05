@@ -4,3 +4,4 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^cause/(.*)/$ cause_dynamic/index.php?slug=$1 [QSA,L]
+    RewriteRule ^editcause/(.*)/$ editcause_dynamic/index.php?slug=$1 [QSA,L]

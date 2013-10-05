@@ -28,7 +28,7 @@ function editCauseSlug(){
              var array = response.split(':');
              if(array[0]=='1'){
              	document.getElementById('editslugbtn').value = array[2];
-   		        window.location.href = '/cause/' + array[1] + '/';
+   		        window.location.href = '/editcause/' + array[1] + '/';
              } else if(array[0]=='2'){
                 document.getElementById('editslug').disabled = false;
                 document.getElementById('editslugbtn').disabled = false;
@@ -77,7 +77,7 @@ function editCauseDescription(){
              if(array[0]=='1'){
                 document.getElementById('editdescriptionbtn').value = array[2];
                 document.getElementById('editdescriptionbtn').disabled = false;
-             document.getElementById('editdescription').disabled = false;
+                document.getElementById('editdescription').disabled = false;
                 alertify.log(array[1], 'success');
              } else if(array[0]=='2'){
                 document.getElementById('editdescription').disabled = false;
