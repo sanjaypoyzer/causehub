@@ -127,20 +127,28 @@ main.edit, .index main {
 
 .index main {
   width: 100%; }
-  .index main form.causeInit {
+  .index main form.causeInit, .index main form.login {
     position: absolute;
     left: 10%;
     right: 10%;
     top: 40%;
     text-align: center; }
-    .index main form.causeInit input {
+    .index main form.causeInit input, .index main form.login input {
       font-size: 3em;
       width: 100%;
       text-align: center; }
-    .index main form.causeInit input[type=submit] {
+    .index main form.causeInit input[type=submit], .index main form.login input[type=submit] {
       font-size: 1.5em;
       width: 30%;
       margin: 1em auto; }
+  .index main form.login input {
+    font-size: 1em;
+    width: 20%;
+    margin-top: 1em;
+    text-align: left; }
+  .index main form.login input[type=submit] {
+    font-size: 1em;
+    text-align: center; }
 
 section.knowledgeBaseSummary > section {
   -webkit-transition: 1s;

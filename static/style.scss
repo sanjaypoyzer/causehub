@@ -167,7 +167,7 @@ main.edit, .index main{
 
 .index main{
 	width: 100%;
-	form.causeInit{
+	form.causeInit, form.login{
 		position:absolute;
 		left: 10%;
 		right: 10%;
@@ -183,6 +183,16 @@ main.edit, .index main{
 			width: 30%;
 			margin: 1em auto;
 		}
+	}
+	form.login input{
+		font-size: 1em;
+		width: 20%;
+		margin-top: 1em;
+		text-align: left;
+	}
+	form.login input[type=submit]{
+		font-size: 1em;
+		text-align: center;
 	}
 }
 
