@@ -67,7 +67,7 @@
 			$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0'");
 			while($array = mysql_fetch_array($sql)){
 				echo '<li>'.$array['fact'].' &rarr; <a href="#">Act on it!</a>';
-				echo '<ul><li><a href="'.$array['source'].'" target=_blank>Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
 			}
 		?>
 		</ul>
