@@ -1,0 +1,6 @@
+    ErrorDocument 404 /errorcodes/404.php
+    RewriteEngine On
+    
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^cause/(.*)/$ index.php?slug=$1 [QSA,L]
