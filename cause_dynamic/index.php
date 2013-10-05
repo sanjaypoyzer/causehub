@@ -6,7 +6,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,description FROM causes WHERE slug='$slug' AND hidden='0' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -19,6 +19,11 @@
 	$causename = $row['name'];
 	$causedescription = $row['description'];
 	$causestart = $row['started'];
+	$causehidden = $row['hidden'];
+
+	if($ownerid!=getCurrentUserInfo('id')){
+		$pagefound = false;
+	}
 
 	if(!$pagefound){
 		echo 'Cause not found';
@@ -32,6 +37,8 @@
 <script src="/plugins/alertify/alertify.js"></script>
 <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
 <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+
+<h1><?php echo $causename; ?></h1>
 
 <form method='post' action='#' onsubmit="return false;">
 <label>http://causehub.co/cause/</label>

@@ -19,6 +19,7 @@
 	$date = date("d-m-Y");
 	$slug = rand(10000,99999);
 
+	$causename = mysql_real_escape_string($causename);
 	mysql_query("INSERT INTO causes (uid,name,slug,started,description,category,hidden,deleted) VALUES('$userid','$causename','$slug','$date','','','1','0') ");
 
 	echo '1:'.$slug.':Redirecting';
