@@ -20,6 +20,10 @@ p, ul {
 ul li {
   margin-left: 2em; }
 
+input {
+  max-width: 100%;
+  height: auto; }
+
 button {
   font-size: 1em;
   color: #fff;
@@ -40,15 +44,15 @@ header {
   padding: 5px; }
   header h1 {
     font-family: "LibreBaskerville", sans-serif; }
-  header span.login {
+  header span.login, header span.loggedin {
     position: absolute;
     right: 20px;
     top: 5px; }
-    header span.login button:nth-of-type(1) {
+    header span.login button:nth-of-type(1), header span.loggedin button:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: 1px solid #bbbbbb; }
-    header span.login button:nth-of-type(2) {
+    header span.login button:nth-of-type(2), header span.loggedin button:nth-of-type(2) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
 
@@ -71,7 +75,8 @@ main {
 section.causeDescription {
   width: 63%;
   float: left;
-  margin-bottom: 7em; }
+  margin-bottom: 7em;
+  padding-left: 5%; }
   section.causeDescription h1 {
     font-size: 4em;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -82,9 +87,11 @@ section.causeDescription {
     margin: 1em 1em 1em 0; }
 
 section.knowledgeBaseSummary {
-  width: 30%;
+  width: 25%;
   float: right;
   border-left: 1px solid #bbbbbb; }
+  section.knowledgeBaseSummary h1 {
+    border-bottom: 1px solid #bbbbbb; }
   section.knowledgeBaseSummary ul li {
     font-size: 1.1em; }
   section.knowledgeBaseSummary ul li > ul li {
@@ -99,3 +106,6 @@ section.addAction {
   bottom: 0; }
   section.addAction h1 {
     display: inline-block; }
+
+main.edit {
+  margin-top: 4em; }
