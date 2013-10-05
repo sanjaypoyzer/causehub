@@ -1,0 +1,53 @@
+$headerFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$bodyFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+*{
+	padding: 0;
+	margin: 0;
+	font-family: $bodyFont;
+}
+
+ul li{
+	margin-left: 2em;
+}
+
+header{
+	background: #414141;
+	color: #fff;
+	text-align: center;
+	span.login{
+		position: absolute;
+		right: 0px;
+		top: 0px;
+	}
+}
+
+section{
+	padding: 1em;
+}
+
+main{
+	width: 99%;
+	margin: 5px auto;
+}
+section.causeDescription{
+	background: #bfbfbf;
+	width: 60%;
+	float: left;
+	h1{
+		font-size: 4em;
+	}
+}
+
+section.knowledgeBase{
+	background: #9c9c9c;
+	width: 30%;
+	float: right;
+}
+
+section.addAction{
+	float: left;
+	width: 100%;
+	margin: 0;
+	background: #686868
+}
