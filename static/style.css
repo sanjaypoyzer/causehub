@@ -20,6 +20,11 @@ p, ul {
 ul li {
   margin-left: 2em; }
 
+form {
+  font-size: 1.4em; }
+  form input[type=submit], form button {
+    font-size: .8em; }
+
 input {
   max-width: 100%;
   height: auto; }
@@ -59,7 +64,7 @@ header {
 section {
   padding: 1em; }
   section h1 {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Roboto Slab", serif;
     font-weight: 100; }
 
 img.causeImg {
@@ -79,7 +84,7 @@ section.causeDescription {
   padding-left: 5%; }
   section.causeDescription h1 {
     font-size: 4em;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-family: "Roboto Slab", serif;
     font-weight: 100;
     padding: 0 10px 10px 10px; }
   section.causeDescription img {
@@ -96,6 +101,10 @@ section.knowledgeBaseSummary {
     font-size: 1.1em; }
   section.knowledgeBaseSummary ul li > ul li {
     font-size: 0.8em; }
+  section.knowledgeBaseSummary h2 {
+    font-family: "Roboto Slab", serif; }
+  section.knowledgeBaseSummary form input {
+    float: right; }
 
 section.addAction {
   float: left;

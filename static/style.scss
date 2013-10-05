@@ -6,8 +6,9 @@
 	font-style: normal;
 }
 
+
 $titleFont : 'LibreBaskerville', sans-serif;
-$headerFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$headerFont : 'Roboto Slab', serif;
 $bodyFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $buttonColor : #009fbb; 
 html, body{
@@ -26,6 +27,14 @@ p, ul{
 
 ul li{
 	margin-left: 2em;
+}
+
+
+form {
+	font-size: 1.4em;
+	input[type=submit], button{
+	font-size: .8em;
+	}
 }
 
 input{
@@ -123,6 +132,12 @@ section.knowledgeBaseSummary{
 	ul li > ul li{
 		font-size: 0.8em;
 	}
+	h2{
+		font-family: $headerFont;
+	}
+	form input{
+		float: right;
+	}
 }
 
 section.addAction{
@@ -136,6 +151,7 @@ section.addAction{
 		display: inline-block;
 	}
 }
+
 
 main.edit, .index main{
 	margin-top: 4em;
