@@ -17,4 +17,9 @@
 	$causename = $row['name'];
 	$causedescription = $row['description'];
 	$causestart = $row['started'];
+
+	if(!$pagefound){
+		echo 'Cause not found';
+		exit;
+	}
 ?>

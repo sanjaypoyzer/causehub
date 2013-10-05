@@ -3,13 +3,13 @@ function login(){
     	document.getElementById('u').style.borderColor = '#999';
     	document.getElementById('p').style.borderColor = '#999';
     	if(document.getElementById('u').value==''){
-    		document.getElementById('msg').innerHTML = 'No Username Entered';
+    		alertify.log('No Username Entered', 'error');
     		document.getElementById('u').style.borderColor = 'red';
     		error = true;
     		return false;
     	}
     	if(document.getElementById('p').value==''){
-    		document.getElementById('msg').innerHTML = 'No Password Entered';
+    		alertify.log('No Password Entered', 'error');
     		document.getElementById('p').style.borderColor = 'red';
     		error = true;
     		return false;
@@ -32,32 +32,29 @@ function login(){
              document.getElementById('p').disabled = false;
              document.getElementById('signinbtn').value = 'Error';
              document.getElementById('p').value = '';
-             document.getElementById('msg').innerHTML = 'Error connecting to DB'
+             alertify.log('Error connecting to DB', 'error');
              return false;
          },
          success : function (response) {
              var array = response.split(':');
              if(array[0]=='1'){
-                console.log('1');
              	document.getElementById('signinbtn').value = array[2];
    		        window.location.href = '/home';
              } else if(array[0]=='2'){
-                console.log('2');
                 document.getElementById('u').disabled = false;
                 document.getElementById('p').disabled = false;
                 document.getElementById('signinbtn').disabled = false;
                 document.getElementById('signinbtn').value = array[2];
-           		document.getElementById('msg').innerHTML = array[1];
+                alertify.log(array[1], 'error');
            		document.getElementById('u').style.borderColor = 'red';
            		document.getElementById('p').style.borderColor = 'red';
            		document.getElementById('p').value = '';
              } else {
-                console.log('3');
                 document.getElementById('u').disabled = false;
                 document.getElementById('p').disabled = false;
                 document.getElementById('signinbtn').disabled = false;
                 document.getElementById('signinbtn').value = array[2];
-           		document.getElementById('msg').innerHTML = array[1];
+           		alertify.log(array[1], 'error');
            		document.getElementById('p').value = '';
              }
              return false;
