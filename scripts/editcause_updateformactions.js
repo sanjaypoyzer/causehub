@@ -45,7 +45,7 @@ function addKnowledge(){
     		return false;
     	}
 	
-	var data = 'cid=' + document.getElementById('causeid').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&lobbylordname=' + document.getElementById('lobbylord_name').value + '&lobbylord_address=' + document.getElementById('lobbylord_address').value + '&lobbylordmessage=' + document.getElementById('lobbylord_message').value;
+	var data = 'cid=' + document.getElementById('causeid').value + '&fact=' + document.getElementById('fact').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&actiontype=' + document.getElementById('actiontype').value + '&lobbylordname=' + document.getElementById('lobbylord_name').value + '&lobbylordaddress=' + document.getElementById('lobbylord_address').value + '&lobbylordmessage=' + document.getElementById('lobbylord_message').value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/addknowledge.php',
@@ -75,15 +75,22 @@ function addKnowledge(){
              	document.getElementById('addknowledgebtn').value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
              } else if(array[0]=='2'){
-                document.getElementById('editslug').disabled = false;
-                document.getElementById('editslugbtn').disabled = false;
-                document.getElementById('editslugbtn').value = array[2];
+                document.getElementById('fact').disabled = false;
+	            document.getElementById('sourceurl').disabled = false;
+	            document.getElementById('lobbylord_name').disabled = false;
+	            document.getElementById('lobbylord_address').disabled = false;
+	            document.getElementById('lobbylord_message').disabled = false;
+                document.getElementById('addknowledgebtn').disabled = false;
+                document.getElementById('addknowledgebtn').value = array[2];
            		alertify.log(array[1], 'error');
-           		document.getElementById('editslug').style.borderColor = 'red';
              } else {
-                document.getElementById('editslug').disabled = false;
-                document.getElementById('editslugbtn').disabled = false;
-                document.getElementById('editslugbtn').value = array[2];
+	            document.getElementById('fact').disabled = false;
+	            document.getElementById('sourceurl').disabled = false;
+	            document.getElementById('lobbylord_name').disabled = false;
+	            document.getElementById('lobbylord_address').disabled = false;
+	            document.getElementById('lobbylord_message').disabled = false;
+                document.getElementById('addknowledgebtn').disabled = false;
+                document.getElementById('addknowledgebtn').value = array[2];
            		alertify.log(array[1], 'error');
              }
              return false;
