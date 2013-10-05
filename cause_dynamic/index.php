@@ -21,7 +21,7 @@
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
-	if($ownerid!=getCurrentUserInfo('id')){
+	if($ownerid!=getCurrentUserInfo('id') && $causehidden=='1'){
 		$pagefound = false;
 	}
 
@@ -47,7 +47,13 @@
 <body>
 <header>
 	<h1>CauseHub</h1>
-	<span class="login"><button>Login</button><button>Signup</button></span>
+	<?php
+		if($loggedin){
+			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</span>';
+		} else {
+			echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
+		}
+	?>
 </header>
 	<img src="http://lorempixel.com/1200/200/" class="causeImg" />
 <main>
