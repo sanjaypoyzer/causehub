@@ -40,6 +40,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
+  <script src="/scripts/editcause_updateformactions.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
@@ -59,36 +60,38 @@
 	<section class="causeDescription">
 		<h1><?php echo $causename; ?></h1>
 		<form method='post' action='#' onsubmit="return false;">
-			<label>http://causehub.co/cause/</label>
-			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-			<input type='text' id='editslug' value='<?php echo $slug; ?>'>
-			<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
-			</form>
-			<br>
-			<form method='post' action='#' onsubmit="return false;">
-			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-			<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
-			<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
+		<label>http://causehub.co/cause/</label>
+		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+		<input type='text' id='editslug' value='<?php echo $slug; ?>'>
+		<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
+		</form>
+		<br>
+		<form method='post' action='#' onsubmit="return false;">
+		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
+		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
 		</form>
 	</section>
 	<section class="knowledgeBaseSummary">
-		<form action="" autocomplete="on">
+		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			Fact: <input type="text" name="knowledgePoint" autocomplete="off"><br>
-			Source (URL): <input type="text" name="knowledgeSource" autocomplete="off"><br>
-			Action Type: <select name="actionType">
+			 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
+			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
+			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
 				<option value="lobbyLord">Lobby A Lord</option>
-				<option value="lobbyLord">Lobby An MP</option>
-				<option value="lobbyLord">Email A Media Outlet</option>
+				<option value="lobbyMP">Lobby An MP</option>
+				<option value="lobbyMedia">Email A Media Outlet</option>
 				<option value="createPetition">Create A Petition</option>
 				<option value="hostEvent">Host An Event</option>
 			</select><br>
-				<section class="lobbyLord">
-					Lord: <input type="text" name="lordName" autocomplete="off"><br>
-					Email Address: <input type="text" name="lordEmail" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lordEmailDefaultMsg" autocomplete="off"><br>
+				<section id='lobbyLord' class="lobbyLord">
+					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
+					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
+					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
 				</section>
-			<input type="submit">
+
+			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 			<button>Add Another</button>
 		</form>
 	</section>
