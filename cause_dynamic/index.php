@@ -39,3 +39,9 @@
 <input type='text' id='editslug' value='<?php echo $slug; ?>'>
 <input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
 </form>
+<br>
+<form method='post' action='#' onsubmit="return false;">
+<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
+<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
+</form>

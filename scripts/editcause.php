@@ -30,7 +30,9 @@
 
 	if($postaction=='editslug'){
 		$requestedslug = $_POST['newslug'];
-		$slugsql = mysql_query("SELECT id FROM causes WHERE slug='$requestedslug' AND deleted='0'");
+		$requestedslug = preg_replace('/^-+|-+$/', '', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $requestedslug)));
+		$sqlslug = mysql_real_escape_string($requestedslug);
+		$slugsql = mysql_query("SELECT id FROM causes WHERE slug='$sqlslug' AND deleted='0'");
 		$slugcheck = mysql_num_rows($slugsql);
 		$rowslug = mysql_fetch_array($slugsql);
 		$clashid = $rowslug['id'];
@@ -40,9 +42,22 @@
 			exit;
 		}
 
-		mysql_query("UPDATE causes SET slug='$requestedslug' WHERE (id='$postcauseid')");
+		mysql_query("UPDATE causes SET slug='$sqlslug' WHERE (id='$postcauseid')");
 
 		echo '1:'.$requestedslug.':Redirecting';
+		exit;
+	} else if($postaction=='editdescription'){
+		$requesteddescription = $_POST['newdescription'];
+		
+		if(strlen($requesteddescription)<100){
+			echo '3:Please enter at least 100 characters in the decription:Update';
+			exit;
+		}
+
+		$sqldescription = mysql_real_escape_string($requesteddescription);
+		mysql_query("UPDATE causes SET description='$sqldescription' WHERE (id='$postcauseid')");
+
+		echo '1:Description successfully updated:Update';
 		exit;
 	}
 ?>
