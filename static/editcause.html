@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub</title>
+  <title>CauseHub.</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>	
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>CauseHub | Editing Something cool</title>
@@ -17,7 +17,7 @@
 </head>
 <body>
 <header>
-	<h1>CauseHub</h1>
+	<h1>CauseHub.</h1>
 	<span class="loggedin">Welcome back, Jamie Davies</span></header>
 <main class="edit">
 	<section class="causeDescription">
@@ -28,7 +28,7 @@
 		<form method='post' action='#' onsubmit="return false;">
 		<input type='hidden' id='causeid' value='8'>
 			<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
-		<textarea id='editdescription'></textarea>
+		<textarea id='editdescription'>Fill this space with the story behind your cause. Basic HTML allowed. Embed images &amp; video to help your cause stand out.</textarea>
 		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
 		</form>
 		<br />
@@ -43,9 +43,10 @@
 	<section class="knowledgeBaseSummary">
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			<span class="knowledgeBaseHint hint">This is where you can create calls to action for people to help achieve causes.</span> <input type='hidden' id='causeid' value='8'>
+			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
 			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
+			<span class="actionHint hint">What people can do about this is:</span>
 			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
 				<option value="lobbyLord">Lobby A Lord</option>
 				<option value="lobbyMP">Lobby An MP</option>
