@@ -94,11 +94,22 @@
 				<option value="createPetition">Create A Petition</option>
 				<option value="hostEvent">Host An Event</option>
 			</select><br>
-				<section id='lobbyLord' class="lobbyLord">
+				<section id='lobbyLord' class="lobby">
 					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
 					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
 					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
 				</section>
+				<section id='lobbyMP' class="lobby" style='display: none;'>
+					MP: <input type="text" id="lobbymp_name" autocomplete="off"><br>
+					Email Address: <input type="text" id="lobbymp_address" autocomplete="off"><br>
+					Message: <input size="100" type="text" name="lobbymp_message" autocomplete="off"><br>
+				</section>
+				<section id='lobbyMedia' class="lobby" style='display: none;'>
+					Media: <input type="text" id="lobbymedia_name" autocomplete="off"><br>
+					Email Address: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
+					Message: <input size="100" type="text" name="lobbymedia_message" autocomplete="off"><br>
+				</section>
+
 
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 		</form>
