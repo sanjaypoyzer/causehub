@@ -30,6 +30,9 @@
 		header('location:/cause/'.$slug);
 		exit;
 	}
+
+	$today = date("d/m/Y");
+	$oneweek = date("d/m/Y",strtotime("+1 week"));
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +56,7 @@
 	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
-			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</span>';
+			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').' | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
 			echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
 		}
@@ -108,6 +111,10 @@
 					Media: <input type="text" id="lobbymedia_name" autocomplete="off"><br>
 					Email Address: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
 					Message: <input size="100" type="text" name="lobbymedia_message" autocomplete="off"><br>
+				</section>
+				<section id='createPetition' class="lobby" style='display: none;'>
+					Petition Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
+					Description: <input type="text" id="createpetition_description" autocomplete="off" value='Write a short description here, (less that 140 characters)'><br>
 				</section>
 
 

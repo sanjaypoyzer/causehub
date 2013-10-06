@@ -15,6 +15,11 @@ function updateActionForm(){
     } else {
         document.getElementById('lobbyMedia').style.display = 'block';
     }
+    if(selected!='createPetition'){
+        document.getElementById('createPetition').style.display = 'none';
+    } else {
+        document.getElementById('createPetition').style.display = 'block';
+    }
 }
 
 function addKnowledge(){
