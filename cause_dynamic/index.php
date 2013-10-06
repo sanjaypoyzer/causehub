@@ -90,23 +90,21 @@
 					$message = rawurlencode($row['message']);
 					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Act on it!</a>';
 					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='createPetition'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_petitions WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['slug'].'" target=_blank>Act on it!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='hostEvent'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_hostevent WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Act on it!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
 				}
 			}
 		?>
-		<li>
-			<section class="petition">
-				<h2 class='name'>Petition name</h2>
-				<span class='description'>This is a short description</span>
-				<form method='post' action="#" onsubmit="return false;">
-					<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-					<input type='hidden' id='petitionid' value='<?php echo "1"; ?>'>
-					Full Name: <input type='text' id='petitionfullname'><br>
-					Email: <input type='text' id='petitionemail'><br>
-					Add your voice: <textarea id='petitionvoice'></textarea><br>
-					<input type='submit' value='Add your voice' onclick='addPetitionSig(); return false;'>
-				</form>
-			</section>
-		</li>
 		</ul>
 	</section>
 	

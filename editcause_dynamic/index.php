@@ -39,9 +39,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub.</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>CauseHub | Editing Something cool</title>
+  <title>CauseHub. | Editing <?php echo $causename; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
@@ -117,8 +116,8 @@
 					Description: <input type="text" id="createpetition_description" autocomplete="off" value='Write a short description here, (less that 140 characters)'><br>
 				</section>
 				<section id='hostEvent' class="lobby" style='display: none;'>
-					Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
-					Description: <input type="text" id="createpetition_description" autocomplete="off" value='Write a short description here, (less that 140 characters)'><br>
+					Name: <input type="text" id="hostevent_name" autocomplete="off"><br>
+					URL: <input type="text" id="hostevent_url" autocomplete="off"><br>
 				</section>
 
 

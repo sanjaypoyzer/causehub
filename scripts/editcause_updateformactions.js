@@ -20,6 +20,11 @@ function updateActionForm(){
     } else {
         document.getElementById('createPetition').style.display = 'block';
     }
+    if(selected!='hostEvent'){
+        document.getElementById('hostEvent').style.display = 'none';
+    } else {
+        document.getElementById('hostEvent').style.display = 'block';
+    }
 }
 
 function addKnowledge(){
@@ -29,6 +34,14 @@ function addKnowledge(){
     	document.getElementById('lobbylord_name').style.borderColor = '#999';
     	document.getElementById('lobbylord_address').style.borderColor = '#999';
     	document.getElementById('lobbylord_message').style.borderColor = '#999';
+        document.getElementById('lobbymp_name').style.borderColor = '#999';
+        document.getElementById('lobbymp_address').style.borderColor = '#999';
+        document.getElementById('lobbymp_message').style.borderColor = '#999';
+        document.getElementById('lobbymedia_name').style.borderColor = '#999';
+        document.getElementById('lobbymedia_address').style.borderColor = '#999';
+        document.getElementById('lobbymedia_message').style.borderColor = '#999';
+        document.getElementById('hostevent_name').style.borderColor = '#999';
+        document.getElementById('hostevent_url').style.borderColor = '#999';
     	if(document.getElementById('fact').value==''){
     		alertify.log('No fact entered', 'error');
     		document.getElementById('fact').style.borderColor = 'red';
@@ -104,29 +117,61 @@ function addKnowledge(){
             }
             var typelobby = 'media';
             var data = 'cid=' + document.getElementById('causeid').value + '&fact=' + document.getElementById('fact').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&actiontype=' + document.getElementById('actiontype').value + '&lobbymedianame=' + document.getElementById('lobbymedia_name').value + '&lobbymediaaddress=' + document.getElementById('lobbymedia_address').value + '&lobbymediamessage=' + document.getElementById('lobbymedia_message').value;
+        } else if(document.getElementById('actiontype').value=='hostEvent'){
+            if(document.getElementById('hostevent_name').value==''){
+                alertify.log('No event name entered', 'error');
+                document.getElementById('hostevent_name').style.borderColor = 'red';
+                error = true;
+                return false;
+            }
+            if(document.getElementById('hostevent_url').value==''){
+                alertify.log('No event url entered', 'error');
+                document.getElementById('hostevent_url').style.borderColor = 'red';
+                error = true;
+                return false;
+            }
+            var data = 'cid=' + document.getElementById('causeid').value + '&fact=' + document.getElementById('fact').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&actiontype=' + document.getElementById('actiontype').value + '&eventname=' + document.getElementById('hostevent_name').value + '&eventurl=' + document.getElementById('hostevent_url').value;
         }
-	
+	       var actiontypeinput = document.getElementById('actiontype').value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/addknowledge.php',
          data : data,
          beforeSend : function() {
-             document.getElementById('addknowledgebtn').disabled = true;
-             document.getElementById('fact').disabled = true;
-             document.getElementById('sourceurl').disabled = true;
-             document.getElementById('lobby' + typelobby + '_name').disabled = true;
-             document.getElementById('lobby' + typelobby + '_address').disabled = true;
-             document.getElementById('lobby' + typelobby + '_message').disabled = true;
-             document.getElementById('addknowledgebtn').value = 'Processing';
+            if(actiontypeinput=='lobbyLord' || actiontypeinput=='lobbyMP' || actiontypeinput=='lobbyMedia'){
+                document.getElementById('addknowledgebtn').disabled = true;
+                document.getElementById('fact').disabled = true;
+                document.getElementById('sourceurl').disabled = true;
+                document.getElementById('lobby' + typelobby + '_name').disabled = true;
+                document.getElementById('lobby' + typelobby + '_address').disabled = true;
+                document.getElementById('lobby' + typelobby + '_message').disabled = true;
+                document.getElementById('addknowledgebtn').value = 'Processing';
+            } else if(actiontypeinput=='hostEvent'){
+                document.getElementById('addknowledgebtn').disabled = true;
+                document.getElementById('fact').disabled = true;
+                document.getElementById('sourceurl').disabled = true;
+                document.getElementById('hostevent_name').disabled = true;
+                document.getElementById('hostevent_url').disabled = true;
+                document.getElementById('addknowledgebtn').value = 'Processing';
+            }
          },
          error : function() {
-             document.getElementById('addknowledgebtn').disabled = false;
-             document.getElementById('fact').disabled = false;
-             document.getElementById('sourceurl').disabled = false;
-             document.getElementById('lobby' + typelobby + '_name').disabled = false;
-             document.getElementById('lobby' + typelobby + '_address').disabled = false;
-             document.getElementById('lobby' + typelobby + '_message').disabled = false;
-             document.getElementById('addknowledgebtn').value = 'Add';
+             if(actiontypeinput=='lobbyLord' || actiontypeinput=='lobbyMP' || actiontypeinput=='lobbyMedia'){
+                document.getElementById('addknowledgebtn').disabled = false;
+                document.getElementById('fact').disabled = false;
+                document.getElementById('sourceurl').disabled = false;
+                document.getElementById('lobby' + typelobby + '_name').disabled = false;
+                document.getElementById('lobby' + typelobby + '_address').disabled = false;
+                document.getElementById('lobby' + typelobby + '_message').disabled = false;
+                document.getElementById('addknowledgebtn').value = 'Processing';
+            } else if(actiontypeinput=='hostEvent') {
+                document.getElementById('addknowledgebtn').disabled = false;
+                document.getElementById('fact').disabled = false;
+                document.getElementById('sourceurl').disabled = false;
+                document.getElementById('hostevent_name').disabled = false;
+                document.getElementById('hostevent_url').disabled = false;
+                document.getElementById('addknowledgebtn').value = 'Add';
+            }
              return false;
          },
          success : function (response) {
@@ -140,6 +185,8 @@ function addKnowledge(){
 	            document.getElementById('lobby' + typelobby + '_name').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_address').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_message').disabled = false;
+                document.getElementById('hostevent_name').disabled = false;
+                document.getElementById('hostevent_url').disabled = false;
                 document.getElementById('addknowledgebtn').disabled = false;
                 document.getElementById('addknowledgebtn').value = array[2];
            		alertify.log(array[1], 'error');
@@ -149,6 +196,8 @@ function addKnowledge(){
 	            document.getElementById('lobby' + typelobby + '_name').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_address').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_message').disabled = false;
+                document.getElementById('hostevent_name').disabled = false;
+                document.getElementById('hostevent_url').disabled = false;
                 document.getElementById('addknowledgebtn').disabled = false;
                 document.getElementById('addknowledgebtn').value = array[2];
            		alertify.log(array[1], 'error');
