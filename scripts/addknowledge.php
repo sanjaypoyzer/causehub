@@ -116,7 +116,28 @@
 		$sql = mysql_query("SELECT id FROM kb_action_lobbymedia WHERE name='$postlobbymedianame' AND address='$postlobbymediaaddress' AND message='$postlobbymediamessage' ORDER BY id DESC LIMIT 1");
 		$row = mysql_fetch_array($sql);
 		$actionid = $row['id'];
+	} else if($postactiontype=='hostEvent'){
+		$posteventname = $_POST['eventname'];
+		$posteventurl = $_POST['eventurl'];
+
+		if($posteventname==''){
+			echo '3:No event name entered:Add';
+			exit;
+		}
+		if($posteventurl==''){
+			echo '3:No event url entered:Add';
+			exit;
+		}
+
+		$posteventname = mysql_real_escape_string($posteventname);
+		$posteventurl = mysql_real_escape_string($posteventurl);
+
+		mysql_query("INSERT INTO kb_action_hostevent (name,url) VALUES('$posteventname','$posteventurl') ");
+		$sql = mysql_query("SELECT id FROM kb_action_hostevent WHERE name='$posteventname' AND url='$posteventurl' ORDER BY id DESC LIMIT 1");
+		$row = mysql_fetch_array($sql);
+		$actionid = $row['id'];
 	}
+
 
 	$posttask = mysql_real_escape_string($posttask);
 	$postsourceurl = mysql_real_escape_string($postsourceurl);
