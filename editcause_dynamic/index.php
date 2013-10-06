@@ -39,9 +39,8 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>CauseHub.</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <title>CauseHub | Editing Something cool</title>
+  <title>CauseHub. | Editing <?php echo $causename; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
