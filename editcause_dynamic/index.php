@@ -116,7 +116,7 @@
 				</section>
 				<section id='createPetition' class="lobby" style='display: none;'>
 					Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
-					Description: <input type="text" id="createpetition_description" autocomplete="off" value='Write a short description here, (less that 140 characters)'><br>
+					Description: <textarea size="100" id="createpetition_description">Write a short description about the petition</textarea><br>
 				</section>
 				<section id='hostEvent' class="lobby" style='display: none;'>
 					Name: <input type="text" id="hostevent_name" autocomplete="off"><br>

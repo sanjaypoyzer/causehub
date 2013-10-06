@@ -41,7 +41,7 @@
 				<a href="/cause/'.$array['slug'].'/">
 				<figure>
 				  <img src="http://lorempixel.com/200/'.$start.'" alt="'.$array['name'].'">
-				  <figcaption>'.$array['name'].'</figcaption>
+				  <figcaption>'.$array['name'].'</figcaption><br><a href="/editcause/'.$array['slug'].'/" class="dashmanage">Manage this</a>
 				</figure>
 				</a>
 				';
