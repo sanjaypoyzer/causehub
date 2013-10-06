@@ -39,20 +39,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>CauseHub. | Editing <?php echo $causename; ?></title>
+  <title>CauseHub. | Add to the knowledge base for <?php echo $causename; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-  <script src="/scripts/editcause.js"></script>
-  <script src="/scripts/editcause_updateformactions.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
+  <script src="/scripts/editcause_updateformactions_other.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
-  <link rel="stylesheet" href="/plugins/jHtmlArea/style/jHtmlArea.css" />
 </head>
 <body>
 <header>
-	<h1><a href="/">CauseHub.</a></h1>
+	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
@@ -61,31 +58,10 @@
 		}
 	?>
 </header>
-<main class="edit">
-	<section class="causeDescription">
-		<header>
-			<span class="hint titleHint">Your Cause Is:</span>
-			<h1><?php echo $causename; ?></h1>
-		</header>
-		<form method='post' action='#' onsubmit="return false;">
-		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-			<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
-		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
-		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
-		</form>
-		<br />
-		<form method='post' action='#' onsubmit="return false;">
-			<span class="hint slugHint">People Can Find It At:</span>
-		<label>http://causehub.co/cause/</label>
-		<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-		<input type='text' id='editslug' value='<?php echo $slug; ?>'>
-		<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
-		</form>
-	</section>
-	<section class="knowledgeBaseSummary">
+<main class="petition">
+	<h1>Add to <?php echo $causename; ?></h1>
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
-			<h2>Knowledge Base</h2>
-			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
+			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 			<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 				<section class="factSource">Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"></section><br>
 			<span class="actionHint hint">What people can do about this is:</span>
@@ -123,29 +99,6 @@
 
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 		</form>
-	</section>
-	<?php
-	if($causehidden=='0'){
-		goto published;
-	}
-	?>
-		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world! &rarr;</button>
-	<?php
-	published:
-	?>
-	<?php
-		if($ownerid==getCurrentUserInfo('id')){
-			echo '<a href="/cause/'.$slug.'/"><button class="publishbtn">View Cause &rarr;</button></a>';
-		}
-	?>
 </main>
-  <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
-  <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
-
-  <script type="text/javascript">
-  $(document).ready(function(){
-  	  	$('textarea#editdescription').htmlarea();
-  });
-  </script>
 </body>
 </html>

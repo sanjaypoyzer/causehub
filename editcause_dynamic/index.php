@@ -85,7 +85,7 @@
 	<section class="knowledgeBaseSummary">
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
+			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 			<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 				<section class="factSource">Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"></section><br>
 			<span class="actionHint hint">What people can do about this is:</span>
