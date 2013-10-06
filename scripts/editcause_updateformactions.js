@@ -40,6 +40,8 @@ function addKnowledge(){
         document.getElementById('lobbymedia_name').style.borderColor = '#999';
         document.getElementById('lobbymedia_address').style.borderColor = '#999';
         document.getElementById('lobbymedia_message').style.borderColor = '#999';
+        document.getElementById('createpetition_name').style.borderColor = '#999';
+        document.getElementById('createpetition_description').style.borderColor = '#999';
         document.getElementById('hostevent_name').style.borderColor = '#999';
         document.getElementById('hostevent_url').style.borderColor = '#999';
     	if(document.getElementById('fact').value==''){
@@ -117,6 +119,20 @@ function addKnowledge(){
             }
             var typelobby = 'media';
             var data = 'cid=' + document.getElementById('causeid').value + '&fact=' + document.getElementById('fact').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&actiontype=' + document.getElementById('actiontype').value + '&lobbymedianame=' + document.getElementById('lobbymedia_name').value + '&lobbymediaaddress=' + document.getElementById('lobbymedia_address').value + '&lobbymediamessage=' + document.getElementById('lobbymedia_message').value;
+        } else if(document.getElementById('actiontype').value=='createPetition'){
+            if(document.getElementById('createpetition_name').value==''){
+                alertify.log('No petition name entered', 'error');
+                document.getElementById('createpetition_name').style.borderColor = 'red';
+                error = true;
+                return false;
+            }
+            if(document.getElementById('createpetition_description').value==''){
+                alertify.log('No petition description entered', 'error');
+                document.getElementById('createpetition_description').style.borderColor = 'red';
+                error = true;
+                return false;
+            }
+            var data = 'cid=' + document.getElementById('causeid').value + '&fact=' + document.getElementById('fact').value + '&sourceurl=' + document.getElementById('sourceurl').value + '&actiontype=' + document.getElementById('actiontype').value + '&petitionname=' + document.getElementById('createpetition_name').value + '&petitiondescription=' + document.getElementById('createpetition_description').value;
         } else if(document.getElementById('actiontype').value=='hostEvent'){
             if(document.getElementById('hostevent_name').value==''){
                 alertify.log('No event name entered', 'error');
@@ -146,6 +162,13 @@ function addKnowledge(){
                 document.getElementById('lobby' + typelobby + '_address').disabled = true;
                 document.getElementById('lobby' + typelobby + '_message').disabled = true;
                 document.getElementById('addknowledgebtn').value = 'Processing';
+            } else if(actiontypeinput=='createPetition'){
+                document.getElementById('addknowledgebtn').disabled = true;
+                document.getElementById('fact').disabled = true;
+                document.getElementById('sourceurl').disabled = true;
+                document.getElementById('createpetition_name').disabled = true;
+                document.getElementById('createpetition_description').disabled = true;
+                document.getElementById('addknowledgebtn').value = 'Processing';
             } else if(actiontypeinput=='hostEvent'){
                 document.getElementById('addknowledgebtn').disabled = true;
                 document.getElementById('fact').disabled = true;
@@ -163,7 +186,14 @@ function addKnowledge(){
                 document.getElementById('lobby' + typelobby + '_name').disabled = false;
                 document.getElementById('lobby' + typelobby + '_address').disabled = false;
                 document.getElementById('lobby' + typelobby + '_message').disabled = false;
-                document.getElementById('addknowledgebtn').value = 'Processing';
+                document.getElementById('addknowledgebtn').value = 'Add';
+            } else if(actiontypeinput=='createPetition'){
+                document.getElementById('addknowledgebtn').disabled = false;
+                document.getElementById('fact').disabled = false;
+                document.getElementById('sourceurl').disabled = false;
+                document.getElementById('createpetition_name').disabled = false;
+                document.getElementById('createpetition_description').disabled = false;
+                document.getElementById('addknowledgebtn').value = 'Add';
             } else if(actiontypeinput=='hostEvent') {
                 document.getElementById('addknowledgebtn').disabled = false;
                 document.getElementById('fact').disabled = false;
@@ -172,6 +202,7 @@ function addKnowledge(){
                 document.getElementById('hostevent_url').disabled = false;
                 document.getElementById('addknowledgebtn').value = 'Add';
             }
+             alertify.log('An error occured when attempting to proccess your request', 'error');
              return false;
          },
          success : function (response) {
@@ -185,6 +216,8 @@ function addKnowledge(){
 	            document.getElementById('lobby' + typelobby + '_name').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_address').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_message').disabled = false;
+                document.getElementById('createpetition_name').disabled = false;
+                document.getElementById('createpetition_description').disabled = false;
                 document.getElementById('hostevent_name').disabled = false;
                 document.getElementById('hostevent_url').disabled = false;
                 document.getElementById('addknowledgebtn').disabled = false;
@@ -196,6 +229,8 @@ function addKnowledge(){
 	            document.getElementById('lobby' + typelobby + '_name').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_address').disabled = false;
 	            document.getElementById('lobby' + typelobby + '_message').disabled = false;
+                document.getElementById('createpetition_name').disabled = false;
+                document.getElementById('createpetition_description').disabled = false;
                 document.getElementById('hostevent_name').disabled = false;
                 document.getElementById('hostevent_url').disabled = false;
                 document.getElementById('addknowledgebtn').disabled = false;

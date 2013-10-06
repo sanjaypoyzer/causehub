@@ -116,6 +116,27 @@
 		$sql = mysql_query("SELECT id FROM kb_action_lobbymedia WHERE name='$postlobbymedianame' AND address='$postlobbymediaaddress' AND message='$postlobbymediamessage' ORDER BY id DESC LIMIT 1");
 		$row = mysql_fetch_array($sql);
 		$actionid = $row['id'];
+	} else if($postactiontype=='createPetition'){
+		$postpetitionname = $_POST['petitionname'];
+		$postpetitiondescription = $_POST['petitiondescription'];
+
+		if($postpetitionname==''){
+			echo '3:No petition name entered:Add';
+			exit;
+		}
+		if($postpetitiondescription==''){
+			echo '3:No petition description entered:Add';
+			exit;
+		}
+
+		$postpetitionname = mysql_real_escape_string($postpetitionname);
+		$postpetitiondescription = mysql_real_escape_string($postpetitiondescription);
+		$petitionslug = rand(10000,99999);
+
+		mysql_query("INSERT INTO kb_action_petitions (name,description,slug) VALUES('$postpetitionname','$postpetitiondescription','$petitionslug') ");
+		$sql = mysql_query("SELECT id FROM kb_action_petitions WHERE name='$postpetitionname' AND description='$postpetitiondescription' AND slug='$petitionslug' ORDER BY id DESC LIMIT 1");
+		$row = mysql_fetch_array($sql);
+		$actionid = $row['id'];
 	} else if($postactiontype=='hostEvent'){
 		$posteventname = $_POST['eventname'];
 		$posteventurl = $_POST['eventurl'];
