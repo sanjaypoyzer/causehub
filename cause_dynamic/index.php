@@ -50,9 +50,6 @@
 <header>
 	<h1><a href="/">CauseHub.</a></h1>
 	<?php
-		if($ownerid==getCurrentUserInfo('id')){
-			echo '<a href="/editcause/'.$slug.'/" class="editlink">Manage Cause</a>';
-		}
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
@@ -63,6 +60,12 @@
 	<img src="http://lorempixel.com/1200/200/" class="causeImg" />
 <main>
 	<section class="causeDescription">
+		
+	<?php 
+		if($ownerid==getCurrentUserInfo('id')){
+			echo '<a href="/editcause/'.$slug.'/" class="editlink"><button class="publishbtn">&larr; Manage Cause</button></a>';
+		}
+	?>
 		<h1><?php echo $causename; ?></h1>
 		<?php echo $causedescription; ?>
 	</section>

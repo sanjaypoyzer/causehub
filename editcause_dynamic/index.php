@@ -54,9 +54,6 @@
 <header>
 	<h1><a href="/">CauseHub.</a></h1>
 	<?php
-		if($ownerid==getCurrentUserInfo('id')){
-			echo '<a href="/cause/'.$slug.'/" class="editlink">View Cause</a>';
-		}
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
@@ -132,9 +129,14 @@
 		goto published;
 	}
 	?>
-		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world!</button>
+		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world! &rarr;</button>
 	<?php
 	published:
+	?>
+	<?php
+		if($ownerid==getCurrentUserInfo('id')){
+			echo '<a href="/cause/'.$slug.'/"><button class="publishbtn">View Cause &rarr;</button></a>';
+		}
 	?>
 </main>
   <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>

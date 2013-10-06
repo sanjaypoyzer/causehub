@@ -19,6 +19,10 @@ $titleFont : 'LibreBaskerville', sans-serif;
 $headerFont : 'RobotoSlab', serif;
 $bodyFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $buttonColor : #009fbb; 
+$headerLinkColor : #fece2f;
+
+
+
 html, body{
 	overflow-x: hidden;
 }
@@ -92,7 +96,7 @@ body > header{
 	}
 	span.login, span.loggedin{
 		position: absolute;
-		right: 20px;
+		right: 30px;
 		top: 5px;
 		font-size: 1.2em;
 		button{
@@ -111,11 +115,13 @@ body > header{
 		top: 12px;
 	}
 	span.loggedin > a{
-		color: #fece2f;
+		color: $headerLinkColor;
 	}
-
 	span.loggedin a.logout{
 		color: hsl(355, 100%, 60%);
+	}
+	a.editlink{
+		color: $headerLinkColor;
 	}
 }
 
@@ -280,7 +286,8 @@ textarea#editdescription{
 }
 
 button.publishbtn{
-	position: absolute;
-	bottom: 1em;
+	position: fixed;
+	bottom: 2.5em;
 	right: 1em;
+	z-index: 999;
 }

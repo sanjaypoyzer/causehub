@@ -72,7 +72,7 @@ body > header {
     font-family: "LibreBaskerville", sans-serif; }
   body > header span.login, body > header span.loggedin {
     position: absolute;
-    right: 20px;
+    right: 30px;
     top: 5px;
     font-size: 1.2em; }
     body > header span.login button:nth-of-type(1), body > header span.loggedin button:nth-of-type(1) {
@@ -88,6 +88,8 @@ body > header {
     color: #fece2f; }
   body > header span.loggedin a.logout {
     color: #ff3344; }
+  body > header a.editlink {
+    color: #fece2f; }
 
 section {
   padding: 1em; }
@@ -217,6 +219,7 @@ textarea#editdescription {
   height: 200px; }
 
 button.publishbtn {
-  position: absolute;
-  bottom: 1em;
-  right: 1em; }
+  position: fixed;
+  bottom: 2.5em;
+  right: 1em;
+  z-index: 999; }
