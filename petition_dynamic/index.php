@@ -32,7 +32,7 @@
   <title>CauseHub. | <?php echo $petitionname; ?></title>
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-  <script src="/scripts/editcause_updateformactions.js"></script>
+  <script src="/scripts/addpetition.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
@@ -48,17 +48,25 @@
 		}
 	?>
 </header>
-<main class="edit">
-	<h1>Petition title</h1>
+<main class="petition">
+	<h1><?php echo $petitionname; ?></h1>
+	<p><?php echo $petitiondescription; ?></p>
 	<h2>Sign This Petition:</h2>
-		<form class="login" method="POST" action="http://YOUR_DOMAIN_HERE:81/login/login.php">
-		  Username: <input type="text" name="username" size="15" /><br />
-		  Email: <input type="email" name="email" size="15" /><br />
-		  <input type="checkbox" name="public" value="Public">Display my name publically<br>
+		<form method='post' action='#' onsubmit="return false;">
+		  <input type="hidden" id="pid" value="<?php echo $petitionid; ?>" />
+		  First Name: <input type="text" id="fname" size="15" /><br />
+		  Last Name: <input type="text" id="lname" size="15" /><br />
+		  Email: <input type="email" id="email" size="15" /><br />
+		  <input type='submit' id='addsignaturebtn' value='Add Signature' onclick='addPetitionSig(); return false;'>
 		</form>
-	<h2>Public Names</h2>
+	<h2>Who has signed this petition</h2>
 	<ul>
-		<li>barry the dicktivist</li>
+		<?php
+			$sql = mysql_query("SELECT * FROM petition_signatures WHERE pid='$petitionid' ORDER BY id DESC");
+			while($array = mysql_fetch_array($sql)){
+				echo '<li>'.$array['fname'].' '.$array['lname'].'</li>';
+			}
+		?>
 	</ul>
 </main>
 </body>

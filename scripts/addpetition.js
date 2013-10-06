@@ -1,48 +1,66 @@
 function addPetitionSig(){
         var error = false;
-        document.getElementById('petitionfullname').style.borderColor = '#999';
-        document.getElementById('petitionemail').style.borderColor = '#999';
-        document.getElementById('petitionvoice').style.borderColor = '#999';
-        if($('textarea').htmlarea('html')==''){
-            alertify.log('No description entered', 'error');
-            document.getElementById('editdescription').style.borderColor = 'red';
+        document.getElementById('fname').style.borderColor = '#999';
+        document.getElementById('lname').style.borderColor = '#999';
+        document.getElementById('email').style.borderColor = '#999';
+        if(document.getElementById('fname').value==''){
+            alertify.log('Please enter your first name', 'error');
+            document.getElementById('fname').style.borderColor = 'red';
             error = true;
             return false;
         }
-    
-    var data = 'causeid=' + document.getElementById('causeid').value + '&action=editdescription&newdescription=' + $('textarea').htmlarea('html');
+        if(document.getElementById('lname').value==''){
+            alertify.log('Please enter your first name', 'error');
+            document.getElementById('lname').style.borderColor = 'red';
+            error = true;
+            return false;
+        }
+        if(document.getElementById('email').value==''){
+            alertify.log('Please enter your email', 'error');
+            document.getElementById('email').style.borderColor = 'red';
+            error = true;
+            return false;
+        }
+
+    var data = 'pid=' + document.getElementById('pid').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&email=' + document.getElementById('email').value;
         $.ajax({
         type  : 'POST',
-         url  : '/scripts/editcause.php',
+         url  : '/scripts/addpetition.php',
          data : data,
          beforeSend : function() {
-             document.getElementById('editdescriptionbtn').disabled = true;
-             document.getElementById('editdescription').disabled = true;
-             document.getElementById('editdescriptionbtn').value = 'Processing';
+             document.getElementById('fname').disabled = true;
+             document.getElementById('lname').disabled = true;
+             document.getElementById('email').disabled = true;
+             document.getElementById('addsignaturebtn').disabled = true;
+             document.getElementById('addsignaturebtn').value = 'Adding';
          },
          error : function() {
-             document.getElementById('editdescriptionbtn').disabled = false;
-             document.getElementById('editdescription').disabled = false;
-             document.getElementById('editdescriptionbtn').value = 'Update';
+             document.getElementById('fname').disabled = false;
+             document.getElementById('lname').disabled = false;
+             document.getElementById('email').disabled = false;
+             document.getElementById('addsignaturebtn').disabled = false;
+             document.getElementById('addsignaturebtn').value = 'Add Signature';
              return false;
          },
          success : function (response) {
              var array = response.split(':');
              if(array[0]=='1'){
-                document.getElementById('editdescriptionbtn').value = array[2];
-                document.getElementById('editdescriptionbtn').disabled = false;
-                document.getElementById('editdescription').disabled = false;
-                alertify.log(array[1], 'success');
-             } else if(array[0]=='2'){
-                document.getElementById('editdescription').disabled = false;
-                document.getElementById('editdescriptionbtn').disabled = false;
-                document.getElementById('editdescriptionbtn').value = array[2];
-                alertify.log(array[1], 'error');
-                document.getElementById('editdescription').style.borderColor = 'red';
+                document.getElementById('addsignaturebtn').value = array[2];
+                document.getElementById('fname').disabled = false;
+                document.getElementById('lname').disabled = false;
+                document.getElementById('email').disabled = false;
+                document.getElementById('fname').value = '';
+                document.getElementById('lname').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('addsignaturebtn').disabled = false;
+                
+                window.location.href=window.location.href;
              } else {
-                document.getElementById('editdescription').disabled = false;
-                document.getElementById('editdescriptionbtn').disabled = false;
-                document.getElementById('editdescriptionbtn').value = array[2];
+                document.getElementById('fname').disabled = false;
+                document.getElementById('lname').disabled = false;
+                document.getElementById('email').disabled = false;
+                document.getElementById('addsignaturebtn').disabled = false;
+                document.getElementById('addsignaturebtn').value = array[2];
                 alertify.log(array[1], 'error');
              }
              return false;

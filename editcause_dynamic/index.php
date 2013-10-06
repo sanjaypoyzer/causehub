@@ -124,6 +124,56 @@
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 		</form>
 	</section>
+
+	<section class="knowledgeBaseSummary">
+		<ul>
+		<?php
+			$total = 0;
+			$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
+			while($array = mysql_fetch_array($sql)){
+				if($array['action']=='lobbyLord'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbylord WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					$message = rawurlencode($row['message']);
+					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='lobbyMP'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymp WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					$message = rawurlencode($row['message']);
+					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='lobbyMedia'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymedia WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					$message = rawurlencode($row['message']);
+					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='createPetition'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_petitions WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					echo '<li>'.$array['fact'].' &rarr; <a href="/petition/'.$row['slug'].'/" target=_blank>Sign it!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				} else if($array['action']=='hostEvent'){
+					$actionid = $array['actionid'];
+					$sqlemail = mysql_query("SELECT * FROM kb_action_hostevent WHERE id='$actionid'");
+					$row = mysql_fetch_array($sqlemail);
+					echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Attend!</a>';
+					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+				}
+				$total++;
+			}
+
+			if($total==0){
+				echo '<li>No entries added to the knowledgebase yet</li>';
+			}
+		?>
+		</ul>
+	</section>
 	<?php
 	if($causehidden=='0'){
 		goto published;
