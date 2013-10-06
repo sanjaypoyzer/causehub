@@ -49,14 +49,14 @@ input {
   max-width: 100%;
   height: auto; }
 
-button, input[type=submit] {
+button, input[type=submit], input[type=file] {
   font-size: 1em;
   color: #fff;
   padding: .5em;
   background: #009fbb;
   border: 0;
   border-radius: 5px; }
-  button:hover, input[type=submit]:hover {
+  button:hover, input[type=submit]:hover, input[type=file]:hover {
     background: #007488; }
 
 body > header {
@@ -145,6 +145,16 @@ section.knowledgeBaseSummary {
     display: inline; }
   section.knowledgeBaseSummary section.factSource {
     padding: 0 0 0 1em; }
+
+section.lobby textarea {
+  display: inherit;
+  width: 100%;
+  height: 6em; }
+
+#addknowledgebtn {
+  display: inline-block;
+  width: 100%;
+  margin-top: -2em; }
 
 section.addAction {
   float: left;
