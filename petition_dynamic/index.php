@@ -51,10 +51,12 @@
 <main class="edit">
 	<h1>Petition title</h1>
 	<h2>Sign This Petition:</h2>
-		<form class="login" method="POST" action="http://YOUR_DOMAIN_HERE:81/login/login.php">
-		  Username: <input type="text" name="username" size="15" /><br />
+		<form method='post' action='#' onsubmit="return false;">
+		  First Name: <input type="text" name="fname" size="15" /><br />
+		  Last Name: <input type="text" name="lname" size="15" /><br />
 		  Email: <input type="email" name="email" size="15" /><br />
 		  <input type="checkbox" name="public" value="Public">Display my name publically<br>
+		  <input type='submit' id='addsignaturebtn' value='Add Signature' onclick='addsignature(); return false;'>
 		</form>
 	<h2>Public Names</h2>
 	<ul>
