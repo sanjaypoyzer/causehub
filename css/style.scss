@@ -153,6 +153,9 @@ section.knowledgeBaseSummary{
 	form input{
 		float: right;
 	}
+	form h3{
+		display: inline;
+	}
 }
 
 section.addAction{
@@ -179,7 +182,7 @@ main.edit, .index main{
 
 .index main{
 	width: 100%;
-	form.causeInit, form.login{
+	form.causeInit, form.login, h1{
 		position:relative;
 		width: 90%;
 		margin: 12em auto 0 auto;
@@ -218,23 +221,15 @@ main.edit, .index main{
 	}
 }
 
-section.knowledgeBaseSummary > section{
-	-webkit-transition: 1s;
-	-moz-transition: 1s;
-	-o-transition: 1s;
-	-ms-transition: 1s;
-	transition: 1s;	
-}
-
-span.knowledgeBaseHint{
-	display: block;
-	font-size:.7em;
-}
-
 span.hint{
 	display: block;
 	font-size: 1.4rem;
 	color: #5e5959;
+}
+
+section.knowledgeBaseSummary span.hint{
+	display: block;
+	font-size:.8em;
 }
 
 textarea#editdescription{

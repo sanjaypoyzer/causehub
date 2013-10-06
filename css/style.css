@@ -117,6 +117,8 @@ section.knowledgeBaseSummary {
     font-family: "RobotoSlab", serif; }
   section.knowledgeBaseSummary form input {
     float: right; }
+  section.knowledgeBaseSummary form h3 {
+    display: inline; }
 
 section.addAction {
   float: left;
@@ -137,16 +139,16 @@ main.edit, .index main {
 
 .index main {
   width: 100%; }
-  .index main form.causeInit, .index main form.login {
+  .index main form.causeInit, .index main form.login, .index main h1 {
     position: relative;
     width: 90%;
     margin: 12em auto 0 auto;
     text-align: center; }
-    .index main form.causeInit input, .index main form.login input {
+    .index main form.causeInit input, .index main form.login input, .index main h1 input {
       font-size: 3em;
       width: 100%;
       text-align: center; }
-    .index main form.causeInit input[type=submit], .index main form.login input[type=submit] {
+    .index main form.causeInit input[type=submit], .index main form.login input[type=submit], .index main h1 input[type=submit] {
       font-size: 1.5em;
       width: 30%;
       margin: 1em auto; }
@@ -168,21 +170,14 @@ main.edit, .index main {
       margin: 5px;
       text-align: center; }
 
-section.knowledgeBaseSummary > section {
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -o-transition: 1s;
-  -ms-transition: 1s;
-  transition: 1s; }
-
-span.knowledgeBaseHint {
-  display: block;
-  font-size: .7em; }
-
 span.hint {
   display: block;
   font-size: 1.4rem;
   color: #5e5959; }
+
+section.knowledgeBaseSummary span.hint {
+  display: block;
+  font-size: .8em; }
 
 textarea#editdescription {
   width: 700px;
