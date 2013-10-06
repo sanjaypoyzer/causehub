@@ -198,7 +198,9 @@ section.addAction{
 	background: #3f3394;
 	text-align: center;
 	position: fixed;
-	bottom: -3.1em;
+	bottom: -3.2em;
+	-webkit-transition:1s;
+	transition:1s;
 	h1{
 		display: block;
 		color: #fff;

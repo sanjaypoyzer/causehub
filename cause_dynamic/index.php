@@ -119,6 +119,18 @@
 	<button>Post Event</button>
 	<button>Start A Petition</button>
 </section>
-
+<script type="text/javascript">
+$(document).ready(function(){
+  $('section.addAction').hover(
+    function(){
+      $(this).css('bottom','0');
+    },
+    function(){
+      $(this).css('bottom','-3em');
+    }
+  );
+});
+                               
+</script>
 </body>
 </html>
