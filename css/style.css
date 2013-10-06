@@ -146,6 +146,16 @@ section.knowledgeBaseSummary {
   section.knowledgeBaseSummary section.factSource {
     padding: 0 0 0 1em; }
 
+section.lobby textarea {
+  display: inherit;
+  width: 100%;
+  height: 6em; }
+
+#addknowledgebtn {
+  display: inline-block;
+  width: 100%;
+  margin-top: -2em; }
+
 section.addAction {
   float: left;
   width: 100%;
