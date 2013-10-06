@@ -223,3 +223,9 @@ button.publishbtn {
   bottom: 2.5em;
   right: 1em;
   z-index: 999; }
+
+main.petition {
+  margin-top: 4em;
+  text-align: center; }
+  main.petition h2 {
+    margin-top: 2em; }
