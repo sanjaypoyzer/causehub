@@ -99,21 +99,21 @@
 			</select><br>
 				<section id='lobbyLord' class="lobby">
 					Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
-					Email Address: <input type="text" id="lobbylord_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lobbylord_message" autocomplete="off"><br>
+					Email: <input type="text" id="lobbylord_address" autocomplete="off"><br>
+					Message: <textarea size="100" id='lobbylord_message'></textarea><br>
 				</section>
 				<section id='lobbyMP' class="lobby" style='display: none;'>
 					MP: <input type="text" id="lobbymp_name" autocomplete="off"><br>
-					Email Address: <input type="text" id="lobbymp_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lobbymp_message" autocomplete="off"><br>
+					Email: <input type="text" id="lobbymp_address" autocomplete="off"><br>
+					Message: <textarea size="100" id='lobbymp_message'></textarea><br>
 				</section>
 				<section id='lobbyMedia' class="lobby" style='display: none;'>
 					Media: <input type="text" id="lobbymedia_name" autocomplete="off"><br>
-					Email Address: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
-					Message: <input size="100" type="text" name="lobbymedia_message" autocomplete="off"><br>
+					Email: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
+					Message: <textarea size="100" id='lobbymedia_message'></textarea><br>
 				</section>
 				<section id='createPetition' class="lobby" style='display: none;'>
-					Petition Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
+					Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
 					Description: <input type="text" id="createpetition_description" autocomplete="off" value='Write a short description here, (less that 140 characters)'><br>
 				</section>
 
@@ -136,7 +136,7 @@
 
   <script type="text/javascript">
   $(document).ready(function(){
-  	  	$('textarea').htmlarea();
+  	  	$('textarea#editdescription').htmlarea();
   });
   </script>
 </body>
