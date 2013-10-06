@@ -20,6 +20,7 @@
 </head>
 <body class="index">
 <header>
+	<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
 	<h1><a href="/">CauseHub.</a></h1>
 	<?php
 		if($loggedin){
