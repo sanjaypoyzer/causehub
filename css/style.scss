@@ -31,6 +31,7 @@ html, body{
 
 a{
 	text-decoration: none;
+	color: #0049b6;
 	&:hover{
 		text-decoration: underline;
 	}
@@ -93,6 +94,7 @@ body > header{
 		position: absolute;
 		right: 20px;
 		top: 5px;
+		font-size: 1.2em;
 		button{
 			&:nth-of-type(1){
 				border-top-right-radius: 0; 
@@ -107,6 +109,13 @@ body > header{
 	}
 	span.loggedin{
 		top: 12px;
+	}
+	span.loggedin > a{
+		color: #fece2f;
+	}
+
+	span.loggedin a.logout{
+		color: hsl(355, 100%, 60%);
 	}
 }
 
@@ -186,11 +195,14 @@ section.addAction{
 	float: left;
 	width: 100%;
 	margin: 0;
-	background: #bbbbbb;
+	background: #3f3394;
+	text-align: center;
 	position: fixed;
-	bottom: 0;
+	bottom: -3.1em;
 	h1{
-		display: inline-block;
+		display: block;
+		color: #fff;
+		margin-top: -0.5em;
 	}
 }
 

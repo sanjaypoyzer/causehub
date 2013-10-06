@@ -22,7 +22,8 @@ html, body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #0049b6; }
   a:hover {
     text-decoration: underline; }
 
@@ -72,7 +73,8 @@ body > header {
   body > header span.login, body > header span.loggedin {
     position: absolute;
     right: 20px;
-    top: 5px; }
+    top: 5px;
+    font-size: 1.2em; }
     body > header span.login button:nth-of-type(1), body > header span.loggedin button:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
@@ -82,6 +84,10 @@ body > header {
       border-bottom-left-radius: 0; }
   body > header span.loggedin {
     top: 12px; }
+  body > header span.loggedin > a {
+    color: #fece2f; }
+  body > header span.loggedin a.logout {
+    color: #ff3344; }
 
 section {
   padding: 1em; }
@@ -142,11 +148,14 @@ section.addAction {
   float: left;
   width: 100%;
   margin: 0;
-  background: #bbbbbb;
+  background: #3f3394;
+  text-align: center;
   position: fixed;
-  bottom: 0; }
+  bottom: -3.1em; }
   section.addAction h1 {
-    display: inline-block; }
+    display: block;
+    color: #fff;
+    margin-top: -0.5em; }
 
 main.edit, .index main {
   margin-top: 4em; }

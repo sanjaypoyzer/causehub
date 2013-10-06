@@ -64,7 +64,7 @@
 		<?php echo $causedescription; ?>
 	</section>
 	<section class="knowledgeBaseSummary">
-		<h1>Knowledge Base</h1>
+		<h2>Knowledge Base</h2>
 		<ul>
 		<?php
 			$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0'");
@@ -108,14 +108,16 @@
 			</section>
 		</li>
 		</ul>
-		<button>Contribute To The Knowledge Base</button>
 	</section>
 	
 </main>
 <section class="addAction">
-	<h1>Join <?php echo $causename; ?></h1>
-	<button>Create Event</button>
-	<button>Start A New Petition</button>
+	<h1>Help <?php echo $causename; ?></h1>
+	<button>Lobby An MP</button>
+	<button>Lobby A Lord</button>
+	<button>Lobby A Media Source</button>
+	<button>Post Event</button>
+	<button>Start A Petition</button>
 </section>
 
 </body>
