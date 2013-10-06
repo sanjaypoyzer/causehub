@@ -134,7 +134,7 @@
 	goto othergoto;
 	published:
 	?>
-		<a href="/cause/'.$slug.'/"><button class="publishbtn">View Cause &rarr;</button></a>
+		<a href="/cause/<?php echo $slug; ?>/"><button class="publishbtn">View Cause &rarr;</button></a>
 	<?php
 	othergoto:
 	?>
