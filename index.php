@@ -23,7 +23,7 @@
 	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
-			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</span>';
+			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').' | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
 			echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
 		}
