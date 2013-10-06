@@ -65,7 +65,8 @@ body > header {
   font-size: .8em;
   position: fixed;
   width: 100%;
-  padding: 5px; }
+  padding: 5px;
+  z-index: 999; }
   body > header h1 {
     font-family: "LibreBaskerville", sans-serif; }
   body > header span.login, body > header span.loggedin {
@@ -184,6 +185,7 @@ section.causeThumbs {
   margin: 0 auto;
   text-align: center; }
   section.causeThumbs figure {
+    max-width: 200px;
     float: left;
     margin: 5px;
     text-align: center; }

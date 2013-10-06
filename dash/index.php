@@ -20,7 +20,7 @@
 </head>
 <body>
 	<header>
-		<h1>CauseHub.</h1>
+		<h1><a href="/">CauseHub.</a></h1>
 		<?php
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';

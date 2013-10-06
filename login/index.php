@@ -20,7 +20,7 @@
 </head>
 <body class="index">
 <header>
-	<h1>CauseHub.</h1>
+	<h1><a href="/">CauseHub.</a></h1>
 </header>
 <main>
 	<form method='post' class='login' action='#' onsubmit="return false;">
