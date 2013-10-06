@@ -59,7 +59,7 @@
 	?>
 </header>
 <main class="petition">
-	<h1>Add to <?php echo $causename; ?></h1>
+	<h1>Help <?php echo $causename; ?></h1>
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 			<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>

@@ -146,15 +146,19 @@ section.knowledgeBaseSummary {
   section.knowledgeBaseSummary section.factSource {
     padding: 0 0 0 1em; }
 
+#addknowledgebtn, section.lobby textarea, input#fact {
+  width: 100%;
+  margin: 0 auto; }
+
 section.lobby textarea {
   display: inherit;
-  width: 100%;
-  height: 6em; }
+  height: 6em;
+  max-width: 800px; }
 
-#addknowledgebtn {
+#addknowledgebtn, input#fact {
   display: inline-block;
-  width: 100%;
-  margin-top: -2em; }
+  margin-top: -2em;
+  max-width: 400px; }
 
 section.addAction {
   float: left;
