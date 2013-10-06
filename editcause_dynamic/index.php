@@ -52,6 +52,7 @@
 </head>
 <body>
 <header>
+	<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
 	<h1><a href="/">CauseHub.</a></h1>
 	<?php
 		if($loggedin){
@@ -76,7 +77,6 @@
 		<br /><br /><br />
 		<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
 		<span class="hint descriptionHint">Upload a banner image for your cause:</span>
-		<img src='http://placehold.it/1200x200' width='60%'>
 		<input type='file' id='file' >
 		</form>
 		<br /><br /><br />
