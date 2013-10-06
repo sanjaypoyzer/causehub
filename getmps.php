@@ -34,6 +34,7 @@
 	<input type='text' id='causename' placeholder='Please enter policy keywords' class="causeName">
 	<input type='submit' id='causecreatebtn' value='Go' onclick='getmps(); return false;'>
 	</form>
+    <div id="results"/>
 </main>
 
 </body>
