@@ -5,3 +5,5 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^cause/(.*)/$ cause_dynamic/index.php?slug=$1 [QSA,L]
     RewriteRule ^editcause/(.*)/$ editcause_dynamic/index.php?slug=$1 [QSA,L]
+    RewriteRule ^addknow/(.*)/$ addknow_dynamic/index.php?slug=$1 [QSA,L]
+    RewriteRule ^petition/(.*)/$ petition_dynamic/index.php?slug=$1 [QSA,L]
