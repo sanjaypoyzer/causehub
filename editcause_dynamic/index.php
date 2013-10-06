@@ -73,7 +73,13 @@
 		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
 		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
 		</form>
-		<br />
+		<br /><br /><br />
+		<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
+		<span class="hint descriptionHint">Upload a banner image for your cause:</span>
+		<img src='http://placehold.it/1200x200' width='60%'>
+		<input type='file' id='file' >
+		</form>
+		<br /><br /><br />
 		<form method='post' action='#' onsubmit="return false;">
 			<span class="hint slugHint">People Can Find It At:</span>
 		<label>http://causehub.co/cause/</label>
@@ -85,7 +91,7 @@
 	<section class="knowledgeBaseSummary">
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
-			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
+			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 			<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
 				<section class="factSource">Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"></section><br>
 			<span class="actionHint hint">What people can do about this is:</span>

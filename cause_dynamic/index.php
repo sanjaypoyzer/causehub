@@ -123,11 +123,11 @@
 </main>
 <section class="addAction">
 	<h1>Help <?php echo $causename; ?></h1>
-	<button>Lobby An MP</button>
-	<button>Lobby A Lord</button>
-	<button>Lobby A Media Source</button>
-	<button>Post Event</button>
-	<button>Start A Petition</button>
+	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Lord</button></a>
+	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby An MP</button></a>
+	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Media Source</button></a>
+	<a href='/addknow/<?php echo $slug; ?>/'><button>Start A Petition</button></a>
+	<a href='/addknow/<?php echo $slug; ?>/'><button>Post Event</button></a>
 </section>
 <script type="text/javascript">
 $(document).ready(function(){
