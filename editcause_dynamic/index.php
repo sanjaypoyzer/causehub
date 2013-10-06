@@ -73,7 +73,13 @@
 		<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
 		<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
 		</form>
-		<br />
+		<br /><br /><br />
+		<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
+		<span class="hint descriptionHint">Upload a banner image for your cause:</span>
+		<img src='http://placehold.it/1200x200' width='60%'>
+		<input type='file' id='filebanner' style='margin-top: 30px;' onchange="javascript:this.form.submit();">
+		</form>
+		<br /><br /><br />
 		<form method='post' action='#' onsubmit="return false;">
 			<span class="hint slugHint">People Can Find It At:</span>
 		<label>http://causehub.co/cause/</label>
