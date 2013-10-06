@@ -41,6 +41,7 @@
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="/scripts/editcause.js"></script>
+  <script src="/scripts/addpetition.js"></script>
   <script src="/plugins/alertify/alertify.js"></script>
   <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
   <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
@@ -50,7 +51,7 @@
 	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
-			echo '<span class="loggedin">Welcome back, '.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').' | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
+			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
 			echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
 		}
