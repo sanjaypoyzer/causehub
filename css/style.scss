@@ -168,10 +168,9 @@ main.edit, .index main{
 .index main{
 	width: 100%;
 	form.causeInit, form.login{
-		position:absolute;
-		left: 10%;
-		right: 10%;
-		top: 40%;
+		position:relative;
+		width: 90%;
+		margin-top: 2em;
 		text-align: center;
 		input{
 			font-size: 3em;
