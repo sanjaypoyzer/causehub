@@ -73,6 +73,7 @@
 		<h2>Knowledge Base</h2>
 		<ul>
 		<?php
+			$total = 0;
 			$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0'");
 			while($array = mysql_fetch_array($sql)){
 				if($array['action']=='lobbyLord'){
@@ -109,6 +110,11 @@
 					echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Act on it!</a>';
 					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
 				}
+				$total++;
+			}
+
+			if($total==0){
+				echo '<li>No entries added to the knowledgebase yet</li>';
 			}
 		?>
 		</ul>
