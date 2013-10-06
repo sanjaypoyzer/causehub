@@ -21,6 +21,11 @@ html, body {
   margin: 0;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
 
+a {
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
 h1, h2, h3 {
   font-family: "RobotoSlab", serif; }
 
@@ -88,6 +93,12 @@ img.causeImg {
 main {
   width: 99%;
   margin: 5px auto; }
+  main h1 {
+    font-size: 3em; }
+
+main.dash {
+  text-align: center;
+  margin-top: 4em; }
 
 section.causeDescription {
   width: 63%;
@@ -162,15 +173,16 @@ main.edit, .index main {
   .index main form.login input[type=submit] {
     font-size: 1em;
     text-align: center; }
-  .index main section.causeThumbs {
-    width: 630px;
-    max-width: 100%;
-    margin: 0 auto;
+
+section.causeThumbs {
+  width: 630px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center; }
+  section.causeThumbs figure {
+    float: left;
+    margin: 5px;
     text-align: center; }
-    .index main section.causeThumbs figure {
-      float: left;
-      margin: 5px;
-      text-align: center; }
 
 span.hint {
   display: block;
