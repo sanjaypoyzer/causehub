@@ -95,3 +95,35 @@ function editCauseDescription(){
          }
         });
 }
+
+function publish(sid){
+    
+    var data = 'action=publish&causeid=' + sid;
+        $.ajax({
+        type  : 'POST',
+         url  : '/scripts/editcause.php',
+         data : data,
+         beforeSend : function() {
+             document.getElementById('publishbtn').disabled = true;
+             document.getElementById('publishbtn').value = 'Publishing';
+         },
+         error : function() {
+             document.getElementById('publishbtn').disabled = false;
+             document.getElementById('publishbtn').value = 'Start changing the world!';
+             return false;
+         },
+         success : function (response) {
+             var array = response.split(':');
+             if(array[0]=='1'){
+                document.getElementById('publishbtn').value = array[2];
+                document.getElementById('publishbtn').disabled = false;
+                window.location.href = '/cause/' + array[1] + '/';
+             } else {
+                document.getElementById('publishbtn').disabled = false;
+                document.getElementById('publishbtn').value = array[2];
+                alertify.log(array[1], 'error');
+             }
+             return false;
+         }
+        });
+}

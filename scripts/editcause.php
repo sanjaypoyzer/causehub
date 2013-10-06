@@ -21,6 +21,7 @@
 	$causename = $row['name'];
 	$causedescription = $row['description'];
 	$causestart = $row['started'];
+	$cslug = $row['slug'];
 
 	if($userid != $ownerid){
 		echo '3:You cannot edit this cause:Update';
@@ -58,6 +59,18 @@
 		mysql_query("UPDATE causes SET description='$sqldescription' WHERE (id='$postcauseid')");
 
 		echo '1:Description successfully updated:Update';
+		exit;
+	} else if($postaction=='publish'){
+		$cid = $_POST['causeid'];
+		
+		if(strlen($causedescription)<100){
+			echo '2:You cannot publish your cause until you have a description over 100 characters long:Start changing the world!';
+			exit;
+		}
+
+		mysql_query("UPDATE causes SET hidden='0' WHERE (id='$cid')");
+
+		echo '1:'.$cslug.':Redirecting';
 		exit;
 	}
 ?>

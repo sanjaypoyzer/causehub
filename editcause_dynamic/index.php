@@ -101,9 +101,17 @@
 				</section>
 
 			<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
-			<button>Add Another</button>
 		</form>
 	</section>
+	<?php
+	if($causehidden=='0'){
+		goto published;
+	}
+	?>
+		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world!</button>
+	<?php
+	published:
+	?>
 </main>
   <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
   <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
