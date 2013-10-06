@@ -131,12 +131,12 @@
 	?>
 		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world! &rarr;</button>
 	<?php
+	goto othergoto;
 	published:
 	?>
+		<a href="/cause/'.$slug.'/"><button class="publishbtn">View Cause &rarr;</button></a>
 	<?php
-		if($ownerid==getCurrentUserInfo('id')){
-			echo '<a href="/cause/'.$slug.'/"><button class="publishbtn">View Cause &rarr;</button></a>';
-		}
+	othergoto:
 	?>
 </main>
   <script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
