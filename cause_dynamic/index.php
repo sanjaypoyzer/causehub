@@ -50,6 +50,9 @@
 <header>
 	<h1><a href="/">CauseHub.</a></h1>
 	<?php
+		if($ownerid==getCurrentUserInfo('id')){
+			echo '<a href="/editcause/'.$slug.'/" class="editlink">Manage Cause</a>';
+		}
 		if($loggedin){
 			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 		} else {
