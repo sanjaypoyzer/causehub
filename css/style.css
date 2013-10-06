@@ -116,9 +116,11 @@ section.knowledgeBaseSummary {
   section.knowledgeBaseSummary h2 {
     font-family: "RobotoSlab", serif; }
   section.knowledgeBaseSummary form input {
-    float: right; }
+    display: inline-block; }
   section.knowledgeBaseSummary form h3 {
     display: inline; }
+  section.knowledgeBaseSummary section.factSource {
+    padding: 0 0 0 1em; }
 
 section.addAction {
   float: left;
@@ -173,7 +175,8 @@ main.edit, .index main {
 span.hint {
   display: block;
   font-size: 1.4rem;
-  color: #5e5959; }
+  color: #5e5959;
+  margin-top: .5em; }
 
 section.knowledgeBaseSummary span.hint {
   display: block;

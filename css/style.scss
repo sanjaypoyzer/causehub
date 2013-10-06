@@ -151,10 +151,13 @@ section.knowledgeBaseSummary{
 		font-family: $headerFont;
 	}
 	form input{
-		float: right;
+		display: inline-block;
 	}
 	form h3{
 		display: inline;
+	}
+	section.factSource{
+		padding: 0 0 0 1em;
 	}
 }
 
@@ -225,12 +228,13 @@ span.hint{
 	display: block;
 	font-size: 1.4rem;
 	color: #5e5959;
+	margin-top: .5em;
 }
 
 section.knowledgeBaseSummary span.hint{
 	display: block;
 	font-size:.8em;
-}
+}		
 
 textarea#editdescription{
 	width: 700px;

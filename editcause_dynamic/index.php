@@ -84,10 +84,10 @@
 		<form method='post' action="#" onsubmit="return false;" autocomplete="on">
 			<h2>Knowledge Base</h2>
 			<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='8'>
-			Fact: <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
-			Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"><br>
+			<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
+				<section class="factSource">Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"></section><br>
 			<span class="actionHint hint">What people can do about this is:</span>
-			Action Type: <select name="actionType" id='actiontype' onchange='updateActionForm()'>
+			<h3>Action Type:</h3> <select name="actionType" id='actiontype' onchange='updateActionForm()'>
 				<option value="lobbyLord">Lobby A Lord</option>
 				<option value="lobbyMP">Lobby An MP</option>
 				<option value="lobbyMedia">Email A Media Outlet</option>
