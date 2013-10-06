@@ -92,21 +92,24 @@
 				}
 			}
 		?>
+		<li>
+			<section class="petition">
+				<h2 class='name'>Petition name</h2>
+				<span class='description'>This is a short description</span>
+				<form method='post' action="#" onsubmit="return false;">
+					<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+					<input type='hidden' id='petitionid' value='<?php echo "1"; ?>'>
+					Full Name: <input type='text' id='petitionfullname'><br>
+					Email: <input type='text' id='petitionemail'><br>
+					Add your voice: <textarea id='petitionvoice'></textarea><br>
+					<input type='submit' value='Add your voice' onclick='addPetitionSig(); return false;'>
+				</form>
+			</section>
+		</li>
 		</ul>
 		<button>Contribute To The Knowledge Base</button>
 	</section>
-	<section class="petition">
-		<h1 class='name'>Petition name</h1>
-		<span class='description'>This is a short description</span>
-		<form method='post' action="#" onsubmit="return false;">
-			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-			<input type='hidden' id='petitionid' value='<?php echo "1"; ?>'>
-			Full Name: <input type='text' id='petitionfullname'><br>
-			Email: <input type='text' id='petitionemail'><br>
-			Add your voice: <textarea id='petitionvoice'></textarea><br>
-			<input type='submit' value='Add your voice' onclick='addPetitionSig(); return false;'>
-		</form>
-	</section>
+	
 </main>
 <section class="addAction">
 	<h1>Join <?php echo $causename; ?></h1>
