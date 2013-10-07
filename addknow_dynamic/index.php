@@ -49,7 +49,7 @@
 </head>
 <body>
 <header>
-	<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
+	<a href="/getmps.php"><button class="searchbtn">Search InfoHub	</button></a>
 	<h1>CauseHub.</h1>
 	<?php
 		if($loggedin){
