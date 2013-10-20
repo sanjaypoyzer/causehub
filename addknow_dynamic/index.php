@@ -21,7 +21,7 @@
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
-	if($ownerid!=getCurrentUserInfo('id')){
+	if(!$loggedin){
 		header('location:/cause/'.$slug);
 		exit;
 	}
@@ -30,9 +30,6 @@
 		header('location:/cause/'.$slug);
 		exit;
 	}
-
-	$today = date("d/m/Y");
-	$oneweek = date("d/m/Y",strtotime("+1 week"));
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +47,7 @@
 <body>
 	<header>
 		<a href="/getmps.php"><button class="searchbtn">Search InfoHub	</button></a>
-		<h1>CauseHub.</h1>
+		<h1><a href="/">CauseHub.</a></h1>
 		<?php
 			if($loggedin){
 				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
