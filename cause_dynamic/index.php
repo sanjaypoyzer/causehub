@@ -36,112 +36,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>CauseHub. | <?php echo $causename; ?></title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script src="/scripts/editcause.js"></script>
-  <script src="/scripts/addpetition.js"></script>
-  <script src="/plugins/alertify/alertify.js"></script>
-  <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
-  <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+	<meta charset="UTF-8">
+	<title>CauseHub. | <?php echo $causename; ?></title>
+	<link rel="stylesheet" href="/css/style.css">
+
+	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
+	<link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+
+	<link rel="stylesheet" href="/plugins/nprogress/nprogress.css" />
 </head>
 <body>
-<header>
-	<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
-	<h1><a href="/">CauseHub.</a></h1>
-	<?php
-		if($loggedin){
-			echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
-		} else {
-			echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
-		}
-	?>
-</header>
-	<img src="http://lorempixel.com/1200/200/" class="causeImg" />
-<main>
-	<section class="causeDescription">
-		
-	<?php 
-		if($ownerid==getCurrentUserInfo('id')){
-			echo '<a href="/editcause/'.$slug.'/" class="editlink"><button class="publishbtn">&larr; Manage Cause</button></a>';
-		}
-	?>
-		<h1><?php echo $causename; ?></h1>
-		<?php echo $causedescription; ?>
-	</section>
-	<section class="knowledgeBaseSummary">
-		<h2>Knowledge Base</h2>
-		<ul>
+	<header>
+		<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
+		<h1><a href="/">CauseHub.</a></h1>
 		<?php
-			$total = 0;
-			$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
-			while($array = mysql_fetch_array($sql)){
-				if($array['action']=='lobbyLord'){
-					$actionid = $array['actionid'];
-					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbylord WHERE id='$actionid'");
-					$row = mysql_fetch_array($sqlemail);
-					$message = rawurlencode($row['message']);
-					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-				} else if($array['action']=='lobbyMP'){
-					$actionid = $array['actionid'];
-					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymp WHERE id='$actionid'");
-					$row = mysql_fetch_array($sqlemail);
-					$message = rawurlencode($row['message']);
-					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-				} else if($array['action']=='lobbyMedia'){
-					$actionid = $array['actionid'];
-					$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymedia WHERE id='$actionid'");
-					$row = mysql_fetch_array($sqlemail);
-					$message = rawurlencode($row['message']);
-					echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-				} else if($array['action']=='createPetition'){
-					$actionid = $array['actionid'];
-					$sqlemail = mysql_query("SELECT * FROM kb_action_petitions WHERE id='$actionid'");
-					$row = mysql_fetch_array($sqlemail);
-					echo '<li>'.$array['fact'].' &rarr; <a href="/petition/'.$row['slug'].'/" target=_blank>Sign it!</a>';
-					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-				} else if($array['action']=='hostEvent'){
-					$actionid = $array['actionid'];
-					$sqlemail = mysql_query("SELECT * FROM kb_action_hostevent WHERE id='$actionid'");
-					$row = mysql_fetch_array($sqlemail);
-					echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Attend!</a>';
-					echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-				}
-				$total++;
-			}
-
-			if($total==0){
-				echo '<li>No entries added to the knowledgebase yet</li>';
+			if($loggedin){
+				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
+			} else {
+				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/signup"><button>Signup</button></a></span>';
 			}
 		?>
-		</ul>
+	</header>
+		<img src="http://lorempixel.com/1200/200/" class="causeImg" />
+	<main>
+		<section class="causeDescription">
+			
+		<?php 
+			if($ownerid==getCurrentUserInfo('id')){
+				echo '<a href="/editcause/'.$slug.'/" class="editlink"><button class="publishbtn">&larr; Manage Cause</button></a>';
+			}
+		?>
+			<h1><?php echo $causename; ?></h1>
+			<?php echo $causedescription; ?>
+		</section>
+		<section class="knowledgeBaseSummary">
+			<h2>Knowledge Base</h2>
+			<ul>
+			<?php
+				$total = 0;
+				$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
+				while($array = mysql_fetch_array($sql)){
+					if($array['action']=='lobbyLord'){
+						$actionid = $array['actionid'];
+						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbylord WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqlemail);
+						$message = rawurlencode($row['message']);
+						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+					} else if($array['action']=='lobbyMP'){
+						$actionid = $array['actionid'];
+						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymp WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqlemail);
+						$message = rawurlencode($row['message']);
+						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+					} else if($array['action']=='lobbyMedia'){
+						$actionid = $array['actionid'];
+						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymedia WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqlemail);
+						$message = rawurlencode($row['message']);
+						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
+						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+					} else if($array['action']=='createPetition'){
+						$actionid = $array['actionid'];
+						$sqlemail = mysql_query("SELECT * FROM kb_action_petitions WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqlemail);
+						echo '<li>'.$array['fact'].' &rarr; <a href="/petition/'.$row['slug'].'/" target=_blank>Sign it!</a>';
+						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+					} else if($array['action']=='hostEvent'){
+						$actionid = $array['actionid'];
+						$sqlemail = mysql_query("SELECT * FROM kb_action_hostevent WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqlemail);
+						echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Attend!</a>';
+						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+					}
+					$total++;
+				}
+
+				if($total==0){
+					echo '<li>No entries added to the knowledgebase yet</li>';
+				}
+			?>
+			</ul>
+		</section>
+		
+	</main>
+	<section class="addAction">
+		<h1>Help <?php echo $causename; ?></h1>
+		<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Lord</button></a>
+		<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby An MP</button></a>
+		<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Media Source</button></a>
+		<a href='/addknow/<?php echo $slug; ?>/'><button>Start A Petition</button></a>
+		<a href='/addknow/<?php echo $slug; ?>/'><button>Post Event</button></a>
 	</section>
-	
-</main>
-<section class="addAction">
-	<h1>Help <?php echo $causename; ?></h1>
-	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Lord</button></a>
-	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby An MP</button></a>
-	<a href='/addknow/<?php echo $slug; ?>/'><button>Lobby A Media Source</button></a>
-	<a href='/addknow/<?php echo $slug; ?>/'><button>Start A Petition</button></a>
-	<a href='/addknow/<?php echo $slug; ?>/'><button>Post Event</button></a>
-</section>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('section.addAction').hover(
-    function(){
-      $(this).css('bottom','0');
-    },
-    function(){
-      $(this).css('bottom','-3em');
-    }
-  );
-});
-                               
-</script>
 </body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
+	<script src="/plugins/alertify/alertify.js"></script>
+	<script src="/plugins/nprogress/nprogress.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	  $('section.addAction').hover(
+	    function(){
+	      $(this).css('bottom','0');
+	    },
+	    function(){
+	      $(this).css('bottom','-3em');
+	    }
+	  );
+	});                        
+	</script>
 </html>

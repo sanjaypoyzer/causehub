@@ -9,14 +9,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <title>CauseHub. | Dashboard</title>
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-  <script src="/plugins/alertify/alertify.js"></script>
-  <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
-  <link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>CauseHub. | Dashboard</title>
+	<link rel="stylesheet" href="/css/style.css">
+
+	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
+	<link rel="stylesheet" href="/plugins/alertify/alertify.default.css" />
+
+	<link rel="stylesheet" href="/plugins/nprogress/nprogress.css" />
 </head>
 <body>
 	<header>
@@ -51,4 +52,7 @@
 	</section>
 	</main>
 </body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
+	<script src="/plugins/alertify/alertify.js"></script>
+	<script src="/plugins/nprogress/nprogress.js"></script>
 </html>

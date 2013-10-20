@@ -45,3 +45,31 @@ function createcause(){
          }
     	});
 }
+function updateSuggestions(){
+    $.ajaxSetup({
+      global: false
+    });
+    var entered = document.getElementById('causename').value;
+    if(entered.length>=3){
+        var data = 'entered=' + entered;
+        $.ajax({
+        type  : 'POST',
+         url  : '/scripts/updatesuggestions.php',
+         data : data,
+         beforeSend : function() {
+             console.log('Updating Suggestions');
+         },
+         error : function() {
+             console.log('Error updating suggestions');
+             return false;
+         },
+         success : function (response) {
+             document.getElementById('response').innerHTML = response;
+             console.log('Updated Suggestions');
+             return false;
+         }
+        });
+    } else {
+        document.getElementById('response').innerHTML = '';;
+    }
+}
