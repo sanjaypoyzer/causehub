@@ -12,7 +12,14 @@
 	$sql = mysql_query("SELECT * FROM causes WHERE name LIKE '%".$enteredsql."%' AND hidden='0' AND deleted='0'");
 	while($array = mysql_fetch_array($sql)){
 		$return = str_replace(strtolower($enteredsql), '<b>'.ucwords($enteredsql).'</b>', strtolower($array['name']));
-		echo ucwords($return).'<br>';
+		echo '
+		<a href="/cause/'.$array['slug'].'/">
+			<figure>
+			  <img src="http://placehold.it/200x100" alt="'.ucwords($return).'">
+			  <figcaption>'.ucwords($return).'</figcaption>
+			</figure>
+		</a>
+		';
 	}
 	exit;
 ?>

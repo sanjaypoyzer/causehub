@@ -64,12 +64,21 @@ function updateSuggestions(){
              return false;
          },
          success : function (response) {
+             if(response==''){
+                document.getElementById('featuredlist').style.display = 'block';
+                document.getElementById('relatedlist').style.display = 'none';
+             } else {
+                document.getElementById('featuredlist').style.display = 'none';
+                document.getElementById('relatedlist').style.display = 'block';
+             }
              document.getElementById('response').innerHTML = response;
              console.log('Updated Suggestions');
              return false;
          }
         });
     } else {
-        document.getElementById('response').innerHTML = '';;
+        document.getElementById('featuredlist').style.display = 'block';
+        document.getElementById('relatedlist').style.display = 'none';
+        document.getElementById('response').innerHTML = '';
     }
 }

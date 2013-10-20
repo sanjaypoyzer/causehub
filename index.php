@@ -35,25 +35,28 @@
 			<input type='text' id='causename' placeholder='What&#39;s Your Cause?' class="causeName" onkeyup="updateSuggestions();">
 			<input type='submit' id='causecreatebtn' value='Go' onclick='createcause(); return false;'>
 		</form>
-		<div id='response'></div>
-		<section class="causeThumbs">
-			<h2>Featured Causes</h2>
-			<?php
-			$sql = mysql_query("SELECT * FROM causes WHERE deleted='0' ORDER BY id DESC LIMIT 3");
-				$start = 100;
-				while($array = mysql_fetch_array($sql)){
-					echo '
-					<a href="/cause/'.$array['slug'].'/">
-					<figure>
-					  <img src="http://lorempixel.com/200/'.$start.'" alt="'.$array['name'].'">
-					  <figcaption>'.$array['name'].'</figcaption>
-					</figure>
-					</a>
-					';
-					$start++;
-				}
-			?>
-		</section>
+			<section class="causeThumbs" id='relatedlist' style='display: none;'>
+				<h2>Related Causes</h2>
+				<div id='response'></div>
+			</section>
+			<section class="causeThumbs" id='featuredlist'>
+				<h2>Featured Causes</h2>
+				<?php
+				$sql = mysql_query("SELECT * FROM causes WHERE deleted='0' ORDER BY id DESC LIMIT 3");
+					$start = 100;
+					while($array = mysql_fetch_array($sql)){
+						echo '
+						<a href="/cause/'.$array['slug'].'/">
+						<figure>
+						  <img src="http://lorempixel.com/200/'.$start.'" alt="'.$array['name'].'">
+						  <figcaption>'.$array['name'].'</figcaption>
+						</figure>
+						</a>
+						';
+						$start++;
+					}
+				?>
+			</section>
 	</main>
 </body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
