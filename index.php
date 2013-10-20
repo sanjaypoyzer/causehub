@@ -40,20 +40,18 @@
 				<div id='response'></div>
 			</section>
 			<section class="causeThumbs" id='featuredlist'>
-				<h2>Featured Causes</h2>
+				<h2>Latest Causes</h2>
 				<?php
-				$sql = mysql_query("SELECT * FROM causes WHERE deleted='0' ORDER BY id DESC LIMIT 3");
-					$start = 100;
+				$sql = mysql_query("SELECT * FROM causes WHERE deleted='0' AND hidden='0' ORDER BY id DESC LIMIT 3");
 					while($array = mysql_fetch_array($sql)){
 						echo '
 						<a href="/cause/'.$array['slug'].'/">
 						<figure>
-						  <img src="http://lorempixel.com/200/'.$start.'" alt="'.$array['name'].'">
+						  <img src="http://placehold.it/200x100" alt="'.$array['name'].'">
 						  <figcaption>'.$array['name'].'</figcaption>
 						</figure>
 						</a>
 						';
-						$start++;
 					}
 				?>
 			</section>

@@ -197,6 +197,7 @@
 	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
+	<script src="/plugins/jHtmlArea/scripts/jquery-1.3.2.min.js"></script>
 	<script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
 	<script type="text/javascript" src="/plugins/jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
 	<script type="text/javascript">
