@@ -2,4 +2,7 @@
 scripts/connect.php
 /scripts/connect.php
 
+#sass files
+*.scss
+
 .DS_Store

@@ -20,6 +20,7 @@ $headerFont : 'RobotoSlab', serif;
 $bodyFont : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 $buttonColor : #009fbb; 
 $headerLinkColor : #fece2f;
+$headerBG : rgba(0, 106, 166, 0.7);
 
 
 
@@ -83,7 +84,7 @@ button, input[type=submit]{
 }
 
 body > header{
-	background: rgba(0, 106, 166, 0.7);
+	background: $headerBG;
 	color: #fff;
 	text-align: center;
 	font-size: .8em;
