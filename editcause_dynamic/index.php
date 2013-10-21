@@ -214,10 +214,13 @@
 	          "Heading",
 	          "Text",
 	          "Quote",
+	          "List",
 	          "Video",
-	          "Photo",
 	          "Embedly"
 	        ]
+	      });
+	      SirTrevor.setDefaults({
+			uploadUrl: "/images"
 	      });
 
 	    });

@@ -91,6 +91,9 @@
 						echo '<div style="width: 100%; margin-bottom: 20px;"><p>'.$data.'</p></div>';
 					} else if($itemtype=='quote'){
 						echo '<div style="width: 100%; margin-bottom: 20px;">'.Parsedown::instance()->parse(substr($jsondescarray['data'][$i]['data']['text'], 2)).'--<i>'.Parsedown::instance()->parse($jsondescarray['data'][$i]['data']['cite']).'</i></div>';
+					} else if($itemtype=='list'){
+						$data = Parsedown::instance()->parse($jsondescarray['data'][$i]['data']['text']);
+						echo '<div style="width: 100%; margin-bottom: 20px;"><p>'.$data.'</p></div>';
 					} else if($itemtype=='video'){
 						if($jsondescarray['data'][$i]['data']['source']=='youtube'){
 							$embedcode = '<iframe width="300" height="180" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remote_id'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
@@ -100,10 +103,16 @@
 							$embedcode = '<b>Error Loading Video</b>';
 						}
 						echo '<div style="width: 100%; margin-bottom: 20px;">'.$embedcode.'</div>';
+					} else if($itemtype=='embedly'){
+						if($jsondescarray['data'][$i]['data']['type']=='photo'){
+							echo '<div style="width: 100%; margin-bottom: 20px;"><img src="'.$jsondescarray['data'][$i]['data']['url'].'" width="100%"></div>';
+						} else if($jsondescarray['data'][$i]['data']['type']=='rich'){
+							echo '<div style="width: 100%; margin-bottom: 20px;">'.$jsondescarray['data'][$i]['data']['html'].'</div>';
+						} else {
+							echo '<b>Error Loading Video</b>';
+						}
 					}
 				}
-				echo '<br><br>';
-				print_r($jsondescarray['data']);
 			?>
 
 			<!-- DONE DESCRIPTION RENDERING -->
@@ -185,29 +194,7 @@
 	});  
 
 	$(function() {
-		var $allVideos = $("iframe[src^='http://www.youtube.com']"),
-		$fluidEl = $("#causeDescription");
-		$allVideos.each(function() {
-			$(this)
-				.data('aspectRatio', this.height / this.width)
-				.removeAttr('height')
-				.removeAttr('width');
-
-		});
-		$(window).resize(function() {
-			var newWidth = $fluidEl.width();
-			$allVideos.each(function() {
-				var $el = $(this);
-				$el
-					.width(newWidth)
-					.height(newWidth * $el.data('aspectRatio'));
-			});
-		}).resize();
-
-	}); 
-
-	$(function() {
-		var $allVideos = $("iframe[src^='http://player.vimeo.com']"),
+		var $allVideos = $("iframe"),
 		$fluidEl = $("#causeDescription");
 		$allVideos.each(function() {
 			$(this)
