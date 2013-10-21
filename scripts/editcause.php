@@ -47,19 +47,6 @@
 
 		echo '1:'.$requestedslug.':Redirecting';
 		exit;
-	} else if($postaction=='editdescription'){
-		$requesteddescription = $_POST['newdescription'];
-		
-		if(strlen($requesteddescription)<100){
-			echo '3:Please enter at least 100 characters in the decription:Update';
-			exit;
-		}
-
-		$sqldescription = mysql_real_escape_string($requesteddescription);
-		mysql_query("UPDATE causes SET description='$sqldescription' WHERE (id='$postcauseid')");
-
-		echo '1:Description successfully updated:Update';
-		exit;
 	} else if($postaction=='publish'){
 		$cid = $_POST['causeid'];
 		

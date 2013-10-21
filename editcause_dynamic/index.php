@@ -44,7 +44,8 @@
 
 	<link rel="stylesheet" href="/plugins/nprogress/nprogress.css" />
 
-	<link rel="stylesheet" href="/plugins/jHtmlArea/style/jHtmlArea.css" />
+	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor.css" />
+	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor-icons.css" />
 </head>
 <body>
 	<header>
@@ -64,12 +65,16 @@
 				<span class="hint titleHint">Your Cause Is:</span>
 				<h1><?php echo $causename; ?></h1>
 			</header>
-			<form method='post' action='#' onsubmit="return false;">
-			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+
+			<form action='/scripts/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
+				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
-			<textarea id='editdescription'><?php echo $causedescription; ?></textarea>
-			<input type='submit' id='editdescriptionbtn' value='Update' onclick='editCauseDescription(); return false;'>
+			    <div class="errors"></div>
+			    <textarea class="sir-trevor" name="content"><?php echo $causedescription; ?></textarea>
+			    <input type='submit' value='Update' id='editdescriptionbtn'>
 			</form>
+
+
 			<br /><br /><br />
 			<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
 			<span class="hint descriptionHint">Upload a banner image for your cause:</span>
@@ -197,12 +202,24 @@
 	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
-	<script src="/plugins/jHtmlArea/scripts/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="/plugins/jHtmlArea/scripts/jquery-ui-1.7.2.custom.min.js"></script>
-	<script type="text/javascript" src="/plugins/jHtmlArea/scripts/jHtmlArea-0.7.5.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-	  	$('textarea#editdescription').htmlarea();
-	});
+	<script src="/plugins/SirTrevor/js/underscore.js"></script>
+	<script src="/plugins/SirTrevor/js/eventable.js"></script>
+	<script src="/plugins/SirTrevor/js/sir-trevor.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	    $(function(){
+
+	      window.editor = new SirTrevor.Editor({
+	        el: $('.sir-trevor'),
+	        blockTypes: [
+	          "Heading",
+	          "Text",
+	          "Quote",
+	          "Image",
+	          "Video",
+	          "Embedly"
+	        ]
+	      });
+
+	    });
 	</script>
 </html>
