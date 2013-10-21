@@ -1,3 +1,5 @@
 #Connect settings file
 scripts/connect.php
 /scripts/connect.php
+
+.DS_Store
