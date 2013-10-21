@@ -59,7 +59,7 @@
 	</header>
 		<img src="http://lorempixel.com/1200/200/" class="causeImg" />
 	<main>
-		<section class="causeDescription">
+		<section class="causeDescription" id="causeDescription">
 			
 		<?php 
 			if($ownerid==getCurrentUserInfo('id')){
@@ -67,7 +67,38 @@
 			}
 		?>
 			<h1><?php echo $causename; ?></h1>
-			<?php echo $causedescription; ?>
+			<!-- START DESCRIPTION RENDERING -->
+
+			<?php
+				$json = $causedescription;
+				$jsondescarray = json_decode($json,true);
+
+				$descitems = count($jsondescarray['data']);
+
+				for($i=0;$i<$descitems;$i++){
+					$itemtype = $jsondescarray['data'][$i]['type'];
+					if($itemtype=='heading'){
+						echo '<div style="width: 100%; margin-bottom: 10px;"><b>'.$jsondescarray['data'][$i]['data']['text'].'</b></div>';
+					} else if($itemtype=='text'){
+						echo '<div style="width: 100%; margin-bottom: 10px;"><p>'.$jsondescarray['data'][$i]['data']['text'].'</p></div>';
+					} else if($itemtype=='quote'){
+						echo '<div style="width: 100%; margin-bottom: 10px;">'.substr($jsondescarray['data'][$i]['data']['text'], 2).'<br>--<i>'.$jsondescarray['data'][$i]['data']['cite'].'</i></div>';
+					} else if($itemtype=='video'){
+						if($jsondescarray['data'][$i]['data']['source']=='youtube'){
+							$embedcode = '<iframe width="300" height="420" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remoteid'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
+						} else if($jsondescarray['data'][$i]['data']['source']=='vimeo'){
+							$embedcode = $jsondescarray['data'][$i]['data']['remoteid'];
+						} else {
+							$embedcode = '<b>Error Loading Video</b>';
+						}
+						echo '<div style="width: 100%; margin-bottom: 10px;">'.$embedcode.'</div>';
+					}
+				}
+				echo '<br><br>';
+				print_r($jsondescarray['data'][3]);
+			?>
+
+			<!-- DONE DESCRIPTION RENDERING -->
 		</section>
 		<section class="knowledgeBaseSummary">
 			<h2>Knowledge Base</h2>
@@ -143,6 +174,29 @@
 	      $(this).css('bottom','-3em');
 	    }
 	  );
-	});                        
+	});  
+
+	$(function() {
+		var $allVideos = $("iframe[src^='http://www.youtube.com']"),
+		$fluidEl = $("#causeDescription");
+		$allVideos.each(function() {
+			$(this)
+				.data('aspectRatio', this.height / this.width)
+				.removeAttr('height')
+				.removeAttr('width');
+
+		});
+		$(window).resize(function() {
+			var newWidth = $fluidEl.width();
+			$allVideos.each(function() {
+				var $el = $(this);
+				$el
+					.width(newWidth)
+					.height(newWidth * $el.data('aspectRatio'));
+			});
+		}).resize();
+
+	});  
+	                
 	</script>
 </html>

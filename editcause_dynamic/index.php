@@ -214,7 +214,6 @@
 	          "Heading",
 	          "Text",
 	          "Quote",
-	          "Image",
 	          "Video",
 	          "Embedly"
 	        ]
