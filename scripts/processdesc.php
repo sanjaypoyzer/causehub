@@ -2,11 +2,6 @@
 	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
-	
-	if(!checkSession()){
-		echo '3:You need to be logged in to edit this cause:Update';
-		exit;
-	}
 
 	$postcauseid = $_GET['cid'];
 	$postcontent = $_POST['content'];
@@ -23,16 +18,21 @@
 	$causestart = $row['started'];
 	$cslug = $row['slug'];
 
+	if(!checkSession()){
+		header('location:/cause/'.$cslug.'/');
+		exit;
+	}
+
 	if($userid != $ownerid){
-		echo '3:You cannot edit this cause:Update';
+		header('location:/cause/'.$cslug.'/');
 		exit;
 	}
 	if($postcontent!=''){
 		$content = mysql_real_escape_string($postcontent);
 		mysql_query("UPDATE causes SET description='$content' WHERE (id='$postcauseid')");
-		echo '1:Decription saved:Update';
+		header('location:/cause/'.$cslug.'/');
 	} else {
-		echo '2:No description entered:Update';
+		header('location:/cause/'.$cslug.'/');
 	}
 	exit;
 ?>

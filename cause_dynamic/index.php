@@ -2,6 +2,7 @@
 	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/plugins/Parsedown/parsedown.php');
 
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
@@ -29,6 +30,11 @@
 
 	if(!$pagefound){
 		echo 'Cause not found';
+		exit;
+	}
+
+	if($causehidden=='1'){
+		header('location:/editcause/'.$slug.'/');
 		exit;
 	}
 ?>
@@ -78,11 +84,13 @@
 				for($i=0;$i<$descitems;$i++){
 					$itemtype = $jsondescarray['data'][$i]['type'];
 					if($itemtype=='heading'){
-						echo '<div style="width: 100%; margin-bottom: 10px;"><h2>'.$jsondescarray['data'][$i]['data']['text'].'</h2></div>';
+						$data = Parsedown::instance()->parse($jsondescarray['data'][$i]['data']['text']);
+						echo '<div style="width: 100%; margin-bottom: 10px;"><h2>'.$data.'</h2></div>';
 					} else if($itemtype=='text'){
-						echo '<div style="width: 100%; margin-bottom: 10px;"><p>'.$jsondescarray['data'][$i]['data']['text'].'</p></div>';
+						$data = Parsedown::instance()->parse($jsondescarray['data'][$i]['data']['text']);
+						echo '<div style="width: 100%; margin-bottom: 20px;"><p>'.$data.'</p></div>';
 					} else if($itemtype=='quote'){
-						echo '<div style="width: 100%; margin-bottom: 10px;">'.substr($jsondescarray['data'][$i]['data']['text'], 2).'<br>--<i>'.$jsondescarray['data'][$i]['data']['cite'].'</i></div>';
+						echo '<div style="width: 100%; margin-bottom: 20px;">'.Parsedown::instance()->parse(substr($jsondescarray['data'][$i]['data']['text'], 2)).'--<i>'.Parsedown::instance()->parse($jsondescarray['data'][$i]['data']['cite']).'</i></div>';
 					} else if($itemtype=='video'){
 						if($jsondescarray['data'][$i]['data']['source']=='youtube'){
 							$embedcode = '<iframe width="300" height="180" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remote_id'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
@@ -91,7 +99,7 @@
 						} else {
 							$embedcode = '<b>Error Loading Video</b>';
 						}
-						echo '<div style="width: 100%; margin-bottom: 10px;">'.$embedcode.'</div>';
+						echo '<div style="width: 100%; margin-bottom: 20px;">'.$embedcode.'</div>';
 					}
 				}
 				echo '<br><br>';

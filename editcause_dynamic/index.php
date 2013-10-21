@@ -215,6 +215,7 @@
 	          "Text",
 	          "Quote",
 	          "Video",
+	          "Photo",
 	          "Embedly"
 	        ]
 	      });
