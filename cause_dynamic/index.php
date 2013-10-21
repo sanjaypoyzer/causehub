@@ -87,7 +87,7 @@
 						if($jsondescarray['data'][$i]['data']['source']=='youtube'){
 							$embedcode = '<iframe width="300" height="180" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remote_id'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
 						} else if($jsondescarray['data'][$i]['data']['source']=='vimeo'){
-							$embedcode = $jsondescarray['data'][$i]['data']['remote_id'];
+							$embedcode = '<iframe src="http://player.vimeo.com/video/'.$jsondescarray['data'][$i]['data']['remote_id'].'" width="300" height="180" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 						} else {
 							$embedcode = '<b>Error Loading Video</b>';
 						}
@@ -196,7 +196,29 @@
 			});
 		}).resize();
 
-	});  
+	}); 
+
+	$(function() {
+		var $allVideos = $("iframe[src^='http://player.vimeo.com']"),
+		$fluidEl = $("#causeDescription");
+		$allVideos.each(function() {
+			$(this)
+				.data('aspectRatio', this.height / this.width)
+				.removeAttr('height')
+				.removeAttr('width');
+
+		});
+		$(window).resize(function() {
+			var newWidth = $fluidEl.width();
+			$allVideos.each(function() {
+				var $el = $(this);
+				$el
+					.width(newWidth)
+					.height(newWidth * $el.data('aspectRatio'));
+			});
+		}).resize();
+
+	}); 
 	                
 	</script>
 </html>
