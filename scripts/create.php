@@ -20,7 +20,7 @@
 	$slug = rand(10000,99999);
 
 	$causename = mysql_real_escape_string($causename);
-	$defaultdesc = mysql_real_escape_string('Fill this space with the story behind your cause. Basic HTML allowed. Embed images &amp; video to help your cause stand out.');
+	$defaultdesc = mysql_real_escape_string(file_get_contents('default_desc.json'));
 	mysql_query("INSERT INTO causes (uid,name,slug,started,description,category,hidden,deleted) VALUES('$userid','$causename','$slug','$date','$defaultdesc','','1','0') ");
 
 	echo '1:'.$slug.':Redirecting';
