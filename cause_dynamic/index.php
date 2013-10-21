@@ -78,16 +78,16 @@
 				for($i=0;$i<$descitems;$i++){
 					$itemtype = $jsondescarray['data'][$i]['type'];
 					if($itemtype=='heading'){
-						echo '<div style="width: 100%; margin-bottom: 10px;"><b>'.$jsondescarray['data'][$i]['data']['text'].'</b></div>';
+						echo '<div style="width: 100%; margin-bottom: 10px;"><h2>'.$jsondescarray['data'][$i]['data']['text'].'</h2></div>';
 					} else if($itemtype=='text'){
 						echo '<div style="width: 100%; margin-bottom: 10px;"><p>'.$jsondescarray['data'][$i]['data']['text'].'</p></div>';
 					} else if($itemtype=='quote'){
 						echo '<div style="width: 100%; margin-bottom: 10px;">'.substr($jsondescarray['data'][$i]['data']['text'], 2).'<br>--<i>'.$jsondescarray['data'][$i]['data']['cite'].'</i></div>';
 					} else if($itemtype=='video'){
 						if($jsondescarray['data'][$i]['data']['source']=='youtube'){
-							$embedcode = '<iframe width="300" height="420" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remoteid'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
+							$embedcode = '<iframe width="300" height="180" src="http://www.youtube.com/embed/'.$jsondescarray['data'][$i]['data']['remote_id'].'?rel=0&amp;hd=0" frameborder="0"></iframe>';
 						} else if($jsondescarray['data'][$i]['data']['source']=='vimeo'){
-							$embedcode = $jsondescarray['data'][$i]['data']['remoteid'];
+							$embedcode = $jsondescarray['data'][$i]['data']['remote_id'];
 						} else {
 							$embedcode = '<b>Error Loading Video</b>';
 						}
@@ -95,7 +95,7 @@
 					}
 				}
 				echo '<br><br>';
-				print_r($jsondescarray['data'][3]);
+				print_r($jsondescarray['data']);
 			?>
 
 			<!-- DONE DESCRIPTION RENDERING -->
