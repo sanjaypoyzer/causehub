@@ -3,7 +3,6 @@
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 
-	if(!checkSession()){header('location:/login');}
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 ?>
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>CauseHub. | Dashboard</title>
+	<title>CauseHub. | Browse Causes</title>
 	<link rel="stylesheet" href="/css/style.css">
 
 	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
@@ -31,11 +30,10 @@
 	?>
 	</header>
 	<main class="dash">
-		<h1>Your Causes</h1>
+		<h1>All Causes</h1>
 		<section class="causeThumbs">
 		<?php
-		$userid = getCurrentUserInfo('id');
-		$sql = mysql_query("SELECT * FROM causes WHERE uid='$userid' AND deleted='0' ORDER BY id DESC");
+		$sql = mysql_query("SELECT * FROM causes WHERE hidden='0' AND deleted='0' ORDER BY id DESC LIMIT 15");
 			while($array = mysql_fetch_array($sql)){
 				echo '
 				<a href="/cause/'.$array['slug'].'/">

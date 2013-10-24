@@ -47,7 +47,7 @@
 						echo '
 						<a href="/cause/'.$array['slug'].'/">
 						<figure>
-						  <img src="http://placehold.it/200x100" alt="'.$array['name'].'">
+						  <img src="/images/200x100_placeholder.gif" alt="'.$array['name'].'">
 						  <figcaption>'.$array['name'].'</figcaption>
 						</figure>
 						</a>
