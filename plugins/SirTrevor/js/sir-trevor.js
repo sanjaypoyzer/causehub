@@ -1774,7 +1774,7 @@
     }
   });
   /*
-    Simple Image Block
+    Simple Image Block   - TOFIX
   */
   
   SirTrevor.Blocks.Image = SirTrevor.Block.extend({

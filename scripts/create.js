@@ -80,5 +80,6 @@ function updateSuggestions(){
         document.getElementById('featuredlist').style.display = 'block';
         document.getElementById('relatedlist').style.display = 'none';
         document.getElementById('response').innerHTML = '';
+        console.log('Under 3 chars, exiting updateSuggestions function');
     }
 }
