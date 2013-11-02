@@ -26,7 +26,7 @@
     <form method='post' class='login' action='#' onsubmit="return false;">
           Username: <input type="text" id='user' name="user" size="15" /><br />
           Password: <input type="password" id='pass' name="pass" size="15" /><br />
-          Full Name: <input type="text" id='fullname' name="fullname" size="15" /><br />
+          Name: <input type="text" id='fname' name="fname" size="5" /> <input type="text" id='lname' name="lname" size="5" /><br />
           Email: <input type="text" id='email' name="email" size="15" /><br />
         <div align="center">
         <p><input type="submit" id='registerbtn' value="Register" onclick='register(); return false;'/></p>
