@@ -40,8 +40,12 @@
 		
 	$timedate = date("H:i:s d-m-Y");
 	$ip = $_SERVER['REMOTE_ADDR'];
-		
-	mysql_query("INSERT INTO sessions (uid,sid,ip,timedate,killed) VALUES('$userid','$sessionid','$ip','$timedate','0') ");
+
+	$nextpathitem = count($_SESSION['path']);
+    $_SESSION['path'][$nextpathitem]['uri'] = 'login.entry.script';
+    $_SESSION['path'][$nextpathitem]['timedate'] = date("Y-m-d")." ".strftime("%H:%M:%S");
+    $path_string = mysql_escape_string(serialize($_SESSION['path']));
+    mysql_query("INSERT INTO sessions (uid,sid,ip,path,timedate,killed) VALUES('$userid','$sessionid','$ip','$path_string','$timedate','0') ");
 
 	echo '1::Redirecting';
 	exit;

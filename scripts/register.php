@@ -37,18 +37,18 @@
 
 	$sql = mysql_query("SELECT * FROM users WHERE username='$user'");
 	$usercheck = mysql_num_rows($sql);
-	if($usercheck==0){
+	if($usercheck!=0){
 		echo '2:Username already in use:Register';
 		exit;
 	}
 	$sql = mysql_query("SELECT * FROM users WHERE email='$email'");
 	$emailcheck = mysql_num_rows($sql);
-	if($emailcheck==0){
+	if($emailcheck!=0){
 		echo '2:Email already in use:Register';
 		exit;
 	}
 
-	mysql_query("INSERT INTO sessions (username,password,email,fname,lname) VALUES('$user','$pass','$email','$fname','$lname') ");
+	mysql_query("INSERT INTO users (username,password,email,fname,lname) VALUES('$user','$pass','$email','$fname','$lname') ");
 
 	echo '1::Registering';
 	exit;

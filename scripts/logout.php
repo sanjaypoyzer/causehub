@@ -6,5 +6,6 @@
 	$sid = $_SESSION['id'];
 	unset($_SESSION);
 	mysql_query("UPDATE sessions SET killed='1' WHERE (sid='$sid')");
+	session_destroy();
 	header('location:/login');
 ?>

@@ -17,9 +17,15 @@ function register(){
             error = true;
             return false;
         }
-        if(document.getElementById('name').value==''){
-            alertify.log('No name entered', 'error');
-            document.getElementById('name').style.borderColor = 'red';
+        if(document.getElementById('fname').value==''){
+            alertify.log('No first name entered', 'error');
+            document.getElementById('fname').style.borderColor = 'red';
+            error = true;
+            return false;
+        }
+        if(document.getElementById('lname').value==''){
+            alertify.log('No last name entered', 'error');
+            document.getElementById('lname').style.borderColor = 'red';
             error = true;
             return false;
         }
@@ -30,7 +36,7 @@ function register(){
             return false;
         }
 	
-	var data = 'user=' + document.getElementById('user').value + '&pass=' + document.getElementById('pass').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&emai=' + document.getElementById('email').value;
+	var data = 'user=' + document.getElementById('user').value + '&pass=' + document.getElementById('pass').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&email=' + document.getElementById('email').value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/register.php',

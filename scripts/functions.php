@@ -33,4 +33,23 @@ function getCurrentUserInfo($type) {
         }
     }
 }
+
+
+
+/// Tracking
+
+    if(checkSession()){
+        if (strpos($_SERVER["REQUEST_URI"],'scripts') !== false) {
+        } else {
+            $sessionid = $_SESSION['id'];
+            $nextpathitem = count($_SESSION['path']);
+            $prevpathitem = count($_SESSION['path'])-1;
+            if($_SERVER["REQUEST_URI"] != $_SESSION['path'][$prevpathitem]['uri']){
+                $_SESSION['path'][$nextpathitem]['uri'] = $_SERVER["REQUEST_URI"];
+                $_SESSION['path'][$nextpathitem]['timedate'] = date("Y-m-d")." ".strftime("%H:%M:%S");
+                $path_string = mysql_real_escape_string(serialize($_SESSION['path']));
+                mysql_query("UPDATE sessions SET path='$path_string' WHERE sid='$sessionid'");
+            }
+        }
+    }
 ?>
