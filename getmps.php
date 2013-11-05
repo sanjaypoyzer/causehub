@@ -19,16 +19,7 @@
 	<link rel="stylesheet" href="/plugins/nprogress/nprogress.css" />
 </head>
 <body class="index">
-	<header>
-		<h1><a href="/">CauseHub.</a></h1>
-		<?php
-			if($loggedin){
-				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
-			} else {
-				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/register"><button>Register</button></a></span>';
-			}
-		?>
-	</header>
+	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
 	<main>
 		<form method='post' action='#' onsubmit="return false;" class="causeInit">
 		<input type='text' id='causename' placeholder='Please enter policy keywords' class="causeName">

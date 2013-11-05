@@ -52,18 +52,8 @@
 	<link rel="stylesheet" href="/plugins/nprogress/nprogress.css" />
 </head>
 <body>
-	<header>
-		<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
-		<h1><a href="/">CauseHub.</a></h1>
-		<?php
-			if($loggedin){
-				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
-			} else {
-				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/register"><button>Register</button></a></span>';
-			}
-		?>
-	</header>
-		<img src="http://lorempixel.com/1200/200/" class="causeImg" />
+	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
+	<img src="http://lorempixel.com/1200/200/" class="causeImg" />
 	<main>
 		<section class="causeDescription" id="causeDescription">
 			

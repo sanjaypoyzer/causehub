@@ -1,5 +1,4 @@
 <!-- Feedback Button -->
-<<<<<<< HEAD
 <style type="text/css">
 div.feedback{
 	position: fixed;
@@ -40,8 +39,6 @@ div.feedback form input, div.feedback form textarea{
 	margin-bottom: 1em;
 }
 </style>
-=======
->>>>>>> 0f936ffecf52b346a0ceb1c493b83ed77c8808a7
 <div class="feedback">
 	<form id='feedbackform' method='post' action='#' onsubmit="return false;">
 		<h2>Feedback?</h2>
