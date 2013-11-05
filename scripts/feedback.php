@@ -32,7 +32,7 @@ div.feedback h2{
 	transform:rotate(270deg);
 	position: absolute;
 	left: -3.7em;
-	top: 3em;
+	top: 4em;
 }
 div.feedback form input, div.feedback form textarea{
 	display: block;
@@ -42,10 +42,10 @@ div.feedback form input, div.feedback form textarea{
 <div class="feedback">
 	<form>
 		<h2>Feedback?</h2>
-		Name: <input type="text" />
-		Email: <input type="email" />
-		Comments: <textarea rows="4"></textarea>
-		<input type="submit" value="Submit" />
+		Name: <input type="text" id="feedbackname" name="feedbackname" />
+		Email: <input type="text" id="feedbackemail" name="feedbackemail" />
+		Message: <textarea rows="4" id="feedbackmsg" id="feedbackmsg"></textarea>
+		<input type="submit" value="Submit Feedback" />
 		<?php echo CAUSEHUB_VERSION; ?>
 	</form>
 </div>
