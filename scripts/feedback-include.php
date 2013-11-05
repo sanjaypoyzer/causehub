@@ -1,4 +1,5 @@
 <!-- Feedback Button -->
+<<<<<<< HEAD
 <style type="text/css">
 div.feedback{
 	position: fixed;
@@ -39,6 +40,8 @@ div.feedback form input, div.feedback form textarea{
 	margin-bottom: 1em;
 }
 </style>
+=======
+>>>>>>> 0f936ffecf52b346a0ceb1c493b83ed77c8808a7
 <div class="feedback">
 	<form id='feedbackform' method='post' action='#' onsubmit="return false;">
 		<h2>Feedback?</h2>
@@ -46,7 +49,7 @@ div.feedback form input, div.feedback form textarea{
 		Email: <input type="text" id="feedbackemail" name="feedbackemail" />
 		Message: <textarea rows="4" id="feedbackmsg" id="feedbackmsg"></textarea>
 		<input type="submit" id="feedbackbtn" value="Submit Feedback" onclick='submitFeedback(); return false;' />
-		<?php echo CAUSEHUB_VERSION; ?>
+		<span>Version: <?php echo CAUSEHUB_VERSION; ?></span>
 	</form>
 </div>
 <script src="/scripts/feedback.js"></script>

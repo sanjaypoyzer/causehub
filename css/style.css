@@ -253,3 +253,40 @@ main.petition {
   text-align: center; }
   main.petition h2 {
     margin-top: 2em; }
+
+div.feedback {
+  position: fixed;
+  top: calc(50% - 200px);
+  left: calc(-250px);
+  background: rgba(255, 255, 255, 0.9);
+  border: solid 2px black;
+  border-radius: 15px;
+  width: 250px;
+  padding: 1em;
+  z-index: 999;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -o-transition: 1s;
+  -ms-transition: 1s;
+  transition: 1s; }
+  div.feedback:hover {
+    left: -50px; }
+  div.feedback form {
+    position: relative;
+    width: 100%;
+    left: 2em; }
+  div.feedback h2 {
+    font-size: 1.2em;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+    position: absolute;
+    right: -1em;
+    top: 4em; }
+  div.feedback form input, div.feedback form textarea {
+    display: block;
+    margin-bottom: 1em; }
+  div.feedback span {
+    font-size: .6em; }
