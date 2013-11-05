@@ -1,4 +1,12 @@
 <?php
+
+///CAUSEHUB INFO START
+
+	define(CAUSEHUB_VERSION, 'ALPHA 1.0.0.0');
+
+///CAUSEHUB INFO END
+
+
 $db_host = "localhost";
 $db_username = "causehub";
 $db_pass = "pass";

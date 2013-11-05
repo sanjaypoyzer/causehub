@@ -46,6 +46,7 @@ div.feedback form input, div.feedback form textarea{
 		Email: <input type="email" />
 		Comments: <textarea rows="4"></textarea>
 		<input type="submit" value="Submit" />
+		<?php echo CAUSEHUB_VERSION; ?>
 	</form>
 </div>
 <!-- /Feedback Button -->
