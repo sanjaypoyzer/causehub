@@ -1,14 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2013 at 10:40 PM
--- Server version: 5.5.33
--- PHP Version: 5.5.3
+-- Generation Time: Nov 05, 2013 at 01:14 PM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `causehub`
@@ -20,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `causes`
 --
 
-CREATE TABLE `causes` (
+CREATE TABLE IF NOT EXISTS `causes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -31,7 +37,7 @@ CREATE TABLE `causes` (
   `hidden` int(11) NOT NULL,
   `deleted` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `causes`
@@ -47,11 +53,25 @@ INSERT INTO `causes` (`id`, `uid`, `name`, `slug`, `started`, `description`, `ca
 (7, 1, 'tesett', '23189', '20-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 1),
 (8, 1, 'another test', '13021', '20-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 1),
 (9, 1, 'TEESTTINNG', '57214ddd', '21-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 0),
-(10, 1, 'Test Cause', '84141', '21-10-2013', '{"data":[{"type":"heading","data":{"text":"This is a heading"}},{"type":"text","data":{"text":"Text content here gjapsdjgfp askdof akpsdfk apsodfkpsdofk aposdkf pasodkfp aosdkf pasodk fpaosdkf poasdkfp aosdkfp askdpfa ksdpfoka psdfkas dpfoksdpf kasdpfk apsdkfp aoskdfpa ksdpfkas asd fpaosdfk pasodkf oapskdfp aspdfkp.\\n"}},{"type":"video","data":{"source":"youtube","remote_id":"quh0urSN84Q"}},{"type":"text","data":{"text":"_te_**st**\\n"}},{"type":"list","data":{"text":" - Line 1\\n - Line 2\\n - Line 3\\n"}},{"type":"video","data":{"source":"youtube","remote_id":"wbRpqU9-N5U"}},{"type":"embedly","data":{"provider_url":"http://www.kickstarter.com/","description":"Rebecca Dmytryk is raising funds for WildHelp on Kickstarter! Find help for an injured animal, fast! This app will connect users with the nearest rescuers, based on GPS and type of animal found.","title":"WildHelp","author_name":"Rebecca Dmytryk","height":360,"thumbnail_width":640,"width":480,"html":"<iframe frameborder=\\"0\\" height=\\"360\\" scrolling=\\"no\\" src=\\"http://www.kickstarter.com/projects/wildhelp/wildhelp/widget/video.html\\" width=\\"480\\" border=\\"0\\"></iframe>","author_url":"http://www.kickstarter.com/profile/wildhelp","version":"1.0","provider_name":"Kickstarter","thumbnail_url":"https://s3.amazonaws.com/ksr/projects/690690/photo-main.jpg?1379942050","type":"rich","thumbnail_height":480}},{"type":"embedly","data":{"provider_url":"http://placehold.it","url":"http://placehold.it/350x150","height":150,"width":350,"version":"1.0","provider_name":"Placehold","type":"photo"}}]}', '', 0, 0),
+(10, 1, 'Test Cause', '84141', '21-10-2013', '{"data":[{"type":"heading","data":{"text":"This is a heading"}},{"type":"text","data":{"text":"Text content here gjapsdjgfp askdof akpsdfk apsodfkpsdofk aposdkf pasodkfp aosdkf pasodk fpaosdkf poasdkfp aosdkfp askdpfa ksdpfoka psdfkas dpfoksdpf kasdpfk apsdkfp aoskdfpa ksdpfkas asd fpaosdfk pasodkf oapskdfp aspdfkp.\\n"}},{"type":"video","data":{"source":"youtube","remote_id":"quh0urSN84Q"}},{"type":"text","data":{"text":"_te_**st**\\n"}},{"type":"list","data":{"text":" - Line 1\\n - Line 2\\n - Line 3\\n"}},{"type":"embedly","data":{"provider_url":"http://www.kickstarter.com/","description":"Rebecca Dmytryk is raising funds for WildHelp on Kickstarter! Find help for an injured animal, fast! This app will connect users with the nearest rescuers, based on GPS and type of animal found.","title":"WildHelp","author_name":"Rebecca Dmytryk","height":360,"thumbnail_width":640,"width":480,"html":"<iframe frameborder=\\"0\\" height=\\"360\\" scrolling=\\"no\\" src=\\"http://www.kickstarter.com/projects/wildhelp/wildhelp/widget/video.html\\" width=\\"480\\" border=\\"0\\"></iframe>","author_url":"http://www.kickstarter.com/profile/wildhelp","version":"1.0","provider_name":"Kickstarter","thumbnail_url":"https://s3.amazonaws.com/ksr/projects/690690/photo-main.jpg?1379942050","type":"rich","thumbnail_height":480}},{"type":"embedly","data":{"provider_url":"http://placehold.it","url":"http://placehold.it/350x150","height":150,"width":350,"version":"1.0","provider_name":"Placehold","type":"photo"}}]}', '', 0, 0),
 (11, 1, 'Test with new desc', '13994', '21-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 0),
-(12, 1, 'Another test cause', '94302', '21-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 0, 0),
-(13, 1, 'A cause of all causes', '26710', '23-10-2013', '{"data":[{"type":"heading","data":{"text":"This is a content header"}},{"type":"text","data":{"text":"This is some text yayayayayayya I LOVE STUFF YAYAYAYYA"}},{"type":"list","data":{"text":" - This is item number !!!!!1\\n - This is item number boobies :\\\\)\\n"}},{"type":"video","data":{"source":"youtube","remote_id":"Q8THA2Fv6N8"}},{"type":"video","data":{"source":"vimeo","remote_id":"77339610"}},{"type":"embedly","data":{"provider_url":"http://www.kickstarter.com/","description":"ike is raising funds for Spike : Laser accurate measurement & modeling on smartphones on Kickstarter! Measure, model & 3D print your world, fast. Experience laser accurate Augmented Reality. Develop immersive laser based smartphone apps.","title":"Spike : Laser accurate measurement & modeling on smartphones","author_name":"ike","height":360,"thumbnail_width":640,"width":480,"html":"<iframe frameborder=\\"0\\" height=\\"360\\" scrolling=\\"no\\" src=\\"http://www.kickstarter.com/projects/ikegps/spike-laser-accurate-measurement-and-modelling-on/widget/video.html\\" width=\\"480\\" border=\\"0\\"></iframe>","author_url":"http://www.kickstarter.com/profile/ikegps","version":"1.0","provider_name":"Kickstarter","thumbnail_url":"https://s3.amazonaws.com/ksr/projects/663691/photo-main.jpg?1379911342","type":"rich","thumbnail_height":480}},{"type":"embedly","data":{"provider_url":"http://coolstuffiknow.files.wordpress.com","height":482,"width":475,"version":"1.0","url":"http://coolstuffiknow.files.wordpress.com/2012/04/cool_003.jpg","provider_name":"Wordpress","type":"photo"}}]}', '', 0, 0),
-(14, 1, 'Test creating', '63534', '03-11-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 0);
+(12, 1, 'Fresh Project', '94679', '22-10-2013', '{"data":[{"type":"heading","data":{"text":"This is your cause''s description"}},{"type":"text","data":{"text":"You use the cause description to tell other users about why they should help and support your cause.\\n\\nCreating and adding blocks to your description is very easy and there are 6 types of data you can add.\\n\\n**Once you have added and edited the blocks you want, you need to remember to press Update before you view the cause for it to save.**\\n"}},{"type":"list","data":{"text":" - Heading \\\\- Used to create section headers to seperate content/paragraphs\\n - Text \\\\- Used to display text, supports **BOLD**, _ITALIC_ and [HYPERLINKS](http://causehub.co)\\n - Quote \\\\- Used to add quotes to description. Supports Bold, Italics and hyperlinks\\n - List \\\\- Used to create bullet point lists \\\\(like this\\\\)\\n - Video \\\\- Used to add Youtube and Vimeo videos straight on the page \\\\(just paste the video url\\\\)\\n - Embedly \\\\- Used to insert images and some other content \\\\(Recommend to use manly image url''s\\\\)\\n"}},{"type":"quote","data":{"text":"> \\"Start promoting your cause today!\\"","cite":"CauseHub"}}]}', '', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE IF NOT EXISTS `feedback` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(125) NOT NULL,
+  `message` text NOT NULL,
+  `ip` varchar(25) NOT NULL,
+  `timedate` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +79,7 @@ INSERT INTO `causes` (`id`, `uid`, `name`, `slug`, `started`, `description`, `ca
 -- Table structure for table `kb_action_hostevent`
 --
 
-CREATE TABLE `kb_action_hostevent` (
+CREATE TABLE IF NOT EXISTS `kb_action_hostevent` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `url` varchar(120) NOT NULL,
@@ -72,7 +92,7 @@ CREATE TABLE `kb_action_hostevent` (
 -- Table structure for table `kb_action_lobbylord`
 --
 
-CREATE TABLE `kb_action_lobbylord` (
+CREATE TABLE IF NOT EXISTS `kb_action_lobbylord` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `address` varchar(80) NOT NULL,
@@ -86,7 +106,7 @@ CREATE TABLE `kb_action_lobbylord` (
 -- Table structure for table `kb_action_lobbymedia`
 --
 
-CREATE TABLE `kb_action_lobbymedia` (
+CREATE TABLE IF NOT EXISTS `kb_action_lobbymedia` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `address` varchar(80) NOT NULL,
@@ -100,7 +120,7 @@ CREATE TABLE `kb_action_lobbymedia` (
 -- Table structure for table `kb_action_lobbymp`
 --
 
-CREATE TABLE `kb_action_lobbymp` (
+CREATE TABLE IF NOT EXISTS `kb_action_lobbymp` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `address` varchar(80) NOT NULL,
@@ -122,7 +142,7 @@ INSERT INTO `kb_action_lobbymp` (`id`, `name`, `address`, `message`) VALUES
 -- Table structure for table `kb_action_petitions`
 --
 
-CREATE TABLE `kb_action_petitions` (
+CREATE TABLE IF NOT EXISTS `kb_action_petitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `description` text NOT NULL,
@@ -136,7 +156,7 @@ CREATE TABLE `kb_action_petitions` (
 -- Table structure for table `knowledgebase`
 --
 
-CREATE TABLE `knowledgebase` (
+CREATE TABLE IF NOT EXISTS `knowledgebase` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cid` int(11) NOT NULL,
   `fact` varchar(140) NOT NULL,
@@ -163,7 +183,7 @@ INSERT INTO `knowledgebase` (`id`, `cid`, `fact`, `source`, `sourcetitle`, `disc
 -- Table structure for table `petition_signatures`
 --
 
-CREATE TABLE `petition_signatures` (
+CREATE TABLE IF NOT EXISTS `petition_signatures` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL,
   `fname` varchar(30) NOT NULL,
@@ -180,7 +200,7 @@ CREATE TABLE `petition_signatures` (
 -- Table structure for table `sessions`
 --
 
-CREATE TABLE `sessions` (
+CREATE TABLE IF NOT EXISTS `sessions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `sid` varchar(10) NOT NULL,
@@ -197,7 +217,7 @@ CREATE TABLE `sessions` (
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -205,7 +225,7 @@ CREATE TABLE `users` (
   `fname` varchar(30) NOT NULL,
   `lname` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
@@ -213,5 +233,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `fname`, `lname`) VALUES
 (1, 'viralpickaxe', '1a1dc91c907325c69271ddf0c944bc72', 'viralpickaxe@gmail.com', 'Jamie', 'Davies'),
-(2, 'sanjaypoyzer', '1a1dc91c907325c69271ddf0c944bc72', 'sanjaypoyzer@gmail.com', 'Sanjay', 'Poyzer'),
-(3, 'tuser', '1a1dc91c907325c69271ddf0c944bc72', 'test@example.com', 'Test', 'User');
+(2, 'sanjaypoyzer', '1a1dc91c907325c69271ddf0c944bc72', 'sanjaypoyzer@gmail.com', 'Sanjay', 'Poyzer');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
