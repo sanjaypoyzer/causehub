@@ -56,6 +56,7 @@
 				?>
 			</section>
 	</main>
+	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback.php'); ?>
 </body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
 	<script src="/scripts/create.js"></script>

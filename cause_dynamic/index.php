@@ -177,6 +177,7 @@
 		<a href='/addknow/<?php echo $slug; ?>/'><button>Start A Petition</button></a>
 		<a href='/addknow/<?php echo $slug; ?>/'><button>Post Event</button></a>
 	</section>
+	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback.php'); ?>
 </body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
