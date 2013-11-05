@@ -32,7 +32,7 @@ div.feedback h2{
 	transform:rotate(270deg);
 	position: absolute;
 	left: -3.7em;
-	top: 4em;
+	top: 3.5em;
 }
 div.feedback form input, div.feedback form textarea{
 	display: block;
