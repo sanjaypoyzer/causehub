@@ -34,6 +34,10 @@
 		echo '2:No email entered:Register';
 		exit;
 	}
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    	echo '2:The email you entered is invalid:Register';
+		exit;
+	}
 
 	$sql = mysql_query("SELECT * FROM users WHERE username='$user'");
 	$usercheck = mysql_num_rows($sql);
