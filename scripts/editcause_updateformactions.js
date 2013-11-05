@@ -151,7 +151,7 @@ function addKnowledge(){
 	       var actiontypeinput = document.getElementById('actiontype').value;
     	$.ajax({
         type  : 'POST',
-         url  : '/scripts/addknowledge.php',
+         url  : '/scripts/processing/addknowledge.php',
          data : data,
          beforeSend : function() {
             if(actiontypeinput=='lobbyLord' || actiontypeinput=='lobbyMP' || actiontypeinput=='lobbyMedia'){

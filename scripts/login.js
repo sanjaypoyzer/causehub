@@ -18,7 +18,7 @@ function login(){
 	var data = 'u=' + document.getElementById('u').value + '&p=' + document.getElementById('p').value;
     	$.ajax({
         type  : 'POST',
-         url  : '/scripts/login.php',
+         url  : '/scripts/processing/login.php',
          data : data,
          beforeSend : function() {
              document.getElementById('signinbtn').disabled = true;

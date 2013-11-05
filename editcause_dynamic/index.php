@@ -55,7 +55,7 @@
 			if($loggedin){
 				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
 			} else {
-				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/Register"><button>Register</button></a></span>';
+				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/register"><button>Register</button></a></span>';
 			}
 		?>
 	</header>
@@ -66,7 +66,7 @@
 				<h1><?php echo $causename; ?></h1>
 			</header>
 
-			<form action='/scripts/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
+			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
 			    <div class="errors"></div>

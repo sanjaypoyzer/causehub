@@ -25,7 +25,7 @@ function submitFeedback(){
     var data = 'name=' + document.getElementById('feedbackname').value + '&email=' + document.getElementById('feedbackemail').value + '&msg=' + document.getElementById('feedbackmsg').value;
         $.ajax({
         type  : 'POST',
-         url  : '/scripts/feedback.php',
+         url  : '/scripts/processing/feedback.php',
          data : data,
          beforeSend : function() {
              document.getElementById('feedbackbtn').disabled = true;

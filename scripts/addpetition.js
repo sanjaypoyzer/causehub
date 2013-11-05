@@ -25,7 +25,7 @@ function addPetitionSig(){
     var data = 'pid=' + document.getElementById('pid').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&email=' + document.getElementById('email').value;
         $.ajax({
         type  : 'POST',
-         url  : '/scripts/addpetition.php',
+         url  : '/scripts/processing/addpetition.php',
          data : data,
          beforeSend : function() {
              document.getElementById('fname').disabled = true;

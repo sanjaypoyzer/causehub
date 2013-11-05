@@ -11,7 +11,7 @@ function editCauseSlug(){
 	var data = 'causeid=' + document.getElementById('causeid').value + '&action=editslug&newslug=' + document.getElementById('editslug').value;
     	$.ajax({
         type  : 'POST',
-         url  : '/scripts/editcause.php',
+         url  : '/scripts/processing/editcause.php',
          data : data,
          beforeSend : function() {
              document.getElementById('editslugbtn').disabled = true;
@@ -51,7 +51,7 @@ function publish(sid){
     var data = 'action=publish&causeid=' + sid;
         $.ajax({
         type  : 'POST',
-         url  : '/scripts/editcause.php',
+         url  : '/scripts/processing/editcause.php',
          data : data,
          beforeSend : function() {
              document.getElementById('publishbtn').disabled = true;

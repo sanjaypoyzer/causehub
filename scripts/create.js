@@ -11,7 +11,7 @@ function createcause(){
 	var data = 'causename=' + document.getElementById('causename').value;
     	$.ajax({
         type  : 'POST',
-         url  : '/scripts/create.php',
+         url  : '/scripts/processing/create.php',
          data : data,
          beforeSend : function() {
              document.getElementById('causecreatebtn').disabled = true;
@@ -54,7 +54,7 @@ function updateSuggestions(){
         var data = 'entered=' + entered;
         $.ajax({
         type  : 'POST',
-         url  : '/scripts/updatesuggestions.php',
+         url  : '/scripts/processing/updatesuggestions.php',
          data : data,
          beforeSend : function() {
              console.log('Updating Suggestions');

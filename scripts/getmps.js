@@ -11,7 +11,7 @@ function getmps(){
 	var data = 'keyword=' + document.getElementById('causename').value;
     	$.ajax({
         type  : 'GET',
-         url  : '/scripts/getmps.php',
+         url  : '/scripts/processing/getmps.php',
          data : data,
          beforeSend : function() {
              document.getElementById('causecreatebtn').disabled = true;

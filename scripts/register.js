@@ -39,7 +39,7 @@ function register(){
 	var data = 'user=' + document.getElementById('user').value + '&pass=' + document.getElementById('pass').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&email=' + document.getElementById('email').value;
     	$.ajax({
         type  : 'POST',
-         url  : '/scripts/register.php',
+         url  : '/scripts/processing/register.php',
          data : data,
          beforeSend : function() {
              document.getElementById('registerbtn').disabled = true;
