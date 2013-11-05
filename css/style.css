@@ -41,7 +41,10 @@ h1 a {
   color: #fff; }
 
 form {
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  text-align: left; }
+  form label {
+    text-align: inherit; }
   form input[type=submit], form button {
     font-size: .8em; }
 
@@ -49,14 +52,14 @@ input {
   max-width: 100%;
   height: auto; }
 
-button, input[type=submit] {
+button, input[type=submit], .btn {
   font-size: 1em;
   color: #fff;
   padding: .5em;
   background: #009fbb;
   border: 0;
   border-radius: 5px; }
-  button:hover, input[type=submit]:hover {
+  button:hover, input[type=submit]:hover, .btn:hover {
     background: #007488; }
 
 body > header {
@@ -75,11 +78,11 @@ body > header {
     right: 30px;
     top: 5px;
     font-size: 1.2em; }
-    body > header span.login button:nth-of-type(1), body > header span.loggedin button:nth-of-type(1) {
+    body > header span.login a button:nth-of-type(1), body > header span.loggedin a button:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: 1px solid #bbbbbb; }
-    body > header span.login button:nth-of-type(2), body > header span.loggedin button:nth-of-type(2) {
+    body > header span.login a button:nth-of-type(2), body > header span.loggedin a button:nth-of-type(2) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
   body > header span.loggedin {
