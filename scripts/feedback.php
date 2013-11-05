@@ -9,6 +9,7 @@ div.feedback{
 	border-radius: 15px;
 	width: 250px;
 	padding: 1em;
+	z-index: 999;
 	-webkit-transition: 1s;
 	-moz-transition: 1s;
 	-o-transition: 1s;
