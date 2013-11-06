@@ -10,26 +10,22 @@ function register(){
     		document.getElementById('user').style.borderColor = 'red';
     		error = true;
     		return false;
-    	}
-        if(document.getElementById('pass').value==''){
+    	} else if(document.getElementById('pass').value==''){
             alertify.log('No password entered', 'error');
             document.getElementById('pass').style.borderColor = 'red';
             error = true;
             return false;
-        }
-        if(document.getElementById('fname').value==''){
+        } else if(document.getElementById('fname').value==''){
             alertify.log('No first name entered', 'error');
             document.getElementById('fname').style.borderColor = 'red';
             error = true;
             return false;
-        }
-        if(document.getElementById('lname').value==''){
+        } else if(document.getElementById('lname').value==''){
             alertify.log('No last name entered', 'error');
             document.getElementById('lname').style.borderColor = 'red';
             error = true;
             return false;
-        }
-        if(document.getElementById('email').value==''){
+        } else if(document.getElementById('email').value==''){
             alertify.log('No email entered', 'error');
             document.getElementById('email').style.borderColor = 'red';
             error = true;

@@ -5,6 +5,7 @@ $(document).ready(function() {
 $(window).load(function() {
 	NProgress.done();
 	console.log('Nprogress > Document Load');
+	window.scroll(0,0);
 });
 
 $(document).ajaxStart(function() {

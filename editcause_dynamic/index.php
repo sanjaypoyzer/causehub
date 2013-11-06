@@ -6,7 +6,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -17,6 +17,7 @@
 	$causeid = $row['id'];
 	$ownerid = $row['uid'];
 	$causename = $row['name'];
+	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
@@ -48,17 +49,7 @@
 	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor-icons.css" />
 </head>
 <body>
-	<header>
-		<a href="/getmps.php"><button class="searchbtn">Search InfoHub</button></a>
-		<h1><a href="/">CauseHub.</a></h1>
-		<?php
-			if($loggedin){
-				echo '<span class="loggedin">Welcome back, <a href="/dash">'.getCurrentUserInfo('fname').' '.getCurrentUserInfo('lname').'</a> | <a href="/scripts/logout.php" class="logout">Logout</a></span>';
-			} else {
-				echo '<span class="login"><a href="/login"><button>Login</button></a><a href="/register"><button>Register</button></a></span>';
-			}
-		?>
-	</header>
+	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
 	<main class="edit">
 		<section class="causeDescription">
 			<header>
@@ -76,10 +67,17 @@
 
 
 			<br /><br /><br />
-			<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
+
+
+
+			<form id='uploadform' method='post' action='/scripts/processing/uploadbanner.php?cid=<?php echo $causeid; ?>' enctype="multipart/form-data">
 			<span class="hint descriptionHint">Upload a banner image for your cause:</span>
-			<input type='file' id='file' >
+			<img src='/usercontent/causebanners/<?php echo $causebanner; ?>' width='100%' onclick="$('input[type=file]').click();" style='cursor: pointer;'>
+			<input type='file' id='file' name='file' style='display: none;'>
 			</form>
+
+
+
 			<br /><br /><br />
 			<form method='post' action='#' onsubmit="return false;">
 				<span class="hint slugHint">People Can Find It At:</span>
@@ -225,5 +223,8 @@
 	      });
 
 	    });
+	    document.getElementById("file").onchange = function() {
+		    document.getElementById("uploadform").submit();
+		};
 	</script>
 </html>
