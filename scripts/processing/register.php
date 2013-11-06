@@ -17,20 +17,16 @@
 	if($user==''){
 		echo '2:No username entered:Register';
 		exit;
-	}
-	if($pass==''){
+	} else if($pass==''){
 		echo '2:No password entered:Register';
 		exit;
-	}
-	if($fname==''){
+	} else if($fname==''){
 		echo '2:No first name entered:Register';
 		exit;
-	}
-	if($lname==''){
+	} else if($lname==''){
 		echo '2:No last name entered:Register';
 		exit;
-	}
-	if($email==''){
+	} else if($email==''){
 		echo '2:No email entered:Register';
 		exit;
 	}
