@@ -227,4 +227,13 @@
 		    document.getElementById("uploadform").submit();
 		};
 	</script>
+	<?php
+		if($_SESSION['upload_msg']!=''){
+			$parts = explode(':', $_SESSION['upload_msg']);
+			echo '<script>';
+			echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+			echo '</script>';
+			unset($_SESSION['upload_msg']);
+		}
+	?>
 </html>
