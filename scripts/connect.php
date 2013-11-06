@@ -13,8 +13,8 @@
 
 
 $db_host = "localhost";
-$db_username = "root";
-$db_pass = "root";
+$db_username = "causehub";
+$db_pass = "pass";
 $db_name = "causehub";
 
 mysql_connect("$db_host","$db_username","$db_pass") or die ("Could not connect to MySQL");
