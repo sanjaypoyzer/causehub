@@ -66,10 +66,17 @@
 
 
 			<br /><br /><br />
-			<form id='uploadform' method='post' action='/scripts/uploadbanner.php' enctype="multipart/form-data">
+
+
+
+			<form id='uploadform' method='post' action='/scripts/processing/uploadbanner.php' enctype="multipart/form-data">
 			<span class="hint descriptionHint">Upload a banner image for your cause:</span>
-			<input type='file' id='file' >
+			<img src='http://placehold.it/1200x200' width='100%' onclick="$('input[type=file]').click();" style='cursor: pointer;'>
+			<input type='file' id='filebanner' style='display: none;'>
 			</form>
+
+
+
 			<br /><br /><br />
 			<form method='post' action='#' onsubmit="return false;">
 				<span class="hint slugHint">People Can Find It At:</span>
@@ -215,5 +222,8 @@
 	      });
 
 	    });
+	    document.getElementById("filebanner").onchange = function() {
+		    document.getElementById("uploadform").submit();
+		};
 	</script>
 </html>
