@@ -7,7 +7,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -18,6 +18,7 @@
 	$causeid = $row['id'];
 	$ownerid = $row['uid'];
 	$causename = $row['name'];
+	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
@@ -53,7 +54,7 @@
 </head>
 <body>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
-	<img src="http://lorempixel.com/1200/200/" class="causeImg" />
+	<img src="/usercontent/causebanners/<?php echo $causebanner; ?>" class="causeImg" />
 	<main>
 		<section class="causeDescription" id="causeDescription">
 			
