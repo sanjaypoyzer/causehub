@@ -109,6 +109,7 @@
 			<!-- DONE DESCRIPTION RENDERING -->
 		</section>
 		<section class="knowledgeBaseSummary">
+			<a href='#'>Share to Facebook</a> <a href='#'>Share to twitter</a>
 			<h2>Knowledge Base</h2>
 			<ul>
 			<?php
