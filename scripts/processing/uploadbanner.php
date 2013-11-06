@@ -43,14 +43,6 @@
       header('location:/editcause/'.$causeslug.'/');
       exit;
       } else {
-      echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-      echo "Type: " . $_FILES["file"]["type"] . "<br>";
-      echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-      echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-
-      if (file_exists("../../usercontent/causebanners/" . $_FILES["file"]["name"])){
-        echo $_FILES["file"]["name"] . " already exists. ";
-      } else {
           function str_rand($length = 8, $seeds = 'alphanum'){
             $seedings['alpha'] = 'abcdefghijklmnopqrstuvwqyz';
             $seedings['numeric'] = '0123456789';
@@ -71,7 +63,6 @@
         mysql_query("UPDATE causes SET banner='$newbanner' WHERE (id='$causeidpost')");
         header('location:/cause/'.$causeslug.'/');
         exit;
-      }
     }
   } else {
     $_SESSION['upload_msg'] = 'error:Invalid file, you file needs to be either a (gif, jpg, jpeg or png) and under 500 KB';
