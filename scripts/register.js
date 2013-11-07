@@ -61,15 +61,6 @@ function register(){
              if(array[0]=='1'){
              	document.getElementById('registerbtn').value = array[2];
    		        window.location.href = '/login/?m=registered';
-             } else if(array[0]=='2'){
-                document.getElementById('user').disabled = false;
-                document.getElementById('pass').disabled = false;
-                document.getElementById('fname').disabled = false;
-                document.getElementById('lname').disabled = false;
-                document.getElementById('email').disabled = false;
-                document.getElementById('registerbtn').disabled = false;
-                document.getElementById('registerbtn').value = array[2];
-           		alertify.log(array[1], 'error');
              } else {
                 document.getElementById('user').disabled = false;
                 document.getElementById('pass').disabled = false;

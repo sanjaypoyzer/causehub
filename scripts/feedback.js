@@ -58,13 +58,6 @@ function submitFeedback(){
                 setTimeout(function (){
                     document.getElementById('feedbackbtn').value = 'Submit Feedback';
                 }, 2000);
-             } else if(array[0]=='2'){
-                document.getElementById('feedbackname').disabled = false;
-                document.getElementById('feedbackemail').disabled = false;
-                document.getElementById('feedbackmsg').disabled = false;
-                document.getElementById('feedbackbtn').disabled = false;
-                document.getElementById('feedbackbtn').value = 'Submit Feedback';
-                alertify.log(array[1], 'error');
              } else {
                 document.getElementById('feedbackname').disabled = false;
                 document.getElementById('feedbackemail').disabled = false;

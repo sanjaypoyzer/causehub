@@ -29,17 +29,12 @@ function editCauseSlug(){
              if(array[0]=='1'){
              	document.getElementById('editslugbtn').value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
-             } else if(array[0]=='2'){
-                document.getElementById('editslug').disabled = false;
-                document.getElementById('editslugbtn').disabled = false;
-                document.getElementById('editslugbtn').value = array[2];
-           		alertify.log(array[1], 'error');
-           		document.getElementById('editslug').style.borderColor = 'red';
              } else {
                 document.getElementById('editslug').disabled = false;
                 document.getElementById('editslugbtn').disabled = false;
                 document.getElementById('editslugbtn').value = array[2];
            		alertify.log(array[1], 'error');
+                document.getElementById('editslug').style.borderColor = 'red';
              }
              return false;
          }

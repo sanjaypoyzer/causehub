@@ -29,12 +29,6 @@ function createcause(){
              if(array[0]=='1'){
              	causecreatebtn.value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
-             } else if(array[0]=='2'){
-                causenameinput.disabled = false;
-                causecreatebtn.disabled = false;
-                causecreatebtn.value = array[2];
-           		alertify.log(array[1], 'error');
-           		causenameinput.style.borderColor = 'red';
              } else {
                 causenameinput.disabled = false;
                 causecreatebtn.disabled = false;
