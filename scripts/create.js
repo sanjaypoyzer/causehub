@@ -1,50 +1,51 @@
 function createcause(){
-    	var error = false;
-    	document.getElementById('causename').style.borderColor = '#999';
-    	if(document.getElementById('causename').value==''){
+        var causenameinput = document.getElementById('causename');
+        var causecreatebtn = document.getElementById('causecreatebtn');
+    	causenameinput.style.borderColor = '#999';
+    	if(causenameinput.value==''){
     		alertify.log('No cause name entered', 'error');
-    		document.getElementById('causename').style.borderColor = 'red';
-    		error = true;
+    		causenameinput.style.borderColor = 'red';
     		return false;
     	}
 	
-	var data = 'causename=' + document.getElementById('causename').value;
+	var data = 'causename=' + causenameinput.value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/processing/create.php',
          data : data,
          beforeSend : function() {
-             document.getElementById('causecreatebtn').disabled = true;
-             document.getElementById('causename').disabled = true;
-             document.getElementById('causecreatebtn').value = 'Creating';
+             causecreatebtn.disabled = true;
+             causenameinput.disabled = true;
+             causecreatebtn.value = 'Creating';
          },
          error : function() {
-             document.getElementById('causecreatebtn').disabled = false;
-             document.getElementById('causename').disabled = false;
-             document.getElementById('causecreatebtn').value = 'Create';
+             causecreatebtn.disabled = false;
+             causenameinput.disabled = false;
+             causecreatebtn.value = 'Create';
              return false;
          },
          success : function (response) {
              var array = response.split(':');
              if(array[0]=='1'){
-             	document.getElementById('causecreatebtn').value = array[2];
+             	causecreatebtn.value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
              } else if(array[0]=='2'){
-                document.getElementById('causename').disabled = false;
-                document.getElementById('causecreatebtn').disabled = false;
-                document.getElementById('causecreatebtn').value = array[2];
+                causenameinput.disabled = false;
+                causecreatebtn.disabled = false;
+                causecreatebtn.value = array[2];
            		alertify.log(array[1], 'error');
-           		document.getElementById('causename').style.borderColor = 'red';
+           		causenameinput.style.borderColor = 'red';
              } else {
-                document.getElementById('causename').disabled = false;
-                document.getElementById('causecreatebtn').disabled = false;
-                document.getElementById('causecreatebtn').value = array[2];
+                causenameinput.disabled = false;
+                causecreatebtn.disabled = false;
+                causecreatebtn.value = array[2];
            		alertify.log(array[1], 'error');
              }
              return false;
          }
     	});
 }
+
 function updateSuggestions(){
     $.ajaxSetup({
       global: false
