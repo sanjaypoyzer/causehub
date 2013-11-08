@@ -13,6 +13,7 @@
   font-weight: normal;
   font-style: normal; }
 
+/**** Common ****/
 html, body {
   overflow-x: hidden; }
 
@@ -58,10 +59,12 @@ button, input[type=submit], .btn {
   padding: .5em;
   background: #009fbb;
   border: 0;
-  border-radius: 5px; }
+  border-radius: 5px;
+  cursor: pointer; }
   button:hover, input[type=submit]:hover, .btn:hover {
     background: #007488; }
 
+/**** header *****/
 body > header {
   background: rgba(0, 106, 166, 0.7);
   color: #fff;
@@ -102,6 +105,7 @@ section {
     font-family: "RobotoSlab", serif;
     font-weight: 100; }
 
+/***** main *****/
 img.causeImg {
   width: 100%;
   top: 0px;
@@ -113,10 +117,9 @@ main {
   margin: 5px auto; }
   main h1 {
     font-size: 3em; }
-
-main.dash {
-  text-align: center;
-  margin-top: 4em; }
+  main .dash {
+    text-align: center;
+    margin-top: 4em; }
 
 div#results {
   width: 300px;
@@ -187,6 +190,8 @@ section.addAction {
     display: block;
     color: #fff;
     margin-top: -0.5em; }
+  section.addAction:hover {
+    bottom: 0; }
 
 main.edit, .index main {
   margin-top: 4em; }

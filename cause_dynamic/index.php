@@ -174,16 +174,6 @@
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function(){
-	  $('section.addAction').hover(
-	    function(){
-	      $(this).css('bottom','0');
-	    },
-	    function(){
-	      $(this).css('bottom','-3em');
-	    }
-	  );
-	});  
 
 	$(function() {
 		var $allVideos = $("iframe"),
