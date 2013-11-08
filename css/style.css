@@ -83,11 +83,11 @@ body > header {
     right: 30px;
     top: 5px;
     font-size: 1.2em; }
-    body > header span.login a button:nth-of-type(1), body > header span.loggedin a button:nth-of-type(1) {
+    body > header span.login a:nth-of-type(1), body > header span.loggedin a:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: 1px solid #bbbbbb; }
-    body > header span.login a button:nth-of-type(2), body > header span.loggedin a button:nth-of-type(2) {
+    body > header span.login a:nth-of-type(2), body > header span.loggedin a:nth-of-type(2) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
   body > header span.loggedin {
