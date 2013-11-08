@@ -40,7 +40,6 @@
 <body>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
 	<main class="petition">	
-		<a href="/getmps.php"><button class="searchbtn">Search</button></a>
 		<h1><?php echo $petitionname; ?></h1>
 		<p><?php echo $petitiondescription; ?></p>
 		<h2>Sign This Petition:</h2>

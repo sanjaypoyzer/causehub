@@ -4,7 +4,7 @@
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 	
 	if(!checkSession()){
-		echo '3:You need to be logged in to add to this cause:Update';
+		echo '2:You need to be logged in to add to this cause:Update';
 		exit;
 	}
 
@@ -25,11 +25,11 @@
 	$postsourceurl = $_POST['sourceurl'];
 	$postactiontype = $_POST['actiontype'];
 	if($postfact==''){
-		echo '3:No fact entered:Add';
+		echo '2:No fact entered:Add';
 		exit;
 	}
 	if($postsourceurl==''){
-		echo '3:No source url entered:Add';
+		echo '2:No source url entered:Add';
 		exit;
 	}
 
@@ -39,15 +39,15 @@
 		$postlobbylordmessage = $_POST['lobbylordmessage'];
 
 		if($postlobbylordname==''){
-			echo '3:No lobby lord name entered:Add';
+			echo '2:No lobby lord name entered:Add';
 			exit;
 		}
 		if($postlobbylordaddress==''){
-			echo '3:No lobby lord email address entered:Add';
+			echo '2:No lobby lord email address entered:Add';
 			exit;
 		}
 		if($postlobbylordmessage==''){
-			echo '3:No lobby lord message entered:Add';
+			echo '2:No lobby lord message entered:Add';
 			exit;
 		}
 
@@ -65,15 +65,15 @@
 		$postlobbympmessage = $_POST['lobbympmessage'];
 
 		if($postlobbympname==''){
-			echo '3:No lobby MP name entered:Add';
+			echo '2:No lobby MP name entered:Add';
 			exit;
 		}
 		if($postlobbympaddress==''){
-			echo '3:No lobby MP email address entered:Add';
+			echo '2:No lobby MP email address entered:Add';
 			exit;
 		}
 		if($postlobbympmessage==''){
-			echo '3:No lobby MP message entered:Add';
+			echo '2:No lobby MP message entered:Add';
 			exit;
 		}
 
@@ -91,15 +91,15 @@
 		$postlobbymediamessage = $_POST['lobbymediamessage'];
 
 		if($postlobbymedianame==''){
-			echo '3:No lobby Media name entered:Add';
+			echo '2:No lobby Media name entered:Add';
 			exit;
 		}
 		if($postlobbymediaaddress==''){
-			echo '3:No lobby Media email address entered:Add';
+			echo '2:No lobby Media email address entered:Add';
 			exit;
 		}
 		if($postlobbymediamessage==''){
-			echo '3:No lobby Media message entered:Add';
+			echo '2:No lobby Media message entered:Add';
 			exit;
 		}
 
@@ -116,11 +116,11 @@
 		$postpetitiondescription = $_POST['petitiondescription'];
 
 		if($postpetitionname==''){
-			echo '3:No petition name entered:Add';
+			echo '2:No petition name entered:Add';
 			exit;
 		}
 		if($postpetitiondescription==''){
-			echo '3:No petition description entered:Add';
+			echo '2:No petition description entered:Add';
 			exit;
 		}
 
@@ -137,11 +137,11 @@
 		$posteventurl = $_POST['eventurl'];
 
 		if($posteventname==''){
-			echo '3:No event name entered:Add';
+			echo '2:No event name entered:Add';
 			exit;
 		}
 		if($posteventurl==''){
-			echo '3:No event url entered:Add';
+			echo '2:No event url entered:Add';
 			exit;
 		}
 

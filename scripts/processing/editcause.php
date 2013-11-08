@@ -4,7 +4,7 @@
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 	
 	if(!checkSession()){
-		echo '3:You need to be logged in to edit this cause:Update';
+		echo '2:You need to be logged in to edit this cause:Update';
 		exit;
 	}
 
@@ -24,7 +24,7 @@
 	$cslug = $row['slug'];
 
 	if($userid != $ownerid){
-		echo '3:You cannot edit this cause:Update';
+		echo '2:You cannot edit this cause:Update';
 		exit;
 	}
 
@@ -39,7 +39,7 @@
 		$clashid = $rowslug['id'];
 
 		if($slugcheck!=0 && $clashid != $postcauseid){
-			echo '3:The slug you entered is already in use:Update';
+			echo '2:The slug you entered is already in use:Update';
 			exit;
 		}
 
@@ -50,10 +50,10 @@
 	} else if($postaction=='publish'){
 		$cid = $_POST['causeid'];
 		
-		if(strlen($causedescription)<100){
+		/*if(strlen($causedescription)<100){
 			echo '2:You cannot publish your cause until you have a description over 100 characters long:Start changing the world!';
 			exit;
-		}
+		}*/
 
 		mysql_query("UPDATE causes SET hidden='0' WHERE (id='$cid')");
 

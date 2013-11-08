@@ -259,8 +259,9 @@ main.petition {
 
 div.feedback {
   position: fixed;
+  top: 30%;
   top: calc(50% - 200px);
-  left: calc(-250px);
+  left: -250px;
   background: rgba(255, 255, 255, 0.9);
   border: solid 2px black;
   border-radius: 15px;

@@ -210,19 +210,6 @@ function addKnowledge(){
              if(array[0]=='1'){
              	document.getElementById('addknowledgebtn').value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
-             } else if(array[0]=='2'){
-                document.getElementById('fact').disabled = false;
-	            document.getElementById('sourceurl').disabled = false;
-	            document.getElementById('lobby' + typelobby + '_name').disabled = false;
-	            document.getElementById('lobby' + typelobby + '_address').disabled = false;
-	            document.getElementById('lobby' + typelobby + '_message').disabled = false;
-                document.getElementById('createpetition_name').disabled = false;
-                document.getElementById('createpetition_description').disabled = false;
-                document.getElementById('hostevent_name').disabled = false;
-                document.getElementById('hostevent_url').disabled = false;
-                document.getElementById('addknowledgebtn').disabled = false;
-                document.getElementById('addknowledgebtn').value = array[2];
-           		alertify.log(array[1], 'error');
              } else {
 	            document.getElementById('fact').disabled = false;
 	            document.getElementById('sourceurl').disabled = false;

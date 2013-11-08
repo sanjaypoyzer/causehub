@@ -1,55 +1,54 @@
 function createcause(){
-    	var error = false;
-    	document.getElementById('causename').style.borderColor = '#999';
-    	if(document.getElementById('causename').value==''){
+        var causenameinput = document.getElementById('causename');
+        var causecreatebtn = document.getElementById('causecreatebtn');
+    	causenameinput.style.borderColor = '#999';
+    	if(causenameinput.value==''){
     		alertify.log('No cause name entered', 'error');
-    		document.getElementById('causename').style.borderColor = 'red';
-    		error = true;
+    		causenameinput.style.borderColor = 'red';
     		return false;
     	}
 	
-	var data = 'causename=' + document.getElementById('causename').value;
+	var data = 'causename=' + causenameinput.value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/processing/create.php',
          data : data,
          beforeSend : function() {
-             document.getElementById('causecreatebtn').disabled = true;
-             document.getElementById('causename').disabled = true;
-             document.getElementById('causecreatebtn').value = 'Creating';
+             causecreatebtn.disabled = true;
+             causenameinput.disabled = true;
+             causecreatebtn.value = 'Creating';
          },
          error : function() {
-             document.getElementById('causecreatebtn').disabled = false;
-             document.getElementById('causename').disabled = false;
-             document.getElementById('causecreatebtn').value = 'Create';
+             causecreatebtn.disabled = false;
+             causenameinput.disabled = false;
+             causecreatebtn.value = 'Create';
              return false;
          },
          success : function (response) {
              var array = response.split(':');
              if(array[0]=='1'){
-             	document.getElementById('causecreatebtn').value = array[2];
+             	causecreatebtn.value = array[2];
    		        window.location.href = '/editcause/' + array[1] + '/';
-             } else if(array[0]=='2'){
-                document.getElementById('causename').disabled = false;
-                document.getElementById('causecreatebtn').disabled = false;
-                document.getElementById('causecreatebtn').value = array[2];
-           		alertify.log(array[1], 'error');
-           		document.getElementById('causename').style.borderColor = 'red';
              } else {
-                document.getElementById('causename').disabled = false;
-                document.getElementById('causecreatebtn').disabled = false;
-                document.getElementById('causecreatebtn').value = array[2];
+                causenameinput.disabled = false;
+                causecreatebtn.disabled = false;
+                causecreatebtn.value = array[2];
            		alertify.log(array[1], 'error');
              }
              return false;
          }
     	});
 }
+
 function updateSuggestions(){
+    var causenameinput = document.getElementById('causename');
+    var featuredlist = document.getElementById('featuredlist');
+    var relatedlist = document.getElementById('relatedlist');
+    var response = document.getElementById('response');
     $.ajaxSetup({
       global: false
     });
-    var entered = document.getElementById('causename').value;
+    var entered = causenameinput.value;
     if(entered.length>=3){
         var data = 'entered=' + entered;
         $.ajax({
@@ -65,21 +64,23 @@ function updateSuggestions(){
          },
          success : function (response) {
              if(response==''){
-                document.getElementById('featuredlist').style.display = 'block';
-                document.getElementById('relatedlist').style.display = 'none';
+                featuredlist.style.display = 'block';
+                relatedlist.style.display = 'none';
+                return false;
              } else {
-                document.getElementById('featuredlist').style.display = 'none';
-                document.getElementById('relatedlist').style.display = 'block';
+                featuredlist.style.display = 'none';
+                relatedlist.style.display = 'block';
              }
-             document.getElementById('response').innerHTML = response;
+             response.innerHTML = response;
              console.log('Updated Suggestions');
              return false;
          }
         });
     } else {
-        document.getElementById('featuredlist').style.display = 'block';
-        document.getElementById('relatedlist').style.display = 'none';
-        document.getElementById('response').innerHTML = '';
-        console.log('Under 3 chars, exiting updateSuggestions function');
+        featuredlist.style.display = 'block';
+        relatedlist.style.display = 'none';
+        response.innerHTML = '';
+        console.log('Under 3 chars, not updating related list');
+        return false;
     }
 }

@@ -1,83 +1,75 @@
 function register(){
-    	var error = false;
-    	document.getElementById('user').style.borderColor = '#999';
-        document.getElementById('pass').style.borderColor = '#999';
-        document.getElementById('fname').style.borderColor = '#999';
-        document.getElementById('lname').style.borderColor = '#999';
-        document.getElementById('email').style.borderColor = '#999';
-    	if(document.getElementById('user').value==''){
+    	var user = document.getElementById('user');
+        var pass = document.getElementById('pass');
+        var fname = document.getElementById('fname');
+        var lname = document.getElementById('lname');
+        var email = document.getElementById('email');
+        var registerbtn = document.getElementById('registerbtn');
+
+    	user.style.borderColor = '#999';
+        pass.style.borderColor = '#999';
+        fname.style.borderColor = '#999';
+        lname.style.borderColor = '#999';
+        email.style.borderColor = '#999';
+    	if(user.value==''){
     		alertify.log('No username entered', 'error');
-    		document.getElementById('user').style.borderColor = 'red';
-    		error = true;
+    		user.style.borderColor = 'red';
     		return false;
-    	} else if(document.getElementById('pass').value==''){
+    	} else if(pass.value==''){
             alertify.log('No password entered', 'error');
-            document.getElementById('pass').style.borderColor = 'red';
-            error = true;
+            pass.style.borderColor = 'red';
             return false;
-        } else if(document.getElementById('fname').value==''){
+        } else if(fname.value==''){
             alertify.log('No first name entered', 'error');
-            document.getElementById('fname').style.borderColor = 'red';
-            error = true;
+            fname.style.borderColor = 'red';
             return false;
-        } else if(document.getElementById('lname').value==''){
+        } else if(lname.value==''){
             alertify.log('No last name entered', 'error');
-            document.getElementById('lname').style.borderColor = 'red';
-            error = true;
+            lname.style.borderColor = 'red';
             return false;
-        } else if(document.getElementById('email').value==''){
+        } else if(email.value==''){
             alertify.log('No email entered', 'error');
-            document.getElementById('email').style.borderColor = 'red';
-            error = true;
+            email.style.borderColor = 'red';
             return false;
         }
 	
-	var data = 'user=' + document.getElementById('user').value + '&pass=' + document.getElementById('pass').value + '&fname=' + document.getElementById('fname').value + '&lname=' + document.getElementById('lname').value + '&email=' + document.getElementById('email').value;
+	var data = 'user=' + user.value + '&pass=' + pass.value + '&fname=' + fname.value + '&lname=' + lname.value + '&email=' + email.value;
     	$.ajax({
         type  : 'POST',
          url  : '/scripts/processing/register.php',
          data : data,
          beforeSend : function() {
-             document.getElementById('registerbtn').disabled = true;
-             document.getElementById('user').disabled = true;
-             document.getElementById('pass').disabled = true;
-             document.getElementById('fname').disabled = true;
-             document.getElementById('lname').disabled = true;
-             document.getElementById('email').disabled = true;
-             document.getElementById('registerbtn').value = 'Processing';
+             registerbtn.disabled = true;
+             user.disabled = true;
+             pass.disabled = true;
+             fname.disabled = true;
+             lname.disabled = true;
+             email.disabled = true;
+             registerbtn.value = 'Processing';
          },
          error : function() {
-             document.getElementById('registerbtn').disabled = false;
-             document.getElementById('user').disabled = false;
-             document.getElementById('pass').disabled = false;
-             document.getElementById('fname').disabled = false;
-             document.getElementById('lname').disabled = false;
-             document.getElementById('email').disabled = false;
-             document.getElementById('registerbtn').value = 'Register';
+             registerbtn.disabled = false;
+             user.disabled = false;
+             pass.disabled = false;
+             fname.disabled = false;
+             lname.disabled = false;
+             email.disabled = false;
+             registerbtn.value = 'Register';
              return false;
          },
          success : function (response) {
              var array = response.split(':');
              if(array[0]=='1'){
-             	document.getElementById('registerbtn').value = array[2];
+             	registerbtn.value = array[2];
    		        window.location.href = '/login/?m=registered';
-             } else if(array[0]=='2'){
-                document.getElementById('user').disabled = false;
-                document.getElementById('pass').disabled = false;
-                document.getElementById('fname').disabled = false;
-                document.getElementById('lname').disabled = false;
-                document.getElementById('email').disabled = false;
-                document.getElementById('registerbtn').disabled = false;
-                document.getElementById('registerbtn').value = array[2];
-           		alertify.log(array[1], 'error');
              } else {
-                document.getElementById('user').disabled = false;
-                document.getElementById('pass').disabled = false;
-                document.getElementById('fname').disabled = false;
-                document.getElementById('lname').disabled = false;
-                document.getElementById('email').disabled = false;
-                document.getElementById('registerbtn').disabled = false;
-                document.getElementById('registerbtn').value = array[2];
+                user.disabled = false;
+                pass.disabled = false;
+                fname.disabled = false;
+                lname.disabled = false;
+                email.disabled = false;
+                registerbtn.disabled = false;
+                registerbtn.value = array[2];
            		alertify.log(array[1], 'error');
              }
              return false;
