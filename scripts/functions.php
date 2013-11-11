@@ -52,4 +52,6 @@ function getCurrentUserInfo($type) {
             }
         }
     }
+
+include ($_SERVER['DOCUMENT_ROOT'].'/scripts/version.php');
 ?>
