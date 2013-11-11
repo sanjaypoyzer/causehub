@@ -23,7 +23,9 @@
         <h1><a href="/">CauseHub.</a></h1>
     </header>
     <main>
+
     <form method='post' class='login' action='#' onsubmit="return false;">
+          <p>We're currently still in Alpha (testing) stage.<br>Sign up below if you're interested in the project, and tick the box if you're interested in being a test user.</p>
           <label>Username:</label> <input type="text" id='user' name="user" size="15" /><br />
           <label>First Name:</label> <input type="text" id='fname' name="fname" size="5" /><br /> 
           <label>Last Name:</label> <input type="text" id='lname' name="lname" size="5" /><br />
