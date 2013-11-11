@@ -47,6 +47,8 @@
 
 	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor.css" />
 	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor-icons.css" />
+
+	<link rel="stylesheet" href="/plugins/tagsinput/jquery.tagsinput.css" />
 </head>
 <body>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
@@ -56,6 +58,8 @@
 				<span class="hint titleHint">Your Cause Is:</span>
 				<h1><?php echo $causename; ?></h1>
 			</header>
+
+			<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle" />
 
 			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
@@ -197,12 +201,14 @@
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
 	<script src="/scripts/editcause.js"></script>
 	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
 	<script src="/plugins/SirTrevor/js/underscore.js"></script>
 	<script src="/plugins/SirTrevor/js/eventable.js"></script>
+	<script src="/plugins/tagsinput/jquery.tagsinput.js"></script>
 	<script src="/plugins/SirTrevor/js/sir-trevor.js"></script>
 	<script type="text/javascript" charset="utf-8">
 	    $(function(){
@@ -226,6 +232,9 @@
 	    document.getElementById("file").onchange = function() {
 		    document.getElementById("uploadform").submit();
 		};
+		$(function() {
+            $('#tags_1').tagsInput({width:'auto'});
+        });
 	</script>
 	<?php
 		if($_SESSION['upload_msg']!=''){
