@@ -44,7 +44,7 @@ function updateSuggestions(){
     var causenameinput = document.getElementById('causename');
     var featuredlist = document.getElementById('featuredlist');
     var relatedlist = document.getElementById('relatedlist');
-    var response = document.getElementById('response');
+    var responsediv = document.getElementById('response');
     $.ajaxSetup({
       global: false
     });
@@ -71,7 +71,7 @@ function updateSuggestions(){
                 featuredlist.style.display = 'none';
                 relatedlist.style.display = 'block';
              }
-             response.innerHTML = response;
+             responsediv.innerHTML = response;
              console.log('Updated Suggestions');
              return false;
          }
