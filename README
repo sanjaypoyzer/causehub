@@ -34,7 +34,6 @@ CHANGE LOG
 
 ALPHA 1.0
   VERSION 0
-    BUILD 1a
-      - Inital Release
-    BUILD 1b
-      - Moved version to version.php
+    - Initial Release
+  VERSION 1
+  	- Added password recovery

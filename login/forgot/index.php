@@ -23,17 +23,25 @@
         <h1><a href="/">CauseHub.</a></h1>
     </header>
     <main>
-    <form method='post' class='login' action='#' onsubmit="return false;">
+    <form method='post' class='login' action='/scripts/processing/forgotpass.php'>
           Username: <input type="text" id='username' name="username" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='forgotbtn' value="Change Password" onclick='forgot(); return false;'/></p>
+        <p><input type="submit" value="Request Password Reset"/></p>
         </div>
     </form>
     </main>
     <?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
-    <script src="/scripts/login.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
+    <?php
+        if($_SESSION['forgot_msg']!=''){
+            $parts = explode(':', $_SESSION['forgot_msg']);
+            echo '<script>';
+            echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+            echo '</script>';
+            unset($_SESSION['forgot_msg']);
+        }
+    ?>
 </html>

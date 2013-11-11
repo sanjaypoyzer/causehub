@@ -27,7 +27,7 @@
           Reset Code: <input type="text" id='resetcode' name="resetcode" size="15" /><br />
           New Password: <input type="password" id='password' name="password" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='newpassbtn' value="Save Password" onclick='newpass(); return false;'/></p>
+        <p><input type="submit" id='newpassbtn' value="Save New Password" onclick='newpass(); return false;'/></p>
         </div>
     </form>
     </main>
@@ -37,4 +37,13 @@
     <script src="/scripts/login.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
+    <?php
+        if($_SESSION['forgot_msg']!=''){
+            $parts = explode(':', $_SESSION['forgot_msg']);
+            echo '<script>';
+            echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+            echo '</script>';
+            unset($_SESSION['forgot_msg']);
+        }
+    ?>
 </html>
