@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>CauseHub. | New Password</title>
+    <title>CauseHub. | Forgot Password</title>
     <link rel="stylesheet" href="/css/style.css">
 
     <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
@@ -24,10 +24,9 @@
     </header>
     <main>
     <form method='post' class='login' action='#' onsubmit="return false;">
-          Reset Code: <input type="text" id='resetcode' name="resetcode" size="15" /><br />
-          New Password: <input type="password" id='password' name="password" size="15" /><br />
+          Username: <input type="text" id='username' name="username" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='newpassbtn' value="Save Password" onclick='newpass(); return false;'/></p>
+        <p><input type="submit" id='forgotbtn' value="Change Password" onclick='forgot(); return false;'/></p>
         </div>
     </form>
     </main>

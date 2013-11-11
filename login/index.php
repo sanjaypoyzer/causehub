@@ -27,7 +27,7 @@
           Username: <input type="text" id='u' name="username" size="15" /><br />
           Password: <input type="password" id='p' name="password" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='signinbtn' value="Login" onclick='login(); return false;'/></p>
+        <p><input type="submit" id='signinbtn' value="Login" onclick='login(); return false;'/> <a href='forgot'>Forgot password</a></p>
         </div>
     </form>
     </main>
