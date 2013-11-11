@@ -47,13 +47,15 @@
 
 		echo '1:'.$requestedslug.':Redirecting';
 		exit;
+	} else if($postaction=='edittags'){
+		$causetags = $_POST['newtags'];
+
+		mysql_query("UPDATE causes SET tags='$causetags' WHERE (id='$postcauseid')");
+
+		echo '1:Updated cause tags';
+		exit;
 	} else if($postaction=='publish'){
 		$cid = $_POST['causeid'];
-		
-		/*if(strlen($causedescription)<100){
-			echo '2:You cannot publish your cause until you have a description over 100 characters long:Start changing the world!';
-			exit;
-		}*/
 
 		mysql_query("UPDATE causes SET hidden='0' WHERE (id='$cid')");
 
