@@ -23,18 +23,17 @@
         <h1><a href="/">CauseHub.</a></h1>
     </header>
     <main>
-    <form method='post' class='login' action='#' onsubmit="return false;">
+    <form method='post' class='login' action='/scripts/processing/newpass.php'>
           Reset Code: <input type="text" id='resetcode' name="resetcode" size="15" /><br />
           New Password: <input type="password" id='password' name="password" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='newpassbtn' value="Save New Password" onclick='newpass(); return false;'/></p>
+         <p><input type="submit" value="Save New Password"/></p>
         </div>
     </form>
     </main>
     <?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
-    <script src="/scripts/login.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
     <?php

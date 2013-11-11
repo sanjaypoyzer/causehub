@@ -45,6 +45,7 @@
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$resetcode = str_rand(15, 'alphanum');
 
+	mysql_query("UPDATE passreset SET valid='0' WHERE (uid='$userid')");
 	mysql_query("INSERT INTO passreset (uid,resetcode,timedate_created,ip,valid) VALUES('$userid','$resetcode','$timedate','$ip','1') ");
 	$_SESSION['forgot_msg'] = 'success:A reset code has been sent to you email ('.$email.')';
 	header('location:/login/newpass/');

@@ -37,4 +37,13 @@
     <script src="/scripts/login.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
+    <?php
+        if($_SESSION['forgot_msg']!=''){
+            $parts = explode(':', $_SESSION['forgot_msg']);
+            echo '<script>';
+            echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+            echo '</script>';
+            unset($_SESSION['forgot_msg']);
+        }
+    ?>
 </html>
