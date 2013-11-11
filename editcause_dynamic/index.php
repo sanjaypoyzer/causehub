@@ -6,7 +6,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,tags,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -19,6 +19,7 @@
 	$causename = $row['name'];
 	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
+	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
@@ -59,15 +60,27 @@
 				<h1><?php echo $causename; ?></h1>
 			</header>
 
-			<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle" />
+			<form method='post' action='#' onsubmit="return false;">
+			<span class="hint tagsHint">Add some tags that relate to your cause:</span>
+			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			<input type="text" id="causetags" class="tags" value="<?php echo $causetags; ?>"/>
+			<input type='submit' id='edittagsbtn' value='Update' onclick='editTags(); return false;' style='margin-top: 10px;'>
+			</form>
+
+
+
+			<br /><br /><br />
+
+
 
 			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
 			    <div class="errors"></div>
 			    <textarea class="sir-trevor" name="content"><?php echo $causedescription; ?></textarea>
-			    <input type='submit' value='Update' id='editdescriptionbtn'>
+			    <input type='submit' value='Update' id='editdescriptionbtn' style='margin-top: 10px;'>
 			</form>
+
 
 
 			<br /><br /><br />
@@ -83,6 +96,9 @@
 
 
 			<br /><br /><br />
+
+
+
 			<form method='post' action='#' onsubmit="return false;">
 				<span class="hint slugHint">People Can Find It At:</span>
 			<label>http://causehub.co/cause/</label>
@@ -233,7 +249,7 @@
 		    document.getElementById("uploadform").submit();
 		};
 		$(function() {
-            $('#tags_1').tagsInput({width:'auto'});
+            $('#causetags').tagsInput({width:'auto'});
         });
 	</script>
 	<?php
