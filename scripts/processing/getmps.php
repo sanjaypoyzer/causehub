@@ -2,11 +2,6 @@
 	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
-	
-	if(!checkSession()){
-		echo '3:You need to be logged in the create a cause:Create';
-		exit;
-	}
 
 	$keyword = $_POST['keyword'];
 	$keyword = $_GET['keyword'];
