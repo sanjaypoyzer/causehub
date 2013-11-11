@@ -47,6 +47,18 @@
 
 	mysql_query("UPDATE passreset SET valid='0' WHERE (uid='$userid')");
 	mysql_query("INSERT INTO passreset (uid,resetcode,timedate_created,ip,valid) VALUES('$userid','$resetcode','$timedate','$ip','1') ");
+
+	$to = $email;
+	$subject = 'Your reset password code';
+	$headers = "From: noreply@causehub.co\r\n";
+	$headers .= "Reply-To: support@causehub.co\r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+	$message = '<html><body>';
+	$message .= '<p>You password can now be reset on CauseHub <a href="http://causehub.co/login/newpass">here</a><br>Your password reset code is: <b>'.$resetcode.'</b></p';
+	$message .= '</body></html>';
+	mail($to, $subject, $message, $headers);
+
 	$_SESSION['forgot_msg'] = 'success:A reset code has been sent to you email ('.$email.')';
 	header('location:/login/newpass/');
 	exit;
