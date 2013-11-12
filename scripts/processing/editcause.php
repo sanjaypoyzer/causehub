@@ -12,7 +12,7 @@
 	$postaction = $_POST['action'];
 	$userid = getCurrentUserInfo('id');
 
-	$sql = mysql_query("SELECT id,uid,name,slug,description FROM causes WHERE id='$postcauseid'");
+	$sql = mysql_query("SELECT id,uid,name,slug,description,tags FROM causes WHERE id='$postcauseid'");
 	$logincheck = mysql_num_rows($sql);
 	
 	$row = mysql_fetch_array($sql);
@@ -20,6 +20,7 @@
 	$ownerid = $row['uid'];
 	$causename = $row['name'];
 	$causedescription = $row['description'];
+	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$cslug = $row['slug'];
 
@@ -56,6 +57,14 @@
 		exit;
 	} else if($postaction=='publish'){
 		$cid = $_POST['causeid'];
+		$defaultdesc = mysql_real_escape_string(file_get_contents('default_desc.json'));
+
+		$totaltags = explode(',', $causetags);
+
+		if($causedescription==$defaultdesc || count($totaltags)<2){
+			echo '2:To public your cause, please add some description about it and at least two tags:Start changing the world!';
+			exit;
+		}
 
 		mysql_query("UPDATE causes SET hidden='0' WHERE (id='$cid')");
 
