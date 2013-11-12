@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>CauseHub. | Register</title>
+    <title>CauseHub. | New Password</title>
     <link rel="stylesheet" href="/css/style.css">
 
     <link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
@@ -23,23 +23,26 @@
         <h1><a href="/">CauseHub.</a></h1>
     </header>
     <main>
-
-    <form method='post' class='login' action='#' onsubmit="return false;">
-          <p>We're currently still in Alpha (testing) stage.<br>Sign up below if you're interested in the project, and tick the box if you're interested in being a test user.</p>
-          <label>Username:</label> <input type="text" id='user' name="user" size="15" /><br />
-          <label>First Name:</label> <input type="text" id='fname' name="fname" size="5" /><br /> 
-          <label>Last Name:</label> <input type="text" id='lname' name="lname" size="5" /><br />
-          <label>Email:</label> <input type="text" id='email' name="email" size="15" /><br />
-          <label>Password:</label> <input type="password" id='pass' name="pass" size="15" /><br />
+    <form method='post' class='login' action='/scripts/processing/newpass.php'>
+          Reset Code: <input type="text" id='resetcode' name="resetcode" size="15" /><br />
+          New Password: <input type="password" id='password' name="password" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='registerbtn' value="Register" onclick='register(); return false;'/></p>
+         <p><input type="submit" value="Save New Password"/></p>
         </div>
     </form>
     </main>
     <?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
-    <script src="/scripts/register.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
+    <?php
+        if($_SESSION['forgot_msg']!=''){
+            $parts = explode(':', $_SESSION['forgot_msg']);
+            echo '<script>';
+            echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+            echo '</script>';
+            unset($_SESSION['forgot_msg']);
+        }
+    ?>
 </html>

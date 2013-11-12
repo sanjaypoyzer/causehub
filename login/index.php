@@ -25,9 +25,9 @@
     <main>
     <form method='post' class='login' action='#' onsubmit="return false;">
           Username: <input type="text" id='u' name="username" size="15" /><br />
-          Password: <input type="password" id='p' name="passwort" size="15" /><br />
+          Password: <input type="password" id='p' name="password" size="15" /><br />
         <div align="center">
-        <p><input type="submit" id='signinbtn' value="Login" onclick='login(); return false;'/></p>
+        <p><input type="submit" id='signinbtn' value="Login" onclick='login(); return false;'/> <a href='forgot'>Forgot password</a></p>
         </div>
     </form>
     </main>
@@ -37,4 +37,13 @@
     <script src="/scripts/login.js"></script>
     <script src="/plugins/alertify/alertify.js"></script>
     <script src="/plugins/nprogress/nprogress.js"></script>
+    <?php
+        if($_SESSION['forgot_msg']!=''){
+            $parts = explode(':', $_SESSION['forgot_msg']);
+            echo '<script>';
+            echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+            echo '</script>';
+            unset($_SESSION['forgot_msg']);
+        }
+    ?>
 </html>

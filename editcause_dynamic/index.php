@@ -6,7 +6,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,tags,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -19,6 +19,7 @@
 	$causename = $row['name'];
 	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
+	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
@@ -47,6 +48,8 @@
 
 	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor.css" />
 	<link rel="stylesheet" href="/plugins/SirTrevor/css/sir-trevor-icons.css" />
+
+	<link rel="stylesheet" href="/plugins/tagsinput/jquery.tagsinput.css" />
 </head>
 <body>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
@@ -57,13 +60,27 @@
 				<h1><?php echo $causename; ?></h1>
 			</header>
 
+			<form method='post' action='#' onsubmit="return false;">
+			<span class="hint tagsHint">Add some tags that relate to your cause:</span>
+			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			<input type="text" id="causetags" class="tags" value="<?php echo $causetags; ?>"/>
+			<input type='submit' id='edittagsbtn' value='Update' onclick='editTags(); return false;' style='margin-top: 10px;'>
+			</form>
+
+
+
+			<br /><br /><br />
+
+
+
 			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
 			    <div class="errors"></div>
 			    <textarea class="sir-trevor" name="content"><?php echo $causedescription; ?></textarea>
-			    <input type='submit' value='Update' id='editdescriptionbtn'>
+			    <input type='submit' value='Update' id='editdescriptionbtn' style='margin-top: 10px;'>
 			</form>
+
 
 
 			<br /><br /><br />
@@ -79,6 +96,9 @@
 
 
 			<br /><br /><br />
+
+
+
 			<form method='post' action='#' onsubmit="return false;">
 				<span class="hint slugHint">People Can Find It At:</span>
 			<label>http://causehub.co/cause/</label>
@@ -197,12 +217,14 @@
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
 	<script src="/scripts/editcause.js"></script>
 	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
 	<script src="/plugins/SirTrevor/js/underscore.js"></script>
 	<script src="/plugins/SirTrevor/js/eventable.js"></script>
+	<script src="/plugins/tagsinput/jquery.tagsinput.js"></script>
 	<script src="/plugins/SirTrevor/js/sir-trevor.js"></script>
 	<script type="text/javascript" charset="utf-8">
 	    $(function(){
@@ -226,6 +248,9 @@
 	    document.getElementById("file").onchange = function() {
 		    document.getElementById("uploadform").submit();
 		};
+		$(function() {
+            $('#causetags').tagsInput({width:'auto'});
+        });
 	</script>
 	<?php
 		if($_SESSION['upload_msg']!=''){

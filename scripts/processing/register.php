@@ -7,7 +7,7 @@
 		echo '1';
 		exit;
 	}
-	
+
 	$user = mysql_real_escape_string($_POST['user']);
 	$pass = md5($_POST['pass']);
 	$fname = mysql_real_escape_string($_POST['fname']);

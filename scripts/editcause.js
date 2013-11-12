@@ -1,10 +1,8 @@
 function editCauseSlug(){
-    	var error = false;
     	document.getElementById('editslug').style.borderColor = '#999';
     	if(document.getElementById('editslug').value==''){
     		alertify.log('No slug entered', 'error');
     		document.getElementById('editslug').style.borderColor = 'red';
-    		error = true;
     		return false;
     	}
 	
@@ -39,6 +37,44 @@ function editCauseSlug(){
              return false;
          }
     	});
+}
+
+function editTags(){
+        document.getElementById('causetags').style.borderColor = '#999';
+    
+    var data = 'causeid=' + document.getElementById('causeid').value + '&action=edittags&newtags=' + document.getElementById('causetags').value;
+        $.ajax({
+        type  : 'POST',
+         url  : '/scripts/processing/editcause.php',
+         data : data,
+         beforeSend : function() {
+             document.getElementById('edittagsbtn').disabled = true;
+             document.getElementById('causetags').disabled = true;
+             document.getElementById('edittagsbtn').value = 'Processing';
+         },
+         error : function() {
+             document.getElementById('edittagsbtn').disabled = false;
+             document.getElementById('causetags').disabled = false;
+             document.getElementById('edittagsbtn').value = 'Update';
+             return false;
+         },
+         success : function (response) {
+             var array = response.split(':');
+             if(array[0]=='1'){
+                document.getElementById('edittagsbtn').value = 'Update';
+                document.getElementById('causetags').disabled = false;
+                document.getElementById('edittagsbtn').disabled = false;
+                alertify.log(array[1], 'success');
+             } else {
+                document.getElementById('edittagsbtn').value = 'Update';
+                document.getElementById('causetags').disabled = false;
+                document.getElementById('edittagsbtn').disabled = false;
+                alertify.log(array[1], 'success');
+                document.getElementById('causetags').style.borderColor = 'red';
+             }
+             return false;
+         }
+        });
 }
 
 function publish(sid){
