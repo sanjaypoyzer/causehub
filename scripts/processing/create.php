@@ -17,7 +17,26 @@
 	}
 
 	$date = date("d-m-Y");
-	$slug = rand(10000,99999);
+
+		$slugchosen = false;
+		$extra = 1;
+		while(!$slugchosen){
+			if($extra==1){
+				$causenameslug = $causename;
+			} else {
+				$causenameslug = $causename.'-'.$extra;
+			}
+			$slug = preg_replace('/^-+|-+$/', '', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $causenameslug)));
+			$sqlslug = mysql_real_escape_string($slug);
+			$slugsql = mysql_query("SELECT id FROM causes WHERE slug='$sqlslug' AND deleted='0'");
+			$slugcheck = mysql_num_rows($slugsql);
+
+			if($slugcheck!=0){
+				$extra++;
+			} else {
+				$slugchosen = true;
+			}
+		}
 
 	$causename = mysql_real_escape_string($causename);
 	$defaultdesc = mysql_real_escape_string(file_get_contents('default_desc.json'));
