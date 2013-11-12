@@ -11,6 +11,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CauseHub.</title>
+	
 	<link rel="stylesheet" href="/css/style.css">
 
 	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
