@@ -18,6 +18,14 @@ function checkSession() {
     }
 }
 
+function checkAdmin() {
+    if(getCurrentUserInfo('admin')=='1'){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function getCurrentUserInfo($type) {
     if ($type == 'id') {
         $sid = $_SESSION['id'];
