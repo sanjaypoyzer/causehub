@@ -8,6 +8,10 @@
 		exit;
 	}
 
+				echo '2:We are sorry, but no user signups are allowed in this version of the Alpha:Register';
+				exit;
+	
+
 	$user = mysql_real_escape_string($_POST['user']);
 	$pass = md5($_POST['pass']);
 	$fname = mysql_real_escape_string($_POST['fname']);
