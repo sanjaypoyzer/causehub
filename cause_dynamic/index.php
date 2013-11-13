@@ -54,7 +54,7 @@
 </head>
 <body>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/header-include.php'); ?>
-	<img src="/usercontent/causebanners/<?php echo $causebanner; ?>" class="causeImg" />
+	<div style="width: 100%; top: 0px; height: 200px; z-index: -99; background: url(/usercontent/causebanners/<?php echo $causebanner; ?>) no-repeat center center; background-size: cover;"></div>
 	<main>
 		<section class="causeDescription" id="causeDescription">
 			
