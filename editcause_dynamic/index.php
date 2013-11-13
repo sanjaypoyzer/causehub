@@ -73,11 +73,11 @@
 
 
 
-			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' method='POST'>
+			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' id='editdesc' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
 			    <div class="errors"></div>
-			    <textarea class="sir-trevor" name="content"><?php echo $causedescription; ?></textarea>
+			    <textarea class="sir-trevor" name="content" id="content"><?php echo $causedescription; ?></textarea>
 			    <input type='submit' value='Update' id='editdescriptionbtn' style='margin-top: 10px;'>
 			</form>
 
@@ -222,7 +222,7 @@
 		goto othergoto;
 		published:
 		?>
-			<a href="/cause/<?php echo $slug; ?>/"><button class="publishbtn">View Cause &rarr;</button></a>
+			<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">View Cause &rarr;</button>
 		<?php
 		othergoto:
 		?>

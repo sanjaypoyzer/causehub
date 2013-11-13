@@ -68,7 +68,9 @@ function editCauseSlug(){
     	});
 }
 
-function editTags(){
+function editTags(hidemsg){
+        if(typeof(hidemsg)==='undefined') hidemsg=false;
+        
         document.getElementById('causetags').style.borderColor = '#999';
     
     var data = 'causeid=' + document.getElementById('causeid').value + '&action=edittags&newtags=' + document.getElementById('causetags').value;
@@ -93,13 +95,13 @@ function editTags(){
                 document.getElementById('edittagsbtn').value = 'Update';
                 document.getElementById('causetags').disabled = false;
                 document.getElementById('edittagsbtn').disabled = false;
-                alertify.log(array[1], 'success');
+                if(!hidemsg) alertify.log(array[1], 'success');
              } else {
                 document.getElementById('edittagsbtn').value = 'Update';
                 document.getElementById('causetags').disabled = false;
                 document.getElementById('edittagsbtn').disabled = false;
-                alertify.log(array[1], 'success');
-                document.getElementById('causetags').style.borderColor = 'red';
+                if(!hidemsg) alertify.log(array[1], 'success');
+                if(!hidemsg) document.getElementById('causetags').style.borderColor = 'red';
              }
              return false;
          }
@@ -108,6 +110,8 @@ function editTags(){
 
 function publish(sid){
     
+    editTags(true);
+
     var data = 'action=publish&causeid=' + sid;
         $.ajax({
         type  : 'POST',
@@ -127,7 +131,8 @@ function publish(sid){
              if(array[0]=='1'){
                 document.getElementById('publishbtn').value = array[2];
                 document.getElementById('publishbtn').disabled = false;
-                window.location.href = '/cause/' + array[1] + '/';
+                //window.location.href = '/cause/' + array[1] + '/';
+                document.getElementById("editdescriptionbtn").click();
              } else {
                 document.getElementById('publishbtn').disabled = false;
                 document.getElementById('publishbtn').value = array[2];

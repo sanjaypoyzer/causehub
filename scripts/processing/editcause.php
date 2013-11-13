@@ -63,11 +63,12 @@
 	} else if($postaction=='publish'){
 		$cid = $_POST['causeid'];
 		$defaultdesc = mysql_real_escape_string(file_get_contents('default_desc.json'));
+		$causedescription = mysql_real_escape_string($causedescription);
 
 		$totaltags = explode(',', $causetags);
 
 		if($causedescription==$defaultdesc || count($totaltags)<2){
-			echo '2:To public your cause, please add some description about it and at least two tags:Start changing the world!';
+			echo '2:To publish your cause, please add some description about it and at least two tags:Start changing the world!';
 			exit;
 		}
 
