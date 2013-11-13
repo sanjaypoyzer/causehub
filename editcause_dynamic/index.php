@@ -106,6 +106,19 @@
 			<input type='text' id='editslug' value='<?php echo $slug; ?>'>
 			<input type='submit' id='editslugbtn' value='Update' onclick='editCauseSlug(); return false;'>
 			</form>
+
+
+
+			<br /><br /><br />
+
+
+
+			<form method='post' action='#' onsubmit="return false;">
+				<span class="hint slugHint">Edit cause settings:</span>
+			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+			<input type='submit' id='deletecausebtn' value='Delete Cause' onclick='deleteCause(); return false;'>
+			</form>
+
 		</section>
 		<section class="knowledgeBaseSummary">
 			<form method='post' action="#" onsubmit="return false;" autocomplete="on">
@@ -248,9 +261,6 @@
 	    document.getElementById("file").onchange = function() {
 		    document.getElementById("uploadform").submit();
 		};
-		$(function() {
-            $('#causetags').tagsInput({width:'auto'});
-        });
 	</script>
 	<?php
 		if($_SESSION['upload_msg']!=''){

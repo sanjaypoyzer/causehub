@@ -1,3 +1,32 @@
+function deleteCause(){    
+    var data = 'causeid=' + document.getElementById('causeid').value + '&action=deletecause';
+        $.ajax({
+        type  : 'POST',
+         url  : '/scripts/processing/editcause.php',
+         data : data,
+         beforeSend : function() {
+             document.getElementById('deletecausebtn').disabled = true;
+             document.getElementById('deletecausebtn').value = 'Processing';
+         },
+         error : function() {
+             document.getElementById('deletecausebtn').disabled = false;
+             document.getElementById('deletecausebtn').value = 'Update';
+             return false;
+         },
+         success : function (response) {
+             var array = response.split(':');
+             if(array[0]=='1'){
+                document.getElementById('deletecausebtn').value = 'Deleting';
+                window.location.href = '/';
+             } else {
+                document.getElementById('deletecausebtn').disabled = false;
+                alertify.log(array[1], 'error');
+             }
+             return false;
+         }
+        });
+}
+
 function editCauseSlug(){
     	document.getElementById('editslug').style.borderColor = '#999';
     	if(document.getElementById('editslug').value==''){

@@ -25,12 +25,17 @@
 	$cslug = $row['slug'];
 
 	if($userid != $ownerid){
-		echo '2:You cannot edit this cause:Update';
+		echo '2:You do not have access to make changes to the requested cause:Update';
 		exit;
 	}
 
 
-	if($postaction=='editslug'){
+	if($postaction=='deletecause'){
+		mysql_query("UPDATE causes SET deleted='1',hidden='1' WHERE (id='$postcauseid')");
+		$_SESSION['delete_msg'] = 'success:'.$causename.' has been deleted successfully';
+		echo '1';
+		exit;
+	} else if($postaction=='editslug'){
 		$requestedslug = $_POST['newslug'];
 		$requestedslug = preg_replace('/^-+|-+$/', '', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $requestedslug)));
 		$sqlslug = mysql_real_escape_string($requestedslug);
