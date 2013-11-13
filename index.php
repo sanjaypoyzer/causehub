@@ -52,4 +52,13 @@
 	<script src="/scripts/create.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
+		<?php
+		if($_SESSION['delete_msg']!=''){
+			$parts = explode(':', $_SESSION['delete_msg']);
+			echo '<script>';
+			echo 'alertify.log("'.$parts[1].'","'.$parts[0].'");';
+			echo '</script>';
+			unset($_SESSION['delete_msg']);
+		}
+	?>
 </html>
