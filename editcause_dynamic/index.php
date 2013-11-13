@@ -261,6 +261,9 @@
 	    document.getElementById("file").onchange = function() {
 		    document.getElementById("uploadform").submit();
 		};
+		$(function() {
+			$('#causetags').tagsInput({width:'auto'});
+		});
 	</script>
 	<?php
 		if($_SESSION['upload_msg']!=''){
