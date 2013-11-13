@@ -37,7 +37,7 @@
 						echo '
 						<a href="/cause/'.$array['slug'].'/">
 						<figure>
-						  <img src="/images/200x100_placeholder.gif" alt="'.$array['name'].'">
+						  <div style="width: 200px; height: 100px; background: url(/usercontent/causebanners/'.$array['banner'].') no-repeat center center; background-size: cover;"></div>
 						  <figcaption>'.$array['name'].'</figcaption>
 						</figure>
 						</a>
