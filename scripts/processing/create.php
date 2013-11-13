@@ -16,6 +16,11 @@
 		exit;
 	}
 
+	if(preg_replace('/^-+|-+$/', '', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $causename)))==''){
+		echo '2:You cause contains invalid characters:Create';
+		exit;
+	}
+
 	$date = date("d-m-Y");
 
 		$slugchosen = false;
