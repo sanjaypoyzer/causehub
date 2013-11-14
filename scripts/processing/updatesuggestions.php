@@ -15,7 +15,7 @@
 		echo '
 		<a href="/cause/'.$array['slug'].'/">
 			<figure>
-			  <img src="http://placehold.it/200x100" alt="'.ucwords($return).'">
+			  <div style="width: 200px; height: 100px; background: url(/usercontent/causebanners/'.$array['banner'].') no-repeat center center; background-size: cover;"></div>
 			  <figcaption>'.ucwords($return).'</figcaption>
 			</figure>
 		</a>
