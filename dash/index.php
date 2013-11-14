@@ -10,8 +10,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>CauseHub. | Dashboard</title>
+	<meta name="description" content="A decentralised, open-source toolkit to bring people around a common cause.">
+	<meta name="keywords" content="CauseHub,Cause,Hub,Community,Common,Tool,Toolkit,Decentralised,Open-Source,World">
+	<meta name="author" content="CauseHub">
+
 	<link rel="stylesheet" href="/css/style.css">
 
 	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />

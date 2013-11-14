@@ -7,7 +7,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,tags,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -20,6 +20,7 @@
 	$causename = $row['name'];
 	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
+	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
@@ -45,6 +46,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CauseHub. | <?php echo $causename; ?></title>
+	<meta name="description" content="A decentralised, open-source toolkit to bring people around a common cause.">
+	<meta name="keywords" content="CauseHub,Cause,Hub,Community,Common,Tool,Toolkit,Decentralised,Open-Source,World,<?php echo $causetags; ?>">
+	<meta name="author" content="CauseHub">
+
 	<link rel="stylesheet" href="/css/style.css">
 
 	<link rel="stylesheet" href="/plugins/alertify/alertify.core.css" />
