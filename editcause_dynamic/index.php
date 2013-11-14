@@ -93,7 +93,7 @@
 
 			<form id='uploadform' method='post' action='/scripts/processing/uploadbanner.php?cid=<?php echo $causeid; ?>' enctype="multipart/form-data">
 			<span class="hint descriptionHint">Upload a banner image for your cause:</span>
-			<img src='/usercontent/causebanners/<?php echo $causebanner; ?>' width='100%' onclick="$('input[type=file]').click();" style='cursor: pointer;'>
+			<div style="width: 100%; top: 0px; height: 150px; background: url(/usercontent/causebanners/<?php echo $causebanner; ?>) no-repeat center center; background-size: cover; cursor: pointer;" onclick="$('input[type=file]').click();"></div>
 			<input type='file' id='file' name='file' style='display: none;'>
 			</form>
 
