@@ -21,7 +21,7 @@
 	$causestart = $row['started'];
 	$causeslug = $row['slug'];
 
-	if($userid != $ownerid){
+	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
 		echo '2:You cannot add knowledge to this cause:Add';
 		exit;
 	}

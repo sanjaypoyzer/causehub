@@ -24,7 +24,7 @@
 	$causestart = $row['started'];
 	$cslug = $row['slug'];
 
-	if($userid != $ownerid){
+	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
 		echo '2:You do not have access to make changes to the requested cause:Update';
 		exit;
 	}

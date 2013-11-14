@@ -23,7 +23,7 @@
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
-	if($ownerid!=getCurrentUserInfo('id')){
+	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
 		header('location:/cause/'.$slug);
 		exit;
 	}

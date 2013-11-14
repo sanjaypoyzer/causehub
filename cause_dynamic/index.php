@@ -64,7 +64,7 @@
 		<section class="causeDescription" id="causeDescription">
 			
 		<?php 
-			if($ownerid==getCurrentUserInfo('id')){
+			if($ownerid==getCurrentUserInfo('id') || checkAdmin()){
 				echo '<a href="/editcause/'.$slug.'/" class="editlink"><button class="publishbtn">&larr; Manage Cause</button></a>';
 			}
 		?>

@@ -23,7 +23,7 @@
 		exit;
 	}
 
-	if($userid != $ownerid){
+	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
 		header('location:/cause/'.$cslug.'/');
 		exit;
 	}

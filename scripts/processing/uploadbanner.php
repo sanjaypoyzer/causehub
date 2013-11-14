@@ -20,7 +20,7 @@
   if($causename==''){
     header('location:/?'.$causeidpost);
     exit;
-  } else if($ownerid!=getCurrentUserInfo('id')){
+  } else if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
     header('location:/cause/'.$causeslug.'/');
     exit;
   }
