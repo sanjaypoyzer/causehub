@@ -239,10 +239,10 @@
 	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
-	<script src="/plugins/SirTrevor/js/underscore.min.js"></script>
-	<script src="/plugins/SirTrevor/js/eventable.min.js"></script>
-	<script src="/plugins/tagsinput/jquery.tagsinput.min.js"></script>
-	<script src="/plugins/SirTrevor/js/sir-trevor.min.js"></script>
+	<script src="/plugins/SirTrevor/js/underscore.js"></script>
+	<script src="/plugins/SirTrevor/js/eventable.js"></script>
+	<script src="/plugins/tagsinput/jquery.tagsinput.js"></script>
+	<script src="/plugins/SirTrevor/js/sir-trevor.js"></script>
 	<script type="text/javascript" charset="utf-8">
 	    $(function(){
 
