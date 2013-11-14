@@ -9,7 +9,7 @@
 	}
 
 	$enteredsql = mysql_real_escape_string($entered);
-	$sql = mysql_query("SELECT * FROM causes WHERE name LIKE '%".$enteredsql."%' AND hidden='0' AND deleted='0'");
+	$sql = mysql_query("SELECT * FROM causes WHERE (name LIKE '%".$enteredsql."%' OR tags LIKE '%".$enteredsql."%') AND hidden='0' AND deleted='0'");
 	while($array = mysql_fetch_array($sql)){
 		$return = str_replace(strtolower($enteredsql), '<b>'.ucwords($enteredsql).'</b>', strtolower($array['name']));
 		echo '
