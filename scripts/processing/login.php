@@ -35,7 +35,7 @@
 		return $str;
 	}
 		
-	$sessionid = str_rand(10, 'alphanum');
+	$sid = str_rand(10, 'alphanum');
 	$_SESSION['id'] = $sessionid;
 		
 	$timedate = date("H:i:s d-m-Y");
@@ -45,7 +45,7 @@
     $_SESSION['path'][$nextpathitem]['uri'] = 'login.entry.script';
     $_SESSION['path'][$nextpathitem]['timedate'] = date("Y-m-d")." ".strftime("%H:%M:%S");
     $path_string = mysql_escape_string(serialize($_SESSION['path']));
-    mysql_query("INSERT INTO sessions (uid,sid,ip,path,timedate,killed) VALUES('$userid','$sessionid','$ip','$path_string','$timedate','0') ");
+    mysql_query("INSERT INTO sessions (uid,sid,ip,path,timedate,killed) VALUES('$userid','$sid','$ip','$path_string','$timedate','0') ");
 
 	echo '1::Redirecting';
 	exit;
