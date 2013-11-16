@@ -128,7 +128,7 @@
 			<form method='post' action="#" onsubmit="return false;" autocomplete="on" id="addAction">
 				<h2>Action Base</h2>
 				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-				<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span>
+				<span class="knowledgeBaseHint hint">Add actions people can do to help your cause:</span>
 				 <select name="actionType" id='action_type' onchange='updateActionForm()'>
 					<option value="petition">Petiton</option>
 					<option value="event">Event</option>
