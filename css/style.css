@@ -71,6 +71,9 @@ button, input[type=submit], .btn {
   margin-top: 1em;
   font-size: 1.5em !important; }
 
+.warningBtn {
+  background-color: #ce0000 !important; }
+
 /**** header *****/
 body > header {
   background: rgba(0, 106, 166, 0.7);

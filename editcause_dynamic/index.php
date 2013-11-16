@@ -120,7 +120,7 @@
 			<form method='post' action='#' onsubmit="return false;">
 				<span class="hint slugHint">Edit cause settings:</span>
 			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-			<input type='submit' id='deletecausebtn' value='Delete Cause' onclick='deleteCause(); return false;'>
+			<input type='submit' class="warningBtn" id='deletecausebtn' value='Delete Cause' onclick='deleteCause(); return false;'>
 			</form>
 
 		</section>
