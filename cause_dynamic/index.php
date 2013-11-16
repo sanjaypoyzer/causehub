@@ -114,51 +114,33 @@
 			<!-- DONE DESCRIPTION RENDERING -->
 		</section>
 		<section class="knowledgeBaseSummary">
-			<h2>Knowledge Base</h2>
+			<h2>Action Base</h2>
 			<ul>
 			<?php
 				$total = 0;
-				$sql = mysql_query("SELECT * FROM knowledgebase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
+				$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
 				while($array = mysql_fetch_array($sql)){
-					if($array['action']=='lobbyLord'){
+					if($array['action']=='petition'){
 						$actionid = $array['actionid'];
-						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbylord WHERE id='$actionid'");
-						$row = mysql_fetch_array($sqlemail);
-						$message = rawurlencode($row['message']);
-						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-					} else if($array['action']=='lobbyMP'){
+						$sqldata = mysql_query("SELECT * FROM action_petition WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqldata);
+						echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Sign it!</a></li>';
+					} else if($array['action']=='event'){
 						$actionid = $array['actionid'];
-						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymp WHERE id='$actionid'");
-						$row = mysql_fetch_array($sqlemail);
-						$message = rawurlencode($row['message']);
-						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-					} else if($array['action']=='lobbyMedia'){
+						$sqldata = mysql_query("SELECT * FROM action_event WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqldata);
+						echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a></li>';
+					} else if($array['action']=='other'){
 						$actionid = $array['actionid'];
-						$sqlemail = mysql_query("SELECT * FROM kb_action_lobbymedia WHERE id='$actionid'");
-						$row = mysql_fetch_array($sqlemail);
-						$message = rawurlencode($row['message']);
-						echo '<li>'.$array['fact'].' &rarr; <a href="mailto:'.$row['address'].'?Subject='.$causenamesubject.'&Body='.$message.'">Email them!</a>';
-						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-					} else if($array['action']=='createPetition'){
-						$actionid = $array['actionid'];
-						$sqlemail = mysql_query("SELECT * FROM kb_action_petitions WHERE id='$actionid'");
-						$row = mysql_fetch_array($sqlemail);
-						echo '<li>'.$array['fact'].' &rarr; <a href="/petition/'.$row['slug'].'/" target=_blank>Sign it!</a>';
-						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
-					} else if($array['action']=='hostEvent'){
-						$actionid = $array['actionid'];
-						$sqlemail = mysql_query("SELECT * FROM kb_action_hostevent WHERE id='$actionid'");
-						$row = mysql_fetch_array($sqlemail);
-						echo '<li>'.$array['fact'].' &rarr; <a href="'.$row['url'].'" target=_blank>Attend!</a>';
-						echo '<ul><li><a href="'.$array['source'].'" target=_blank title="'.$array['source'].'">Source: '.$array['sourcetitle'].'</a></li></ul></li>';
+						$sqldata = mysql_query("SELECT * FROM action_other WHERE id='$actionid'");
+						$row = mysql_fetch_array($sqldata);
+						echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a></li>';
 					}
 					$total++;
 				}
 
 				if($total==0){
-					echo '<li>No entries added to the knowledgebase yet</li>';
+					echo '<li>No entries added to the action base</li>';
 				}
 			?>
 			</ul>

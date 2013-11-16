@@ -77,7 +77,7 @@
 
 
 
-			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' id='editdesc' method='POST' target="_blank" >
+			<form action='/scripts/processing/processdesc.php?cid=<?php echo $causeid; ?>' id='editdesc' method='POST'>
 				<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="hint descriptionHint">Reasons People Should Join Your Cause Are:</span>
 			    <div class="errors"></div>
