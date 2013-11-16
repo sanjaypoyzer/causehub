@@ -28,8 +28,6 @@ function addAction(){
         }
         
         var data = 'cid=' + document.getElementById('causeid').value + '&actiontype=' + document.getElementById('action_type').value + '&actiontext=' + document.getElementById('action_text').value + '&actionlink=' + document.getElementById('action_link').value;
-        
-        console.log(data);
 
         $.ajax({
         type  : 'POST',
