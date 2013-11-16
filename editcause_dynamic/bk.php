@@ -125,25 +125,49 @@
 
 		</section>
 		<section class="knowledgeBaseSummary">
-			<form method='post' action="#" onsubmit="return false;" autocomplete="on" id="addAction">
-				<h2>Action Base</h2>
-				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-				<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span>
-				 <select name="actionType" id='action_type' onchange='updateActionForm()'>
-					<option value="petition">Petiton</option>
-					<option value="event">Event</option>
-					<option value="other">Other</option>
-				</select>
-				<section id='actioninfo' class="actioninfo">
-						Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
-						Link: <input type="text" id="action_link" autocomplete="off">
-				</section>
-				<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
+			<form method='post' action="#" onsubmit="return false;" autocomplete="on">
+				<h2>Knowledge Base</h2>
+				<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span> <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
+				<h3>Fact:</h3> <input type="text" name="knowledgePoint" id='fact' autocomplete="off"><br>
+					<section class="factSource">Source (URL): <input type="text" name="knowledgeSource" id='sourceurl' autocomplete="off"></section><br>
+				<span class="actionHint hint">What people can do about this is:</span>
+				<h3>Action Type:</h3> <select name="actionType" id='actiontype' onchange='updateActionForm()'>
+					<option value="lobbyLord">Lobby A Lord</option>
+					<option value="lobbyMP">Lobby An MP</option>
+					<option value="lobbyMedia">Email A Media Outlet</option>
+					<option value="createPetition">Create A Petition</option>
+					<option value="hostEvent">Host An Event</option>
+				</select><br>
+					<section id='lobbyLord' class="lobby">
+						Lord: <input type="text" id="lobbylord_name" autocomplete="off"><br>
+						Email: <input type="text" id="lobbylord_address" autocomplete="off"><br>
+						Message: <textarea size="100" id='lobbylord_message'></textarea><br>
+					</section>
+					<section id='lobbyMP' class="lobby" style='display: none;'>
+						MP: <input type="text" id="lobbymp_name" autocomplete="off"><br>
+						Email: <input type="text" id="lobbymp_address" autocomplete="off"><br>
+						Message: <textarea size="100" id='lobbymp_message'></textarea><br>
+					</section>
+					<section id='lobbyMedia' class="lobby" style='display: none;'>
+						Media: <input type="text" id="lobbymedia_name" autocomplete="off"><br>
+						Email: <input type="text" id="lobbymedia_address" autocomplete="off"><br>
+						Message: <textarea size="100" id='lobbymedia_message'></textarea><br>
+					</section>
+					<section id='createPetition' class="lobby" style='display: none;'>
+						Name: <input type="text" id="createpetition_name" autocomplete="off"><br>
+						Description: <textarea size="100" id="createpetition_description">Write a short description about the petition</textarea><br>
+					</section>
+					<section id='hostEvent' class="lobby" style='display: none;'>
+						Name: <input type="text" id="hostevent_name" autocomplete="off"><br>
+						URL: <input type="text" id="hostevent_url" autocomplete="off"><br>
+					</section>
+
+
+				<input type="submit" id='addknowledgebtn' value='Add' onclick='addKnowledge(); return false;'>
 			</form>
 		</section>
 
 		<section class="knowledgeBaseSummary">
-			<!--
 			<ul>
 			<?php
 				$total = 0;
@@ -191,7 +215,6 @@
 				}
 			?>
 			</ul>
-			-->
 		</section>
 		<?php
 		if($causehidden=='0'){
@@ -213,7 +236,7 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><script src="/scripts/extra.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
 	<script src="/scripts/editcause.js"></script>
-	<script src="/scripts/editcause_actions.js"></script>
+	<script src="/scripts/editcause_updateformactions.js"></script>
 	<script src="/plugins/alertify/alertify.js"></script>
 	<script src="/plugins/nprogress/nprogress.js"></script>
 	<script src="/plugins/SirTrevor/js/underscore.js"></script>
