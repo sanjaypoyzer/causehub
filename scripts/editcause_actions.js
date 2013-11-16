@@ -23,11 +23,14 @@ function addAction(){
         }
         if(action_link.value==''){
             alertify.log('No action link entered', 'error');
-            action_text.style.borderColor = 'red';
+            action_link.style.borderColor = 'red';
             return false;
         }
         
         var data = 'cid=' + document.getElementById('causeid').value + '&actiontype=' + document.getElementById('action_type').value + '&actiontext=' + document.getElementById('action_text').value + '&actionlink=' + document.getElementById('action_link').value;
+        
+        console.log(data);
+
         $.ajax({
         type  : 'POST',
          url  : '/scripts/processing/addaction.php',
