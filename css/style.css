@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/** _mixins.scss **/
 @font-face {
   font-family: 'RobotoSlab';
   src: url("f/RobotoSlab-Regular.eot");
@@ -13,6 +14,7 @@
   font-weight: normal;
   font-style: normal; }
 
+/******** _base.scss ********/
 /**** Common ****/
 * {
   padding: 0;
@@ -30,10 +32,12 @@ a {
     text-decoration: underline; }
 
 h1, h2, h3 {
-  font-family: "RobotoSlab", serif; }
+  font-family: "RobotoSlab", serif;
+  text-align: center; }
 
 p, ul {
-  margin: 1em auto; }
+  margin: 1em auto;
+  line-height: 1.3em; }
 
 ul li {
   margin-left: 2em; }
@@ -143,9 +147,10 @@ main {
   margin: 5px auto; }
   main h1 {
     font-size: 3em; }
-  main .dash {
-    text-align: center;
-    margin-top: 4em; }
+
+main.dash {
+  text-align: center;
+  margin-top: 4em; }
 
 div#results {
   width: 300px;
