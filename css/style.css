@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/** _mixins.scss **/
 @font-face {
   font-family: 'RobotoSlab';
   src: url("f/RobotoSlab-Regular.eot");
@@ -13,6 +14,7 @@
   font-weight: normal;
   font-style: normal; }
 
+/******** _base.scss ********/
 /**** Common ****/
 * {
   padding: 0;
