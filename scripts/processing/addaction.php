@@ -22,7 +22,7 @@
 	$causeslug = $row['slug'];
 
 	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
-		echo '2:You cannot add knowledge to this cause:Add';
+		echo '2:You cannot add action points to this cause:Add';
 		exit;
 	}
 

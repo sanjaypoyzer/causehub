@@ -56,8 +56,11 @@ function addAction(){
                 action_type.disabled = false;
                 action_text.disabled = false;
                 action_link.disabled = false;
+                action_text.value = '';
+                action_link.value = '';
                 action_btn.value = 'Add Action';
                 alertify.log('Added action point', 'success');
+                updateActionList();
              } else {
                 action_btn.disabled = false;
                 action_type.disabled = false;
@@ -69,4 +72,26 @@ function addAction(){
              return false;
          }
         });
+}
+
+function updateActionList(){
+    var causeid = document.getElementById('causeid');
+    var data = 'cid=' + causeid.value;
+    $.ajax({
+    type  : 'POST',
+     url  : '/scripts/processing/actionlist_edit.php',
+     data : data,
+     beforeSend : function() {
+         console.log('Updating actions');
+     },
+     error : function() {
+         console.log('Error updating actions');
+         return false;
+     },
+     success : function (response) {
+         document.getElementById('actionpointlist').innerHTML = response;
+         console.log('Updated actions');
+         return false;
+     }
+    });
 }
