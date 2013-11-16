@@ -67,7 +67,7 @@
 
 		$totaltags = explode(',', $causetags);
 
-		if($causedescription==$defaultdesc || count($totaltags)<2){
+		if(count($totaltags)<2){
 			echo '2:To publish your cause, please add some description about it and at least two tags:Start changing the world!';
 			exit;
 		}

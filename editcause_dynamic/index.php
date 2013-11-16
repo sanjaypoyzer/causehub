@@ -146,19 +146,13 @@
 
 		</section>
 		<?php
-		if($causehidden=='0'){
-			goto published;
+		if($causehidden=='1'){
+			$publishbtntext = 'Start changing the world! &rarr;';
+		} else {
+			$publishbtntext = 'View Cause &rarr;';
 		}
 		?>
-			<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">Start changing the world! &rarr;</button>
-		<?php
-		goto othergoto;
-		published:
-		?>
-			<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');">View Cause &rarr;</button>
-		<?php
-		othergoto:
-		?>
+			<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');"><?php echo $publishbtntext; ?></button>
 	</main>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>

@@ -7,7 +7,7 @@
 	$postcontent = $_POST['content'];
 	$userid = getCurrentUserInfo('id');
 
-	$sql = mysql_query("SELECT id,uid,name,slug,description FROM causes WHERE id='$postcauseid'");
+	$sql = mysql_query("SELECT id,uid,name,slug,description,tags FROM causes WHERE id='$postcauseid'");
 	$logincheck = mysql_num_rows($sql);
 	
 	$row = mysql_fetch_array($sql);
@@ -15,6 +15,7 @@
 	$ownerid = $row['uid'];
 	$causename = $row['name'];
 	$causedescription = $row['description'];
+	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$cslug = $row['slug'];
 
@@ -27,6 +28,7 @@
 		header('location:/cause/'.$cslug.'/');
 		exit;
 	}
+
 	if($postcontent!=''){
 		$content = mysql_real_escape_string($postcontent);
 		mysql_query("UPDATE causes SET description='$content' WHERE (id='$postcauseid')");
