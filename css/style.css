@@ -36,7 +36,8 @@ h1, h2, h3 {
   text-align: center; }
 
 p, ul {
-  margin: 1em auto; }
+  margin: 1em auto;
+  line-height: 1.3em; }
 
 ul li {
   margin-left: 2em; }
