@@ -36,7 +36,7 @@
 	}
 		
 	$sid = str_rand(10, 'alphanum');
-	$_SESSION['id'] = $sessionid;
+	$_SESSION['id'] = $sid;
 		
 	$timedate = date("H:i:s d-m-Y");
 	$ip = $_SERVER['REMOTE_ADDR'];
@@ -44,7 +44,8 @@
 	$nextpathitem = count($_SESSION['path']);
     $_SESSION['path'][$nextpathitem]['uri'] = 'login.entry.script';
     $_SESSION['path'][$nextpathitem]['timedate'] = date("Y-m-d")." ".strftime("%H:%M:%S");
-    $path_string = mysql_escape_string(serialize($_SESSION['path']));
+    $path_string = mysql_real_escape_string(serialize($_SESSION['path']));
+
     mysql_query("INSERT INTO sessions (uid,sid,ip,path,timedate,killed) VALUES('$userid','$sid','$ip','$path_string','$timedate','0') ");
 
 	echo '1::Redirecting';
