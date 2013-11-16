@@ -49,7 +49,9 @@
 					}
 				?>
 			</section>
-			<input type='submit' id='causecreatebtn' value='Create Cause' onclick='createcause(); return false;'>
+			<section class="causeThumbs">
+				<input type='submit' class="createBtn" id='causecreatebtn' value='Create New Cause' onclick='createcause(); return false;'>
+			</section>
 	</main>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
