@@ -126,6 +126,14 @@
 		</section>
 		<section class="knowledgeBaseSummary">
 			<form method='post' action="#" onsubmit="return false;" autocomplete="on" id="addAction">
+				<h2>Lobby An MP</h2>
+				<div id='lobbylist'>
+					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
+					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
+					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
+					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
+					<button style="margin-bottom: 5px; width: 100%;">Loading...</button>
+				</div>
 				<h2>Action Base</h2>
 				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="knowledgeBaseHint hint">An important thing people should know about this cause is:</span>
@@ -142,9 +150,8 @@
 			</form>
 		</section>
 
-		<section class="knowledgeBaseSummary" id='actionpointlist'>
+		<section class="knowledgeBaseSummary" id='actionpointlist'></section>
 
-		</section>
 		<?php
 		if($causehidden=='1'){
 			$publishbtntext = 'Start changing the world! &rarr;';
@@ -189,9 +196,10 @@
 		    document.getElementById("uploadform").submit();
 		};
 		$(function() {
-			$('#causetags').tagsInput({width:'auto'});
+			$('#causetags').tagsInput({width:'auto','onAddTag':function(element){updateLobbyList("add")},'onRemoveTag':function(element){updateLobbyList("add")}});
 		});
 		$(document).ready(function() {
+			updateLobbyList("load");
 			updateActionList();
 		});
 	</script>

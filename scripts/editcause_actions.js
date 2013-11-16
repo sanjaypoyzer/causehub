@@ -95,3 +95,26 @@ function updateActionList(){
      }
     });
 }
+
+function updateLobbyList(typeofreq){
+    var causeid = document.getElementById('causeid');
+    var data = 'cid=' + causeid.value + '&type=' + typeofreq;
+    $.ajax({
+    type  : 'POST',
+     url  : '/scripts/processing/lobbylist.php',
+     data : data,
+     beforeSend : function() {
+         document.getElementById('lobbylist').innerHTML = '<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br><button style="margin-bottom: 5px; width: 100%;">Loading...</button><br><button style="margin-bottom: 5px; width: 100%;">Loading...</button><br><button style="margin-bottom: 5px; width: 100%;">Loading...</button><br><button style="margin-bottom: 5px; width: 100%;">Loading...</button>';
+         console.log('Updating lobby list');
+     },
+     error : function() {
+         console.log('Error updating lobby list');
+         return false;
+     },
+     success : function (response) {
+         document.getElementById('lobbylist').innerHTML = response;
+         console.log('Updated lobby list');
+         return false;
+     }
+    });
+}
