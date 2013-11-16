@@ -64,7 +64,7 @@ function updateSuggestions(){
          },
          success : function (response) {
              if(response==''){
-                featuredlist.style.display = 'block';
+                featuredlist.style.display = 'none';
                 relatedlist.style.display = 'none';
                 return false;
              } else {

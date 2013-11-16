@@ -27,7 +27,7 @@
 	<main>
 		<form method='post' action='#' onsubmit="return false;" class="causeInit">
 			<input type='text' id='causename' placeholder='What&#39;s Your Cause?' class="causeName" onkeyup="updateSuggestions();">
-			<input type='submit' id='causecreatebtn' value='Create Cause' onclick='createcause(); return false;'>
+			
 		</form>
 			<section class="causeThumbs" id='relatedlist' style='display: none;'>
 				<h2>Related Causes</h2>
@@ -49,6 +49,7 @@
 					}
 				?>
 			</section>
+			<input type='submit' id='causecreatebtn' value='Create Cause' onclick='createcause(); return false;'>
 	</main>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
