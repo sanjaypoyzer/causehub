@@ -72,7 +72,7 @@ button, input[type=submit], .btn {
   font-size: 1.5em !important; }
 
 /**** header *****/
-header {
+body > header {
   background: rgba(0, 106, 166, 0.7);
   color: #fff;
   text-align: center;
@@ -81,31 +81,31 @@ header {
   width: 100%;
   padding: 5px;
   z-index: 999; }
-  header h1 {
+  body > header h1 {
     font-family: "LibreBaskerville", sans-serif;
     width: 10em;
     margin: 0 auto; }
-  header span.login, header span.loggedin {
+  body > header span.login, body > header span.loggedin {
     position: absolute;
     right: 30px;
     top: 5px;
     font-size: 1.2em; }
-    header span.login a:nth-of-type(1), header span.loggedin a:nth-of-type(1) {
+    body > header span.login a:nth-of-type(1), body > header span.loggedin a:nth-of-type(1) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: 1px solid #bbbbbb; }
-    header span.login a:nth-of-type(2), header span.loggedin a:nth-of-type(2) {
+    body > header span.login a:nth-of-type(2), body > header span.loggedin a:nth-of-type(2) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
-  header span.loggedin {
+  body > header span.loggedin {
     top: 12px; }
-  header span.loggedin > a {
+  body > header span.loggedin > a {
     color: #fece2f; }
-  header span.loggedin a.logout {
+  body > header span.loggedin a.logout {
     color: #ff3344; }
-  header a.editlink {
+  body > header a.editlink {
     color: #fece2f; }
-  header button.searchbtn {
+  body > header button.searchbtn {
     float: left; }
 
 .index header h1 {
