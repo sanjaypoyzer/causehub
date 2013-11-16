@@ -42,6 +42,11 @@
 		exit;
 	}
 
+	$checkhttp = substr($postactionlink, 0, 4); 
+	if($checkhttp!='http'){
+		$postactionlink = 'http://'.$postactionlink;
+	}
+
 	if(filter_var($postactionlink, FILTER_VALIDATE_URL) === FALSE){
 	        echo '2:The link entered is not valid:Add Action';
 		exit;
