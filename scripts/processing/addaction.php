@@ -4,7 +4,7 @@
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
 	
 	if(!checkSession()){
-		echo '2:You need to be logged in to edit this cause:Update';
+		echo '2:You need to be logged in to edit this cause:Add Action';
 		exit;
 	}
 
@@ -22,7 +22,7 @@
 	$causeslug = $row['slug'];
 
 	if($ownerid!=getCurrentUserInfo('id') && !checkAdmin()){
-		echo '2:You cannot add action points to this cause:Add';
+		echo '2:You cannot add action points to this cause:Add Action';
 		exit;
 	}
 
@@ -30,17 +30,30 @@
 	$postactiontext = mysql_real_escape_string($_POST['actiontext']);
 	$postactionlink = mysql_real_escape_string($_POST['actionlink']);
 	if($postactiontype==''){
-		echo '2:No action type selected:Add';
+		echo '2:No action type selected:Add Action';
 		exit;
 	}
 	if($postactiontext==''){
-		echo '2:No action text added:Add';
+		echo '2:No action text added:Add Action';
 		exit;
 	}
 	if($postactionlink==''){
-		echo '2:No action link added:Add';
+		echo '2:No action link added:Add Action';
 		exit;
 	}
+
+	$regex = "((https?|ftp)\:\/\/)?"; // SCHEME 
+    $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass 
+    $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP 
+    $regex .= "(\:[0-9]{2,5})?"; // Port 
+    $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path 
+    $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query 
+    $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor 
+
+    if(preg_match("/^$regex$/", $postactionlink)){} else {
+    	echo '2:The link entered is not valid:Add Action';
+		exit;
+    }
 
 	if($postactiontype=='petition'){
 		mysql_query("INSERT INTO action_petition (atext,link) VALUES('$postactiontext','$postactionlink') ");
