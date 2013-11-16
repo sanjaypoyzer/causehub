@@ -32,7 +32,8 @@ a {
     text-decoration: underline; }
 
 h1, h2, h3 {
-  font-family: "RobotoSlab", serif; }
+  font-family: "RobotoSlab", serif;
+  text-align: center; }
 
 p, ul {
   margin: 1em auto; }
@@ -145,9 +146,10 @@ main {
   margin: 5px auto; }
   main h1 {
     font-size: 3em; }
-  main .dash {
-    text-align: center;
-    margin-top: 4em; }
+
+main.dash {
+  text-align: center;
+  margin-top: 4em; }
 
 div#results {
   width: 300px;
