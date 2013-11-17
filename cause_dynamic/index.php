@@ -7,7 +7,7 @@
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
 	$slug = $_GET['slug'];
-	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,tags,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
+	$sql = mysql_query("SELECT id,uid,name,slug,banner,description,tags,lobbys,hidden FROM causes WHERE slug='$slug' AND deleted='0'");
 	$logincheck = mysql_num_rows($sql);
 	$pagefound = false;
 	if($logincheck!=0){
@@ -21,6 +21,7 @@
 	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
 	$causetags = $row['tags'];
+	$causelobbys = $row['lobbys'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
 
@@ -144,6 +145,22 @@
 				}
 			?>
 			</ul>
+
+				<h3>Lobby An MP</h3>
+				<div id='lobbylist' class="actionPoints">
+					<?php
+						$exp = explode(':', $causelobbys);
+						$i = 0;
+						while($i<count($exp)){
+							$sql = mysql_query("SELECT first_name,last_name FROM mp WHERE id='".$exp[$i]."'");
+							$row = mysql_fetch_array($sql);
+							$csubject = rawurlencode($causename);
+							echo '<a href="mailto:name@example.com?subject='.$csubject.'"><button style="margin-bottom: 5px; width: 100%;">'.$row['first_name'].' '.$row['last_name'].'</button></a><br>';
+							$i++;
+						}
+					?>
+				</div>
+
 		</section>
 		
 	</main>
