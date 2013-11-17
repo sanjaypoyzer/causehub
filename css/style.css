@@ -78,6 +78,13 @@ button, input[type=submit], .btn {
 .warningBtn {
   background-color: #ce0000 !important; }
 
+/**** desigin patterns ****/
+.textCenter {
+  text-align: center; }
+
+.fullWidth {
+  width: 100%; }
+
 /**** header *****/
 body > header {
   background: rgba(0, 106, 166, 0.7);
@@ -326,3 +333,11 @@ div.feedback {
     margin-bottom: 1em; }
   div.feedback span {
     font-size: .6em; }
+
+/********* Edit Page ********/
+.knowledgeBaseSummary > form {
+  margin-bottom: 1em; }
+
+.actionPoints button {
+  margin-bottom: 5px;
+  width: 100%; }

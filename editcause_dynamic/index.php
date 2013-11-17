@@ -125,19 +125,11 @@
 
 		</section>
 		<section class="knowledgeBaseSummary">
-			<form method='post' action="#" onsubmit="return false;" autocomplete="on" id="addAction">
-				<h2>Lobby An MP</h2>
-				<div id='lobbylist'>
-					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
-					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
-					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
-					<button style="margin-bottom: 5px; width: 100%;">Loading...</button><br>
-					<button style="margin-bottom: 5px; width: 100%;">Loading...</button>
-				</div>
+			<form class="textCenter" method='post' action="#" onsubmit="return false;" autocomplete="on" id="addAction">
 				<h2>Action Base</h2>
 				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
-				<span class="knowledgeBaseHint hint">Add actions people can do to help your cause:</span>
-				 <select name="actionType" id='action_type' onchange='updateActionForm()'>
+				<span class="knowledgeBaseHint hint">Add some actions that will help your cause:</span>
+				 <select class="fullWidth" name="actionType" id='action_type' onchange='updateActionForm()'>
 					<option value="petition">Petiton</option>
 					<option value="event">Event</option>
 					<option value="other">Other</option>
@@ -148,6 +140,17 @@
 				</section>
 				<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
 			</form>
+
+			<section>
+				<h3>Lobby An MP</h3>
+				<div id='lobbylist' class="actionPoints">
+					<button>Loading...</button>
+					<button>Loading...</button>
+					<button>Loading...</button>
+					<button>Loading...</button>
+					<button>Loading...</button>
+				</div>
+			</section>
 		</section>
 
 		<section class="knowledgeBaseSummary" id='actionpointlist'></section>
@@ -159,7 +162,9 @@
 			$publishbtntext = 'View Cause &rarr;';
 		}
 		?>
-			<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');"><?php echo $publishbtntext; ?></button>
+
+		<button class="publishbtn" id="publishbtn" onclick="publish('<?php echo $causeid; ?>');"><?php echo $publishbtntext; ?></button>
+	
 	</main>
 	<?php include ($_SERVER['DOCUMENT_ROOT'].'/scripts/feedback-include.php'); ?>
 </body>
