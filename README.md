@@ -29,13 +29,3 @@ More to come soon.
 
 
 ----------------------------------------------------
-
-CHANGE LOG
-
-ALPHA 1.0
-  VERSION 0
-    - Initial Release
-  VERSION 1
-  	- Added password recovery
-  VERSION 2
-  	- Added cause tags

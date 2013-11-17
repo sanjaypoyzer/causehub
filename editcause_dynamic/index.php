@@ -90,7 +90,11 @@
 			<br /><br /><br />
 
 
-
+			<?php
+				if($causebanner=='placehold.gif'){
+					$causebanner = 'placehold_edit.png';
+				}
+			?>
 			<form id='uploadform' method='post' action='/scripts/processing/uploadbanner.php?cid=<?php echo $causeid; ?>' enctype="multipart/form-data">
 			<span class="hint descriptionHint">Upload a banner image for your cause:</span>
 			<div style="width: 100%; top: 0px; height: 150px; background: url(/usercontent/causebanners/<?php echo $causebanner; ?>) no-repeat center center; background-size: cover; cursor: pointer;" onclick="$('input[type=file]').click();"></div>
