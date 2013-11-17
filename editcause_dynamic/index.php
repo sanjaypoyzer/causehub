@@ -68,7 +68,7 @@
 			<span class="hint tagsHint">Add some tags that relate to your cause:</span>
 			<input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 			<input type="text" id="causetags" class="tags" value="<?php echo $causetags; ?>"/>
-			<input type='submit' id='edittagsbtn' value='Update' onclick='editTags(); return false;' style='margin-top: 10px; display: none;'>
+			<input type='submit' id='edittagsbtn' value='Update' onclick='editTags(); return false;' style='margin-top: 10px;'>
 			</form>
 
 

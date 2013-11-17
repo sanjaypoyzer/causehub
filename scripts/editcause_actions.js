@@ -98,7 +98,8 @@ function updateActionList(){
 
 function updateLobbyList(typeofreq){
     var causeid = document.getElementById('causeid');
-    var data = 'cid=' + causeid.value + '&type=' + typeofreq;
+    var causetags = document.getElementById('causetags');
+    var data = 'cid=' + causeid.value + '&type=' + typeofreq + '&tags=' + causetags.value;
     $.ajax({
     type  : 'POST',
      url  : '/scripts/processing/lobbylist.php',
