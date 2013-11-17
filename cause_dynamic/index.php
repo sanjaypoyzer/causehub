@@ -145,21 +145,28 @@
 				}
 			?>
 			</ul>
-
-				<h3>Lobby An MP</h3>
-				<div id='lobbylist' class="actionPoints">
-					<?php
-						$exp = explode(':', $causelobbys);
-						$i = 0;
-						while($i<count($exp)){
-							$sql = mysql_query("SELECT first_name,last_name FROM mp WHERE id='".$exp[$i]."'");
-							$row = mysql_fetch_array($sql);
-							$csubject = rawurlencode($causename);
-							echo '<a href="mailto:name@example.com?subject='.$csubject.'"><button style="margin-bottom: 5px; width: 100%;">'.$row['first_name'].' '.$row['last_name'].'</button></a><br>';
-							$i++;
-						}
-					?>
-				</div>
+				<?php
+				if($causelobbys==''){
+					goto nolobbys;
+				}
+				?>
+					<h3>Lobby An MP</h3>
+					<div id='lobbylist' class="actionPoints">
+						<?php
+							$exp = explode(':', $causelobbys);
+							$i = 0;
+							while($i<count($exp)){
+								$sql = mysql_query("SELECT first_name,last_name FROM mp WHERE id='".$exp[$i]."'");
+								$row = mysql_fetch_array($sql);
+								$csubject = rawurlencode($causename);
+								echo '<a href="mailto:name@example.com?subject='.$csubject.'"><button style="margin-bottom: 5px; width: 100%;">'.$row['first_name'].' '.$row['last_name'].'</button></a><br>';
+								$i++;
+							}
+						?>
+					</div>
+				<?php
+					nolobbys:
+				?>
 
 		</section>
 		
