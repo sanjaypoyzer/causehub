@@ -134,9 +134,11 @@
 				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="knowledgeBaseHint hint">Add some actions that will help your cause:</span>
 				 <select class="fullWidth" name="actionType" id='action_type' onchange='updateActionForm()'>
-					<option value="petition">Petiton</option>
+				 	<option disabled>CauseHub Modules</option>
+					<option value="petition" selected>Petiton</option>
 					<option value="event">Event</option>
-					<option value="other">Other</option>
+					<option value="other">Other Link</option>
+					<option disabled>Additional Modules</option>
 				</select>
 				<section id='actioninfo' class="actioninfo">
 						Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
