@@ -2,20 +2,30 @@ function updateActionForm(){
     var selected = document.getElementById('action_type').value;
 	if(selected=='petition'){
 		document.getElementById('action_text').value = 'Sign this Petition';
+        document.getElementById('causehubmodules').style.display = 'block';
+        document.getElementById('communitymodules').style.display = 'none';
 	} else if(selected=='event'){
         document.getElementById('action_text').value = 'Host an Event';
-    } else {
+        document.getElementById('causehubmodules').style.display = 'block';
+        document.getElementById('communitymodules').style.display = 'none';
+    } else if(selected=='other'){
         document.getElementById('action_text').value = '';
+        document.getElementById('causehubmodules').style.display = 'block';
+        document.getElementById('communitymodules').style.display = 'none';
+    } else {
+        document.getElementById('communitymodules').style.display = 'block';
+        document.getElementById('causehubmodules').style.display = 'none';
     }
 }
 
 function addAction(){
-        document.getElementById('action_text').style.borderColor = '#999';
-        document.getElementById('action_link').style.borderColor = '#999';
+        causeid = document.getElementById('causeid');
         action_type = document.getElementById('action_type');
         action_text = document.getElementById('action_text');
         action_link = document.getElementById('action_link');
         action_btn = document.getElementById('action_btn');
+        action_text.style.borderColor = '#999';
+        action_link.style.borderColor = '#999';
         if(action_text.value==''){
             alertify.log('No action text entered', 'error');
             action_text.style.borderColor = 'red';
@@ -27,7 +37,7 @@ function addAction(){
             return false;
         }
         
-        var data = 'cid=' + document.getElementById('causeid').value + '&actiontype=' + document.getElementById('action_type').value + '&actiontext=' + document.getElementById('action_text').value + '&actionlink=' + document.getElementById('action_link').value;
+        var data = 'cid=' + causeid.value + '&actiontype=' + action_type.value + '&actiontext=' + action_text.value + '&actionlink=' + action_link.value;
 
         $.ajax({
         type  : 'POST',

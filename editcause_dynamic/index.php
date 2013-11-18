@@ -2,6 +2,7 @@
 	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
+	include ($_SERVER['DOCUMENT_ROOT'].'/modules/modules.php');
 
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 
@@ -138,13 +139,32 @@
 					<option value="petition" selected>Petiton</option>
 					<option value="event">Event</option>
 					<option value="other">Other Link</option>
-					<option disabled>Additional Modules</option>
+					<option disabled>Community Modules</option>
+					<?php
+						$total = 0;
+						$sql = mysql_query("SELECT * FROM modules WHERE public='1' AND deleted='0'");
+						while($array = mysql_fetch_array($sql)){
+							echo '<option value="module-'.$array['id'].'">'.$array['name'].'</option>';
+							$total++;
+						}
+
+						if($total==0){
+							echo '<option disabled>There are no community modules avalible</option>';
+						}
+					?>
 				</select>
-				<section id='actioninfo' class="actioninfo">
-						Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
-						Link: <input type="text" id="action_link" autocomplete="off">
+
+				<section id='causehubmodules'>
+					<section id='actioninfo' class="actioninfo">
+							Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
+							Link: <input type="text" id="action_link" autocomplete="off">
+					</section>
+					<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
 				</section>
-				<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
+
+				<section id='communitymodules' style='display: none;'>
+					<input type="submit" id='action_btn' value='Add Action (Community)' onclick='addAction(); return false;'>
+				</section>
 			</form>
 
 			<section>
