@@ -74,6 +74,28 @@ function addAction(){
         });
 }
 
+function deleteAction(actionid){
+    var causeid = document.getElementById('causeid');
+    var data = 'cid=' + causeid.value + '&aid=' + actionid;
+    $.ajax({
+    type  : 'POST',
+     url  : '/scripts/processing/deleteaction.php',
+     data : data,
+     beforeSend : function() {
+         console.log('Deleting action');
+     },
+     error : function() {
+         console.log('Error deleting action');
+         return false;
+     },
+     success : function (response) {
+         updateActionList();
+         console.log('Deleted action');
+         return false;
+     }
+    });
+}
+
 function updateActionList(){
     var causeid = document.getElementById('causeid');
     var data = 'cid=' + causeid.value;

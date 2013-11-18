@@ -31,21 +31,22 @@
 	$total = 0;
 	$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
 	while($array = mysql_fetch_array($sql)){
+		$deletefunction = "deleteAction('".$array['id']."')";
 		if($array['action']=='petition'){
 			$actionid = $array['actionid'];
 			$sqldata = mysql_query("SELECT * FROM action_petition WHERE id='$actionid'");
 			$row = mysql_fetch_array($sqldata);
-			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Sign it!</a></li>';
+			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Sign it!</a><span style="float: right; cursor: pointer;"><a onclick="'.$deletefunction.'">x</a></span></li>';
 		} else if($array['action']=='event'){
 			$actionid = $array['actionid'];
 			$sqldata = mysql_query("SELECT * FROM action_event WHERE id='$actionid'");
 			$row = mysql_fetch_array($sqldata);
-			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a></li>';
+			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a><span style="float: right; cursor: pointer;"><a onclick="'.$deletefunction.'">x</a></span></li>';
 		} else if($array['action']=='other'){
 			$actionid = $array['actionid'];
 			$sqldata = mysql_query("SELECT * FROM action_other WHERE id='$actionid'");
 			$row = mysql_fetch_array($sqldata);
-			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a></li>';
+			echo '<li>'.$row['atext'].' &rarr; <a href="'.$row['link'].'" target=_blank>Join it!</a><span style="float: right; cursor: pointer;"><a onclick="'.$deletefunction.'">x</a></span></li>';
 		}
 		$total++;
 	}
