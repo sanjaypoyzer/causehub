@@ -142,7 +142,7 @@
 					<option disabled>Community Modules</option>
 					<?php
 						$total = 0;
-						$sql = mysql_query("SELECT * FROM modules WHERE public='1' AND deleted='0'");
+						$sql = mysql_query("SELECT * FROM modules WHERE public='1' AND deleted='0' ORDER BY name");
 						while($array = mysql_fetch_array($sql)){
 							echo '<option value="module-'.$array['id'].'">'.$array['name'].'</option>';
 							$total++;
@@ -163,7 +163,8 @@
 				</section>
 
 				<section id='communitymodules' style='display: none;'>
-					<input type="submit" id='action_btn' value='Add Action (Community)' onclick='addAction(); return false;'>
+					<div id='communitymodulefields'></div>
+					<input type="submit" id='action_btn' value='Add Action' onclick='addCommunityAction(); return false;'>
 				</section>
 			</form>
 
