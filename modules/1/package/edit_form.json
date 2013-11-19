@@ -1,0 +1,14 @@
+{
+	"elements" : {
+		{
+			"id" : "input1",
+			"name" : "input1",
+			"type" : "text"
+		},
+		{
+			"id" : "input2",
+			"name" : "input2",
+			"type" : "text"
+		}
+	}
+}
