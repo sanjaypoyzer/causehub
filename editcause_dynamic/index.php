@@ -163,7 +163,27 @@
 				</section>
 
 				<section id='communitymodules' style='display: none;'>
-					<div id='communitymodulefields'></div>
+					<div id='communitymodulefields'>
+
+						<?php
+							$cmoduleformjson = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/1/package/edit_form.json');
+							$cmoduleform = json_decode($cmoduleformjson,true);
+							//print_r($cmoduleform);
+							for($i=0;$i<count($cmoduleform['elements']);$i++){
+								$currentelm = $cmoduleform['elements'][$i];
+								$constructelm = '<'.$currentelm['tag'].' ';
+
+								for($y=0;$y<count($cmoduleform['elements'][$i]['attributes']);$y++){
+									$currentattr = $cmoduleform['elements'][$i]['attributes'][$y];
+									$constructelm .= $currentattr['name'].'="'.$currentattr['value'].'"" ';
+								}
+								$constructelm .= '></'.$currentelm['tag'].'>';
+
+								echo $constructelm;
+							}
+						?>
+
+					</div>
 					<input type="submit" id='action_btn' value='Add Action' onclick='addCommunityAction(); return false;'>
 				</section>
 			</form>

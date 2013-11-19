@@ -1,14 +1,51 @@
 {
-	"elements" : {
+	"elements" : [
 		{
-			"id" : "input1",
-			"name" : "input1",
-			"type" : "text"
+			"tag" : "input",
+			"attributes" : [
+				{
+					"name" : "id",
+					"value" : "input1"
+				},
+				{
+					"name" : "name",
+					"value" : "input1"
+				},
+				{
+					"name" : "type",
+					"value" : "text"
+				},
+				{
+					"name" : "placeholder",
+					"value" : "Try any attribute on a tag :)"
+				},
+				{
+					"name" : "style",
+					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
+				}
+			]
 		},
 		{
-			"id" : "input2",
-			"name" : "input2",
-			"type" : "text"
+			"tag" : "input",
+			"attributes" : [
+				{
+					"name" : "id",
+					"value" : "input2"
+				},
+				{
+					"name" : "name",
+					"value" : "input2"
+				},
+				{
+					"name" : "type",
+					"value" : "text"
+				},
+				{
+					"name" : "style",
+					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
+				}
+			]
 		}
-	}
+	],
+	"ch_ef_version" : "1"
 }
