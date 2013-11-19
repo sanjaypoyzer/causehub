@@ -1,6 +1,83 @@
 {
 	"elements" : [
 		{
+			"tag" : "label",
+			"innerHTML" : "Test Label",
+			"attributes" : [
+				{
+					"name" : "style",
+					"value" : "width: 100%; font-size: 28px; font-weight: bold; margin-bottom: 10px;"
+				}
+			]
+		},
+		{
+			"tag" : "img",
+			"attributes" : [
+				{
+					"name" : "width",
+					"value" : "100%"
+				},
+				{
+					"name" : "src",
+					"value" : "http://www.boardwalk11.com/wp-content/uploads/2012/01/stock-img-6.png"
+				}
+			]
+		},
+		{
+			"tag" : "iframe",
+			"attributes" : [
+				{
+					"name" : "width",
+					"value" : "100%"
+				},
+				{
+					"name" : "height",
+					"value" : "200px"
+				},
+				{
+					"name" : "src",
+					"value" : "http://www.youtube.com/embed/b5nkopoDBlo"
+				},
+				{
+					"name" : "style",
+					"value" : "margin-bottom: 10px;"
+				},
+				{
+					"name" : "border",
+					"value" : "0"
+				},
+				{
+					"name" : "frameborder",
+					"value" : "0"
+				}
+			]
+		},
+		{
+			"tag" : "iframe",
+			"attributes" : [
+				{
+					"name" : "width",
+					"value" : "100%"
+				},
+				{
+					"name" : "height",
+					"value" : "225px"
+				},
+				{
+					"name" : "src",
+					"value" : "https://twitframe.com/show?url=https://twitter.com/jack/status/20"
+				},
+				{
+					"name" : "border",
+					"value" : "0"
+				},
+				{
+					"name" : "frameborder",
+					"value" : "0"
+				}
+			]
+		},
+		{
 			"tag" : "input",
 			"attributes" : [
 				{
@@ -18,27 +95,6 @@
 				{
 					"name" : "placeholder",
 					"value" : "Try any attribute on a tag :)"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "id",
-					"value" : "input2"
-				},
-				{
-					"name" : "name",
-					"value" : "input2"
-				},
-				{
-					"name" : "type",
-					"value" : "text"
 				},
 				{
 					"name" : "style",

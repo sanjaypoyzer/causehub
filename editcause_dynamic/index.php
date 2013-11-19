@@ -168,18 +168,22 @@
 						<?php
 							$cmoduleformjson = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/1/package/edit_form.json');
 							$cmoduleform = json_decode($cmoduleformjson,true);
-							//print_r($cmoduleform);
-							for($i=0;$i<count($cmoduleform['elements']);$i++){
-								$currentelm = $cmoduleform['elements'][$i];
-								$constructelm = '<'.$currentelm['tag'].' ';
 
-								for($y=0;$y<count($cmoduleform['elements'][$i]['attributes']);$y++){
-									$currentattr = $cmoduleform['elements'][$i]['attributes'][$y];
-									$constructelm .= $currentattr['name'].'="'.$currentattr['value'].'"" ';
+							if($cmoduleform['ch_ef_version']=='1'){
+								for($i=0;$i<count($cmoduleform['elements']);$i++){
+									$currentelm = $cmoduleform['elements'][$i];
+									$constructelm = '<'.$currentelm['tag'].' ';
+
+									for($y=0;$y<count($cmoduleform['elements'][$i]['attributes']);$y++){
+										$currentattr = $cmoduleform['elements'][$i]['attributes'][$y];
+										$constructelm .= $currentattr['name'].'="'.$currentattr['value'].'" ';
+									}
+									$constructelm .= '>'.$currentelm['innerHTML'].'</'.$currentelm['tag'].'>';
+
+									echo $constructelm;
 								}
-								$constructelm .= '></'.$currentelm['tag'].'>';
-
-								echo $constructelm;
+							} else {
+								echo 'The ch_ef_version is not compatible with this version of CauseHub, please upgrade your edit_form.json to a newer format.';
 							}
 						?>
 
