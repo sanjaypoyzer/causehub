@@ -137,6 +137,31 @@
 			"tag" : "input",
 			"attributes" : [
 				{
+					"name" : "id",
+					"value" : "mod_causetags"
+				},
+				{
+					"name" : "name",
+					"value" : "mod_causetags"
+				},
+				{
+					"name" : "type",
+					"value" : "text"
+				},
+				{
+					"name" : "style",
+					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
+				},
+				{
+					"name" : "value",
+					"value" : "#causetags#"
+				}
+			]
+		},
+		{
+			"tag" : "input",
+			"attributes" : [
+				{
 					"name" : "type",
 					"value" : "text"
 				},

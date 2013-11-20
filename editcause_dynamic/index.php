@@ -2,7 +2,6 @@
 	session_start();
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/connect.php');
 	include ($_SERVER['DOCUMENT_ROOT'].'/scripts/functions.php');
-	include ($_SERVER['DOCUMENT_ROOT'].'/modules/modules.php');
 
 	if(checkSession()){$loggedin = true;} else {$loggedin = false;}
 

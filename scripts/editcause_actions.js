@@ -15,6 +15,7 @@ function updateActionForm(){
     } else {
         document.getElementById('communitymodules').style.display = 'block';
         document.getElementById('causehubmodules').style.display = 'none';
+        document.getElementById('communitymoduleform').action = '/modules/' + document.getElementById('action_type').value + '/scripts/edit_form.php';
         updateEditForm();
     }
 }
@@ -85,8 +86,8 @@ function addAction(){
         });
 }
 
-$("#communitymoduleform").submit(function(e)
-{
+$("#communitymoduleform").submit(function(e){
+    action_btn = document.getElementById('communitymodulesubmit');
     var postData = $(this).serializeArray();
     var formURL = $(this).attr("action");
     $.ajax(
@@ -94,14 +95,17 @@ $("#communitymoduleform").submit(function(e)
         url : formURL,
         type: "POST",
         data : postData,
-        success:function(data, textStatus, jqXHR) 
-        {
-            alertify.log(data, 'success');
+        beforeSend: function() {
+            action_btn.value = 'Processing';
         },
-        error: function(jqXHR, textStatus, errorThrown) 
-        {
+        error: function(jqXHR, textStatus, errorThrown) {
             alertify.log('An error occured when attempting to proccess your request, please try again later', 'error');    
-        }
+            action_btn.value = 'Add Action';
+        },
+        success:function(data, textStatus, jqXHR) {
+            alertify.log(data, 'success');
+            action_btn.value = 'Add Action';
+        },
     });
     e.preventDefault(); //STOP default action
 });

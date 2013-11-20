@@ -23,6 +23,7 @@
 	if($cmoduleform['ch_ef_version']=='1'){
 		$cmoduleform = recursive_array_replace('#causeid#', $causeid, $cmoduleform);
 		$cmoduleform = recursive_array_replace('#causename#', $causename, $cmoduleform);
+		$cmoduleform = recursive_array_replace('#causetags#', $causetags, $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_id#', getCurrentUserInfo('id'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_username#', getCurrentUserInfo('username'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_email#', getCurrentUserInfo('email'), $cmoduleform);
