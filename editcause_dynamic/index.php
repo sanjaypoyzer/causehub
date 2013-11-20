@@ -168,23 +168,43 @@
 						<?php
 							$cmoduleformjson = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/1/package/edit_form.json');
 							$cmoduleform = json_decode($cmoduleformjson,true);
-
+							
 							if($cmoduleform['ch_ef_version']=='1'){
+								$cmoduleform = recursive_array_replace('#causeid#', $causeid, $cmoduleform);
+								$cmoduleform = recursive_array_replace('#causename#', $causename, $cmoduleform);
+								$cmoduleform = recursive_array_replace('#user_id#', getCurrentUserInfo('id'), $cmoduleform);
+								$cmoduleform = recursive_array_replace('#user_username#', getCurrentUserInfo('username'), $cmoduleform);
+								$cmoduleform = recursive_array_replace('#user_email#', getCurrentUserInfo('email'), $cmoduleform);
+								$cmoduleform = recursive_array_replace('#user_fname#', getCurrentUserInfo('fname'), $cmoduleform);
+								$cmoduleform = recursive_array_replace('#user_lname#', getCurrentUserInfo('lname'), $cmoduleform);
+
 								for($i=0;$i<count($cmoduleform['elements']);$i++){
 									$currentelm = $cmoduleform['elements'][$i];
-									$constructelm = '<'.$currentelm['tag'].' ';
+									if($currentelm['link']==''){
+										$constructelm = '<'.$currentelm['tag'].' ';
+									} else {
+										if(substr($currentelm['link'], 0, 4)=='http'){
+											$constructelm = '<a href="'.$currentelm['link'].'" target=_blank><'.$currentelm['tag'].' ';
+										} else {
+											$constructelm = '<a href="'.$currentelm['link'].'"><'.$currentelm['tag'].' ';
+										}
+									}
 
 									for($y=0;$y<count($cmoduleform['elements'][$i]['attributes']);$y++){
 										$currentattr = $cmoduleform['elements'][$i]['attributes'][$y];
 										$constructelm .= $currentattr['name'].'="'.$currentattr['value'].'" ';
 									}
-									$constructelm .= '>'.$currentelm['innerHTML'].'</'.$currentelm['tag'].'>';
 
+
+									$constructelm .= '>'.$currentelm['innerHTML'].'</'.$currentelm['tag'].'>';
+									if($currentelm['link']!=''){$constructelm .= '</a>';}
 									echo $constructelm;
 								}
 							} else {
-								echo 'The ch_ef_version is not compatible with this version of CauseHub, please upgrade your edit_form.json to a newer format.';
+								echo 'The ch_ef_version is not compatible with this version of CauseHub, please upgrade your edit_form.json to a newer format.<br>';
+								print_r($cmoduleform);
 							}
+							
 						?>
 
 					</div>
