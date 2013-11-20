@@ -15,6 +15,7 @@ function updateActionForm(){
     } else {
         document.getElementById('communitymodules').style.display = 'block';
         document.getElementById('causehubmodules').style.display = 'none';
+        updateEditForm();
     }
 }
 
@@ -84,6 +85,27 @@ function addAction(){
         });
 }
 
+$("#communitymoduleform").submit(function(e)
+{
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+    $.ajax(
+    {
+        url : formURL,
+        type: "POST",
+        data : postData,
+        success:function(data, textStatus, jqXHR) 
+        {
+            alertify.log(data, 'success');
+        },
+        error: function(jqXHR, textStatus, errorThrown) 
+        {
+            alertify.log('An error occured when attempting to proccess your request, please try again later', 'error');    
+        }
+    });
+    e.preventDefault(); //STOP default action
+});
+
 function deleteAction(actionid){
     var causeid = document.getElementById('causeid');
     var data = 'cid=' + causeid.value + '&aid=' + actionid;
@@ -123,6 +145,31 @@ function updateActionList(){
      success : function (response) {
          document.getElementById('actionpointlist').innerHTML = response;
          console.log('Updated actions');
+         return false;
+     }
+    });
+}
+
+function updateEditForm(){
+    var causeid = document.getElementById('causeid');
+    var moduleid = document.getElementById('action_type');
+    var data = 'cid=' + causeid.value + '&mid=' + moduleid.value;
+    $.ajax({
+    type  : 'POST',
+     url  : '/modules/display_edit_form.php',
+     data : data,
+     beforeSend : function() {
+         document.getElementById('communitymodulefields').innerHTML = 'Loading...';
+         console.log('Updating module edit form');
+     },
+     error : function() {
+         document.getElementById('communitymodulefields').innerHTML = '';
+         console.log('Error updating module edit form');
+         return false;
+     },
+     success : function (response) {
+         document.getElementById('communitymodulefields').innerHTML = response;
+         console.log('Updated module edit form');
          return false;
      }
     });

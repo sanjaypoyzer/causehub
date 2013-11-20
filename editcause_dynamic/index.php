@@ -144,7 +144,7 @@
 						$total = 0;
 						$sql = mysql_query("SELECT * FROM modules WHERE public='1' AND deleted='0' ORDER BY name");
 						while($array = mysql_fetch_array($sql)){
-							echo '<option value="module-'.$array['id'].'">'.$array['name'].'</option>';
+							echo '<option value="'.$array['id'].'">'.$array['name'].'</option>';
 							$total++;
 						}
 
@@ -160,57 +160,17 @@
 							Link: <input type="text" id="action_link" autocomplete="off">
 					</section>
 					<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
+				</form>
 				</section>
 
 				<section id='communitymodules' style='display: none;'>
-					<div id='communitymodulefields'>
+					<form id='communitymoduleform' name='communitymoduleform' method="POST" action="/modules/test.php" class="textCenter">
+						<div id='communitymodulefields'>
 
-						<?php
-							$cmoduleformjson = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/1/package/edit_form.json');
-							$cmoduleform = json_decode($cmoduleformjson,true);
-							
-							if($cmoduleform['ch_ef_version']=='1'){
-								$cmoduleform = recursive_array_replace('#causeid#', $causeid, $cmoduleform);
-								$cmoduleform = recursive_array_replace('#causename#', $causename, $cmoduleform);
-								$cmoduleform = recursive_array_replace('#user_id#', getCurrentUserInfo('id'), $cmoduleform);
-								$cmoduleform = recursive_array_replace('#user_username#', getCurrentUserInfo('username'), $cmoduleform);
-								$cmoduleform = recursive_array_replace('#user_email#', getCurrentUserInfo('email'), $cmoduleform);
-								$cmoduleform = recursive_array_replace('#user_fname#', getCurrentUserInfo('fname'), $cmoduleform);
-								$cmoduleform = recursive_array_replace('#user_lname#', getCurrentUserInfo('lname'), $cmoduleform);
-
-								for($i=0;$i<count($cmoduleform['elements']);$i++){
-									$currentelm = $cmoduleform['elements'][$i];
-									if($currentelm['link']==''){
-										$constructelm = '<'.$currentelm['tag'].' ';
-									} else {
-										if(substr($currentelm['link'], 0, 4)=='http'){
-											$constructelm = '<a href="'.$currentelm['link'].'" target=_blank><'.$currentelm['tag'].' ';
-										} else {
-											$constructelm = '<a href="'.$currentelm['link'].'"><'.$currentelm['tag'].' ';
-										}
-									}
-
-									for($y=0;$y<count($cmoduleform['elements'][$i]['attributes']);$y++){
-										$currentattr = $cmoduleform['elements'][$i]['attributes'][$y];
-										$constructelm .= $currentattr['name'].'="'.$currentattr['value'].'" ';
-									}
-
-
-									$constructelm .= '>'.$currentelm['innerHTML'].'</'.$currentelm['tag'].'>';
-									if($currentelm['link']!=''){$constructelm .= '</a>';}
-									echo $constructelm;
-								}
-							} else {
-								echo 'The ch_ef_version is not compatible with this version of CauseHub, please upgrade your edit_form.json to a newer format.<br>';
-								print_r($cmoduleform);
-							}
-							
-						?>
-
-					</div>
-					<input type="submit" id='action_btn' value='Add Action' onclick='addCommunityAction(); return false;'>
+						</div>
+						<input type="submit" id='communitymodulesubmit' value='Add Action' onclick='$("#communitymoduleform").submit(); return false;'>
+					</form>
 				</section>
-			</form>
 
 			<section>
 				<h3>Lobby An MP</h3>

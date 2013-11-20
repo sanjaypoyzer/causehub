@@ -84,11 +84,11 @@
 			"attributes" : [
 				{
 					"name" : "id",
-					"value" : "input1"
+					"value" : "mod_input1"
 				},
 				{
 					"name" : "name",
-					"value" : "input1"
+					"value" : "mod_input1"
 				},
 				{
 					"name" : "type",
@@ -111,6 +111,14 @@
 		{
 			"tag" : "input",
 			"attributes" : [
+				{
+					"name" : "id",
+					"value" : "mod_causename"
+				},
+				{
+					"name" : "name",
+					"value" : "mod_causename"
+				},
 				{
 					"name" : "type",
 					"value" : "text"
