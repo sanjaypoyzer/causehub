@@ -97,15 +97,18 @@ $("#communitymoduleform").submit(function(e){
         data : postData,
         beforeSend: function() {
             action_btn.value = 'Processing';
+            action_btn.disabled = true;
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alertify.log('An error occured when attempting to proccess your request, please try again later', 'error');    
             action_btn.value = 'Add Action';
+            action_btn.disabled = false;
         },
         success:function(data, textStatus, jqXHR) {
             var array = data.split(':');
             alertify.log(array[1], array[0]);
             action_btn.value = 'Add Action';
+            action_btn.disabled = false;
         },
     });
     e.preventDefault(); //STOP default action

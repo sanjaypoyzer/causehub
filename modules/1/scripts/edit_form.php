@@ -8,10 +8,15 @@
 		returnMessage("You need to be logged in to edit this cause","error");
 	}
 
-	if($_POST['mod_input1']=='yolo'){
+	////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+	////////////////// Add your module code below this point \\\\\\\\\\\\\\\\\\
+	////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+	$causeid = $_POST['mod_causeid'];
+
+	if($_POST['blah']=='yolo'){
 		returnMessage("Test","success");
 	}
 
-	echo 'error:';
-	print_r($_POST);
+	returnMessage(getCauseInfo('name',$causeid),"info");
 ?>

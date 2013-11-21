@@ -84,11 +84,11 @@
 			"attributes" : [
 				{
 					"name" : "id",
-					"value" : "mod_input1"
+					"value" : "mod_causeid"
 				},
 				{
 					"name" : "name",
-					"value" : "mod_input1"
+					"value" : "mod_causeid"
 				},
 				{
 					"name" : "type",
