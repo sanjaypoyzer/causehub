@@ -103,7 +103,8 @@ $("#communitymoduleform").submit(function(e){
             action_btn.value = 'Add Action';
         },
         success:function(data, textStatus, jqXHR) {
-            alertify.log(data, 'success');
+            var array = data.split(':');
+            alertify.log(array[1], array[0]);
             action_btn.value = 'Add Action';
         },
     });

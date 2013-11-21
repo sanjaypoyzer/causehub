@@ -5,11 +5,13 @@
 	include ($_SERVER['DOCUMENT_ROOT'].'/modules/module_functions.php');
 	
 	if(!checkSession()){
-		echo '2:You need to be logged in to edit this cause';
-		exit;
+		returnMessage("You need to be logged in to edit this cause","error");
 	}
 
-	print_r($_POST);
+	if($_POST['mod_input1']=='yolo'){
+		returnMessage("Test","success");
+	}
 
-	
+	echo 'error:';
+	print_r($_POST);
 ?>
