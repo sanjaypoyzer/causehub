@@ -18,5 +18,5 @@
 		returnMessage("Test","success");
 	}
 
-	returnMessage(getCauseInfo('name',$causeid),"info");
+	returnMessage(getCauseInfo('name',$causeid)." - ".getOtherUserInfo('fname',2),"info");
 ?>
