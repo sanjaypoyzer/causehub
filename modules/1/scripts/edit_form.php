@@ -18,5 +18,9 @@
 		returnMessage("Test","success");
 	}
 
-	returnMessage(getCauseInfo('name',$causeid)." - ".getOtherUserInfo('fname',2),"info");
+	if(!insertIntoActionBase()){
+		returnMessage("Error attempting to save into the action base","error");
+	} else {
+		returnMessage(getCauseInfo('name',$causeid)." - ".getOtherUserInfo('fname',2),"info");
+	}
 ?>
