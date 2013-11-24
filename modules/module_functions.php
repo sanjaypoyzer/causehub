@@ -12,10 +12,10 @@
 	    return $row[0];
 	}
 
-	function insertIntoActionBase($causeid,$mtypeid,$mid) {
-		if($causeid=='' || $mtypeid=='' || $mid==''){return false;}
+	function insertIntoActionBase($causeid,$mtypeid,$moduleid) {
+		if($causeid=='' || $mtypeid=='' || $moduleid==''){return false;}
 		$timedate = date("H:i:s d-m-Y");
-		mysql_query("INSERT INTO actionbase (cid,action,actionid,timedate,deleted) VALUES('$causeid','$mtypeid','$mid','$timedate','0') ");
+		mysql_query("INSERT INTO actionbase (cid,action,actionid,timedate,deleted) VALUES('$causeid','$mtypeid','$moduleid','$timedate','0') ");
 		return true;
 	}
 ?>
