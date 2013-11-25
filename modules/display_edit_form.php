@@ -10,11 +10,15 @@
 	$causeid = $row['id'];
 	$ownerid = $row['uid'];
 	$causename = $row['name'];
+	$causeslug = $row['slug'];
 	$causebanner = $row['banner'];
 	$causedescription = $row['description'];
 	$causetags = $row['tags'];
 	$causestart = $row['started'];
 	$causehidden = $row['hidden'];
+
+	$causesname = preg_replace('/^-+|-+$/', '', strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $causename)));
+	$causesname = str_replace('-', '', $causesname);
 
 	$cmoduleformjson = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/'.$mid.'/package/edit_form.json');
 	$cmoduleform = json_decode($cmoduleformjson,true);
@@ -22,12 +26,16 @@
 	if($cmoduleform['ch_ef_version']=='1'){
 		$cmoduleform = recursive_array_replace('#causeid#', $causeid, $cmoduleform);
 		$cmoduleform = recursive_array_replace('#causename#', $causename, $cmoduleform);
+		$cmoduleform = recursive_array_replace('#causesname#', $causesname, $cmoduleform);
+		$cmoduleform = recursive_array_replace('#causeslug#', $causeslug, $cmoduleform);
 		$cmoduleform = recursive_array_replace('#causetags#', $causetags, $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_id#', getCurrentUserInfo('id'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_username#', getCurrentUserInfo('username'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_email#', getCurrentUserInfo('email'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_fname#', getCurrentUserInfo('fname'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_lname#', getCurrentUserInfo('lname'), $cmoduleform);
+
+		echo '<input id="mtypeid" name="mtypeid" type="hidden" value="'.$mid.'"';
 
 		for($i=0;$i<count($cmoduleform['elements']);$i++){
 			$currentelm = $cmoduleform['elements'][$i];

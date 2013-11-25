@@ -109,6 +109,9 @@ $("#communitymoduleform").submit(function(e){
             alertify.log(array[1], array[0]);
             action_btn.value = 'Add Module';
             action_btn.disabled = false;
+            if(array[0]=='success'){
+                updateEditForm();
+            }
         },
     });
     e.preventDefault(); //STOP default action
