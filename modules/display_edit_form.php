@@ -35,7 +35,8 @@
 		$cmoduleform = recursive_array_replace('#user_fname#', getCurrentUserInfo('fname'), $cmoduleform);
 		$cmoduleform = recursive_array_replace('#user_lname#', getCurrentUserInfo('lname'), $cmoduleform);
 
-		echo '<input id="mtypeid" name="mtypeid" type="hidden" value="'.$mid.'"';
+		echo '<input id="mtypeid" name="mtypeid" type="hidden" value="'.$mid.'">';
+		echo '<input id="causeid" name="causeid" type="hidden" value="'.$causeid.'">';
 
 		for($i=0;$i<count($cmoduleform['elements']);$i++){
 			$currentelm = $cmoduleform['elements'][$i];

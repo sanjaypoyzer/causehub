@@ -15,27 +15,6 @@
 			"attributes" : [
 				{
 					"name" : "id",
-					"value" : "mod_twitterfeed_causeid"
-				},
-				{
-					"name" : "name",
-					"value" : "mod_twitterfeed_causeid"
-				},
-				{
-					"name" : "type",
-					"value" : "hidden"
-				},
-				{
-					"name" : "value",
-					"value" : "#causeid#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "id",
 					"value" : "mod_twitterfeed_hashtag"
 				},
 				{
