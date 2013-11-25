@@ -167,7 +167,11 @@
 				<?php
 					nolobbys:
 				?>
-
+			<?php
+			echo '<div style="max-height: 200px; background-color: lightgrey; overflow: hidden;">';
+				include($_SERVER['DOCUMENT_ROOT'].'/modules/1/scripts/public_block.php');
+			echo '</div>';
+			?>
 		</section>
 		
 	</main>

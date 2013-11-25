@@ -165,7 +165,7 @@
 				<section id='communitymodules' style='display: none;'>
 					<form id='communitymoduleform' name='communitymoduleform' method="POST" action="/modules/test.php" class="textCenter">
 						<div id='communitymodulefields'></div>
-						<input type="submit" id='communitymodulesubmit' value='Add Action' onclick='$("#communitymoduleform").submit(); return false;'>
+						<input type="submit" id='communitymodulesubmit' value='Add Module' onclick='$("#communitymoduleform").submit(); return false;'>
 					</form>
 				</section>
 
