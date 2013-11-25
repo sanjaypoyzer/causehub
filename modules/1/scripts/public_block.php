@@ -1,3 +1,3 @@
 <?php
-	echo 't<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>t<br>';
+	print_r($data);
 ?>

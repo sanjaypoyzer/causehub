@@ -29,7 +29,7 @@
 	echo '<ul>';
 
 	$total = 0;
-	$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
+	$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND community='0' AND deleted='0' ORDER BY id DESC");
 	while($array = mysql_fetch_array($sql)){
 		$deletefunction = "deleteAction('".$array['id']."')";
 		if($array['action']=='petition'){
