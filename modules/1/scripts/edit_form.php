@@ -8,19 +8,30 @@
 		returnMessage("You need to be logged in to edit this cause","error");
 	}
 
+	$mtypeid = $_POST['mtypeid'];
+	$causeid = $_POST['causeid'];
+	
 	////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	////////////////// Add your module code below this point \\\\\\\\\\\\\\\\\\
 	////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-	$causeid = $_POST['mod_causeid'];
+	$code = $_POST['mod_htmlembedder_code'];
 
-	if($_POST['blah']=='yolo'){
-		returnMessage("Test","success");
+	if($code==''){
+		returnMessage("Please enter html code to save","error");
 	}
 
-	if(!insertIntoActionBase()){
-		returnMessage("Error attempting to save into the action base","error");
+	$code = mysql_real_escape_string($code);
+
+	mysql_query("INSERT INTO mod_htmlembedder (htmlcode) VALUES('$code') ");
+	
+	$sql = mysql_query("SELECT id FROM mod_htmlembedder WHERE htmlcode='$code' ORDER BY id DESC LIMIT 1");
+	$row = mysql_fetch_array($sql);
+	$mdbid = $row['id'];
+
+	if(insertIntoActionBase($causeid,$mtypeid,$mdbid)){
+		returnMessage("HTML embed code saved","success");
 	} else {
-		returnMessage(getCauseInfo('name',$causeid)." - ".getOtherUserInfo('fname',2),"info");
+		returnMessage("Error attempting to save module","error");
 	}
 ?>

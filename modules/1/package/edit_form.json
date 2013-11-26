@@ -2,244 +2,32 @@
 	"elements" : [
 		{
 			"tag" : "label",
-			"innerHTML" : "Test Label",
-			"link" : "http://test.com",
+			"innerHTML" : "HTML Embedder",
 			"attributes" : [
 				{
 					"name" : "style",
-					"value" : "width: 100%; font-size: 28px; font-weight: bold; margin-bottom: 10px;"
+					"value" : "font-size: 20px; padding-bottom: 10px;"
 				}
 			]
 		},
 		{
-			"tag" : "img",
-			"link" : "/",
-			"attributes" : [
-				{
-					"name" : "width",
-					"value" : "100%"
-				},
-				{
-					"name" : "src",
-					"value" : "http://www.boardwalk11.com/wp-content/uploads/2012/01/stock-img-6.png"
-				}
-			]
-		},
-		{
-			"tag" : "iframe",
-			"attributes" : [
-				{
-					"name" : "width",
-					"value" : "100%"
-				},
-				{
-					"name" : "height",
-					"value" : "200px"
-				},
-				{
-					"name" : "src",
-					"value" : "http://www.youtube.com/embed/b5nkopoDBlo"
-				},
-				{
-					"name" : "style",
-					"value" : "margin-bottom: 10px;"
-				},
-				{
-					"name" : "border",
-					"value" : "0"
-				},
-				{
-					"name" : "frameborder",
-					"value" : "0"
-				}
-			]
-		},
-		{
-			"tag" : "iframe",
-			"attributes" : [
-				{
-					"name" : "width",
-					"value" : "100%"
-				},
-				{
-					"name" : "height",
-					"value" : "225px"
-				},
-				{
-					"name" : "src",
-					"value" : "https://twitframe.com/show?url=https://twitter.com/jack/status/20"
-				},
-				{
-					"name" : "border",
-					"value" : "0"
-				},
-				{
-					"name" : "frameborder",
-					"value" : "0"
-				}
-			]
-		},
-		{
-			"tag" : "input",
+			"tag" : "textarea",
 			"attributes" : [
 				{
 					"name" : "id",
-					"value" : "mod_causeid"
+					"value" : "mod_htmlembedder_code"
 				},
 				{
 					"name" : "name",
-					"value" : "mod_causeid"
+					"value" : "mod_htmlembedder_code"
 				},
 				{
-					"name" : "type",
-					"value" : "text"
+					"name" : "style",
+					"value" : "width: 100%; max-width: 100%; height: 80px; margin-bottom: 10px;"
 				},
 				{
 					"name" : "placeholder",
-					"value" : "Try any attribute on a tag :)"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#causeid#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "id",
-					"value" : "mod_causename"
-				},
-				{
-					"name" : "name",
-					"value" : "mod_causename"
-				},
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#causename#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "id",
-					"value" : "mod_causetags"
-				},
-				{
-					"name" : "name",
-					"value" : "mod_causetags"
-				},
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#causetags#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#user_id#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#user_username#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#user_email#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#user_fname#"
-				}
-			]
-		},
-		{
-			"tag" : "input",
-			"attributes" : [
-				{
-					"name" : "type",
-					"value" : "text"
-				},
-				{
-					"name" : "style",
-					"value" : "width: 100%; height: 30px; font-size: 28px; margin-bottom: 10px;"
-				},
-				{
-					"name" : "value",
-					"value" : "#user_lname#"
+					"value" : "Paste your HTML code here"
 				}
 			]
 		}

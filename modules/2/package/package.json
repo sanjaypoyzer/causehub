@@ -10,7 +10,7 @@
 	"settings" : {
 		"public_page" : {
 			"container_height" : "",
-			"container_max_height" : "600px"
+			"container_max_height" : "480px"
 		}
 	}
 }

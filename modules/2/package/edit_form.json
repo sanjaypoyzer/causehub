@@ -6,7 +6,7 @@
 			"attributes" : [
 				{
 					"name" : "style",
-					"value" : "font-size: 20px;"
+					"value" : "font-size: 20px; margin-bottom: 10px;"
 				}
 			]
 		},

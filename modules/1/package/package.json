@@ -1,6 +1,6 @@
 {
 	"module" : {
-		"name" : "Test Module",
+		"name" : "HTML Embedder",
 		"version" : "v1.0.0",
 		"developer" : {
 			"name" : "Jamie Davies",
@@ -10,7 +10,7 @@
 	"settings" : {
 		"public_page" : {
 			"container_height" : "",
-			"container_max_height" : "600px"
+			"container_max_height" : ""
 		}
 	}
 }
