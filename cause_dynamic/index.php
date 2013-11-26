@@ -178,7 +178,7 @@
 					$data['moduledbid'] = $arraycmodule['actionid'];
 					$data['modulecreated'] = $arraycmodule['timedate'];
 					$jsonmodarray = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/'.$arraycmodule['action'].'/package/package.json'),true);
-					echo '<div style="height: '.$jsonmodarray['settings']['public_page']['container_height'].'; max-height: '.$jsonmodarray['settings']['public_page']['container_max_height'].'; background-color: lightgrey; overflow: hidden; margin-bottom: 15px;">';
+					echo '<div style="height: '.$jsonmodarray['settings']['public_page']['container_height'].'; max-height: '.$jsonmodarray['settings']['public_page']['container_max_height'].'; overflow: hidden; margin-bottom: 15px;">';
 						include($_SERVER['DOCUMENT_ROOT'].'/modules/'.$arraycmodule['action'].'/scripts/public_block.php');
 					echo '</div>';
 				}

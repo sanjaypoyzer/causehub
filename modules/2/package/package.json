@@ -1,6 +1,6 @@
 {
 	"module" : {
-		"name" : "Twitter Feed",
+		"name" : "Twitter Widget",
 		"version" : "v1.0.0",
 		"developer" : {
 			"name" : "Jamie Davies",
