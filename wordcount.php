@@ -58,8 +58,8 @@
 	<?php
 		for($i=0;$i<count($words);$i++){
 			if($words[$i]['num']>2 && strlen($words[$i]['word'])>=3){
-				if($words[$i]['percent']<0.65){
-					$extra = 'font-size: 0.65em;';
+				if($words[$i]['percent']<0.3){
+					$extra = 'font-size: 0.3em;';
 				} else {
 					$extra = '';
 				}
