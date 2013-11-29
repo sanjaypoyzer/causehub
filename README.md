@@ -1,6 +1,6 @@
 #CauseHub.
 
-##"An open source toolkit for gathering around a cause." 
+##"A decentralised, open source toolkit for people to gather around a common cause." 
 
 Initially created and conceived at #Hack4Good London in October 2013, CauseHub is evolving into a toolkit for people to fight causes with the help of relevant data.
 
