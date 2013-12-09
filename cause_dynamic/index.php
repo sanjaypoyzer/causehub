@@ -119,7 +119,7 @@
 			<ul>
 			<?php
 				$total = 0;
-				$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND deleted='0' ORDER BY id DESC");
+				$sql = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND community='0' AND deleted='0' ORDER BY id DESC");
 				while($array = mysql_fetch_array($sql)){
 					if($array['action']=='petition'){
 						$actionid = $array['actionid'];
@@ -167,7 +167,23 @@
 				<?php
 					nolobbys:
 				?>
-
+			<?php
+				$sqlcmodule = mysql_query("SELECT * FROM actionbase WHERE cid='$causeid' AND community='1' AND deleted='0' ORDER BY id DESC");
+				while($arraycmodule = mysql_fetch_array($sqlcmodule)){
+					unset($data);
+					$data['causeid'] = $causeid;
+					$data['causeowner'] = $ownerid;
+					$data['causename'] = $causename;
+					$data['causetags'] = $causetags;
+					$data['moduledbid'] = $arraycmodule['actionid'];
+					$data['modulecreated'] = $arraycmodule['timedate'];
+					$jsonmodarray = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'].'/modules/'.$arraycmodule['action'].'/package/package.json'),true);
+					echo '<div style="height: '.$jsonmodarray['settings']['public_page']['container_height'].'; max-height: '.$jsonmodarray['settings']['public_page']['container_max_height'].'; overflow: hidden; margin-bottom: 15px;">';
+						include($_SERVER['DOCUMENT_ROOT'].'/modules/'.$arraycmodule['action'].'/scripts/public_block.php');
+					echo '</div>';
+				}
+			?>
+			<div style='height: 50px;'><br></div>
 		</section>
 		
 	</main>

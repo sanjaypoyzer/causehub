@@ -134,16 +134,40 @@
 				 <input type='hidden' id='causeid' value='<?php echo $causeid; ?>'>
 				<span class="knowledgeBaseHint hint">Add some actions that will help your cause:</span>
 				 <select class="fullWidth" name="actionType" id='action_type' onchange='updateActionForm()'>
-					<option value="petition">Petiton</option>
+				 	<option disabled>CauseHub Modules</option>
+					<option value="petition" selected>Petiton</option>
 					<option value="event">Event</option>
-					<option value="other">Other</option>
+					<option value="other">Other Link</option>
+					<option disabled>Community Modules</option>
+					<?php
+						$total = 0;
+						$sql = mysql_query("SELECT * FROM modules WHERE public='1' AND deleted='0' ORDER BY name");
+						while($array = mysql_fetch_array($sql)){
+							echo '<option value="'.$array['id'].'">'.$array['name'].'</option>';
+							$total++;
+						}
+
+						if($total==0){
+							echo '<option disabled>There are no community modules avalible</option>';
+						}
+					?>
 				</select>
-				<section id='actioninfo' class="actioninfo">
-						Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
-						Link: <input type="text" id="action_link" autocomplete="off">
+
+				<section id='causehubmodules'>
+					<section id='actioninfo' class="actioninfo">
+							Action: <input type="text" id="action_text" autocomplete="off" value="Sign this Petition"><br>
+							Link: <input type="text" id="action_link" autocomplete="off">
+					</section>
+					<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
+				</form>
 				</section>
-				<input type="submit" id='action_btn' value='Add Action' onclick='addAction(); return false;'>
-			</form>
+
+				<section id='communitymodules' style='display: none;'>
+					<form id='communitymoduleform' name='communitymoduleform' method="POST" action="/modules/test.php" class="textCenter">
+						<div id='communitymodulefields'></div>
+						<input type="submit" id='communitymodulesubmit' value='Add Module' onclick='$("#communitymoduleform").submit(); return false;'>
+					</form>
+				</section>
 
 			<section>
 				<h3>Lobby An MP</h3>

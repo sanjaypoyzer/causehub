@@ -42,6 +42,22 @@ function getCurrentUserInfo($type) {
     }
 }
 
+function getOtherUserInfo($type, $userid) {
+    $result = mysql_query("SELECT " . $type . " FROM users WHERE id='$userid'");
+    $row = mysql_fetch_row($result);
+    return $row[0];
+}
+
+function recursive_array_replace($find, $replace, $array){
+    if (!is_array($array)) {
+        return str_replace($find, $replace, $array);
+    }
+    $newArray = array();
+    foreach ($array as $key => $value) {
+        $newArray[$key] = recursive_array_replace($find, $replace, $value);
+    }
+    return $newArray;
+}
 
 
 /// Tracking

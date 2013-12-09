@@ -1,0 +1,40 @@
+{
+	"elements" : [
+		{
+			"tag" : "label",
+			"innerHTML" : "Add a twitter widget",
+			"attributes" : [
+				{
+					"name" : "style",
+					"value" : "font-size: 20px; margin-bottom: 10px;"
+				}
+			]
+		},
+		{
+			"tag" : "input",
+			"attributes" : [
+				{
+					"name" : "id",
+					"value" : "mod_twitterfeed_widgetid"
+				},
+				{
+					"name" : "name",
+					"value" : "mod_twitterfeed_widgetid"
+				},
+				{
+					"name" : "type",
+					"value" : "text"
+				},
+				{
+					"name" : "placeholder",
+					"value" : "Please type in a widget id"
+				},
+				{
+					"name" : "style",
+					"value" : "width: 100%; height: 25px; font-size: 20px; margin-bottom: 10px;"
+				}
+			]
+		}
+	],
+	"ch_ef_version" : "1"
+}
