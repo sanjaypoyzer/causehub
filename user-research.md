@@ -23,3 +23,8 @@ The Questions
   + How do you keep up with news in general?
   + Which social issues, if any, do you care passionately about?
   + Which of these, if any, do you engage with on any level? How?
+  
+  
+ 
+Responses
+---------
