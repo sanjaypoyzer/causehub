@@ -4,7 +4,7 @@
 
 Initially created and conceived at #Hack4Good London in October 2013, CauseHub is evolving into a toolkit for people to fight causes with the help of relevant data.
 
-More to come soon.
+We are currently going through a rebuild, will publish more info soon!
 
 ----------------------------------------------------
 
