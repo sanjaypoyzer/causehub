@@ -16,10 +16,9 @@
 	$slug = rand(10000,99999);
 
 	$keyword = mysql_real_escape_string($keyword);
-    #$sql = "SELECT DISTINCT mp.mp_id,mp.first_name,mp.last_name FROM mp WHERE mp.mp_id IN (SELECT DISTINCT distance.mp_id from distance WHERE distance.distance < 0.2 AND distance.dream_id IN (SELECT dream_id from policy WHERE UPPER(policy.title) LIKE UPPER('%".$keyword."%')) ORDER BY distance.distance)";
-    $sql = "SELECT DISTINCT distance.mp_id from distance WHERE distance.distance < 0.2 AND distance.dream_id IN (SELECT dream_id from policy WHERE UPPER(policy.title) LIKE UPPER('%".$keyword."%')) ORDER BY distance.distance LIMIT 5";
-    #$sql = "SELECT DISTINCT mp.mp_id,mp.first_name,mp.last_name FROM mp LIMIT 5";
+	$sql = "SELECT d.mp_id from distance d WHERE d.distance < 0.2 AND exists (select 1 from policy p where UPPER(p.title) LIKE UPPER('%".$keyword."%') and p.dream_id = d.dream_id) ORDER BY d.distance LIMIT 5;";
 	$results = mysql_query($sql);
+
     if (!$results) {
         echo "Invalid query: ".mysql_error();
     }
